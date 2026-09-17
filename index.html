@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aurelia Aesthetics | Luxury Med Spa & Aesthetics Clinic</title>
+  <meta name="description" content="Aurelia Clinical Aesthetics provides board-certified non-surgical aesthetic treatments, Botox, fillers, and advanced laser therapies in Beverly Hills.">
+  
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/animations.css">
+  <link rel="stylesheet" href="assets/css/rtl.css">
+
+  <!-- JSON-LD Structured Data for Medical Spa -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MedicalBusiness",
+    "name": "Aurelia Clinical Aesthetics & Med Spa",
+    "image": "assets/images/hero_reception.jpg",
+    "telephone": "+1-310-555-0199",
+    "email": "concierge@aureliaclinic.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "9640 Wilshire Blvd, Penthouse Suite",
+      "addressLocality": "Beverly Hills",
+      "addressRegion": "CA",
+      "postalCode": "90212",
+      "addressCountry": "US"
+    },
+    "priceRange": "$$$$",
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+        "opens": "09:00",
+        "closes": "19:00"
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Ambient 3D Particle Canvas -->
+  <canvas id="ambient-canvas"></canvas>
+
+  <!-- Top Utility Bar -->
+  <aside class="utility-bar" aria-label="Quick Access Bar">
+    <div class="container">
+      <div class="utility-bar-left">
+        <div class="utility-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s-8-4.5-8-11.8A8 8 0 0 1 12 2a8 8 0 0 1 8 8.2c0 7.3-8 11.8-8 11.8z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span>Beverly Hills Flagship & Manhattan Penthouse</span>
+        </div>
+        <div class="utility-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <span>Concierge Desk: +1 (310) 555-0199</span>
+        </div>
+      </div>
+      <div class="utility-bar-right">
+        <button class="theme-toggle-btn" aria-label="Toggle Dark or Light Mode">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+          <span class="theme-text">Dark Mode</span>
+        </button>
+        <button class="rtl-toggle-btn" aria-label="Toggle RTL View">
+          <span class="rtl-text">RTL</span>
+        </button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Strict Navbar (4-5 core items + Login + Dashboard) -->
+  <header class="navbar" role="banner">
+    <div class="container">
+      <a href="index.html" class="brand" aria-label="Aurelia Clinical Aesthetics Home">
+        <span class="brand-title">Aurelia</span>
+        <span class="brand-subtitle">Clinical Aesthetics</span>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="nav-menu" aria-label="Primary Navigation">
+        <div class="nav-item">
+          <a href="index.html" class="nav-link active">Home ▾</a>
+          <div class="dropdown-menu">
+            <a href="index.html" class="dropdown-link">
+              <strong>Home 1: Clinical Artistry</strong>
+              <span class="dropdown-tag">Signature Treatments & Results</span>
+            </a>
+            <a href="home-2.html" class="dropdown-link">
+              <strong>Home 2: Longevity Suite</strong>
+              <span class="dropdown-tag">Regenerative Care & Concierge</span>
+            </a>
+          </div>
+        </div>
+        <div class="nav-item"><a href="treatments.html" class="nav-link">Treatments</a></div>
+        <div class="nav-item"><a href="providers.html" class="nav-link">Providers</a></div>
+        <div class="nav-item"><a href="memberships.html" class="nav-link">Membership Plans</a></div>
+        <div class="nav-item"><a href="contact.html" class="nav-link">Contact</a></div>
+      </nav>
+
+      <!-- Nav Actions -->
+      <div class="nav-actions">
+        <a href="login.html" class="btn-nav-login">Client Login</a>
+        <a href="dashboard.html" class="btn-nav-dashboard">
+          <span class="dashboard-status-dot"></span>
+          <span>Dashboard</span>
+        </a>
+      </div>
+
+      <!-- Mobile Hamburger Button -->
+      <button class="mobile-toggle" aria-label="Open Navigation Menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-overlay"></div>
+  <aside class="mobile-drawer" aria-label="Mobile Navigation">
+    <div>
+      <div class="mobile-drawer-header">
+        <div class="brand">
+          <span class="brand-title">Aurelia</span>
+          <span class="brand-subtitle">Clinical Aesthetics</span>
+        </div>
+        <button class="mobile-drawer-close" aria-label="Close Navigation Menu">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+      <nav class="mobile-nav-menu">
+        <a href="index.html" class="mobile-nav-link active">Home 1: Clinical Artistry</a>
+        <a href="home-2.html" class="mobile-nav-link">Home 2: Longevity Suite</a>
+        <a href="treatments.html" class="mobile-nav-link">Treatments</a>
+        <a href="providers.html" class="mobile-nav-link">Providers</a>
+        <a href="memberships.html" class="mobile-nav-link">Membership Plans</a>
+        <a href="contact.html" class="mobile-nav-link">Contact Concierge</a>
+        <a href="about.html" class="mobile-nav-link">About Sanctuary</a>
+      </nav>
+    </div>
+    <div class="mobile-drawer-footer">
+      <a href="login.html" class="btn btn-outline" style="width: 100%;">Client Login</a>
+      <a href="dashboard.html" class="btn btn-gold" style="width: 100%;">Client Dashboard</a>
+    </div>
+  </aside>
+
+  <main>
+    <!-- SECTION 1: HERO (RESULTS & SIGNATURE TREATMENTS LED) -->
+    <section class="section" id="hero-results" style="padding-top: var(--space-8); padding-bottom: var(--space-12);">
+      <div class="container">
+        <div class="grid-2" style="align-items: center; gap: var(--space-8);">
+          <div>
+            <div class="badge badge-gold" style="margin-bottom: var(--space-3);">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+              <span>Quad A Accredited Medical Sanctuary</span>
+            </div>
+            <h1 style="margin-bottom: var(--space-3);">The Fine Art of Facial Harmonization</h1>
+            <p style="font-size: 1.15rem; line-height: 1.7; margin-bottom: var(--space-6); color: var(--text-secondary);">
+              Where board-certified anatomical precision meets bespoke aesthetic artistry. Experience physician-led neuromodulators, biostimulatory facial sculpting, and medical laser therapies in a serene private sanctuary.
+            </p>
+            <div style="display: flex; gap: var(--space-3); flex-wrap: wrap; margin-bottom: var(--space-6);">
+              <a href="#" class="btn btn-gold" data-modal-target="modal-book-treatment">Reserve Private Consultation</a>
+              <a href="treatments.html" class="btn btn-outline">Explore Treatments</a>
+            </div>
+            <!-- Trust Accolades -->
+            <div style="display: flex; gap: var(--space-6); border-top: 1px solid var(--border-subtle); padding-top: var(--space-4);">
+              <div>
+                <div style="font-family: var(--font-serif); font-size: 2rem; color: var(--accent-gold); line-height: 1;">12,000+</div>
+                <div style="font-size: 0.78rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em; margin-top: 4px;">Injectable Protocols</div>
+              </div>
+              <div>
+                <div style="font-family: var(--font-serif); font-size: 2rem; color: var(--accent-gold); line-height: 1;">100%</div>
+                <div style="font-size: 0.78rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em; margin-top: 4px;">Board-Certified MDs</div>
+              </div>
+              <div>
+                <div style="font-family: var(--font-serif); font-size: 2rem; color: var(--accent-gold); line-height: 1;">99.4%</div>
+                <div style="font-size: 0.78rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em; margin-top: 4px;">Patient Satisfaction</div>
+              </div>
+            </div>
+          </div>
+          <!-- Hero Visual with 3D Tilt Wrapper -->
+          <div class="tilt-card" style="padding: var(--space-2); border-radius: var(--radius-lg); overflow: hidden; height: 560px;">
+            <div class="tilt-card-image" style="height: 100%; margin-bottom: 0; border-radius: var(--radius-md);">
+              <img src="assets/images/hero_reception.jpg" alt="Aurelia Clinical Aesthetics Sanctuary Lounge in Beverly Hills" width="800" height="560">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: SIGNATURE TREATMENTS SHOWCASE (3D TILT CARDS, CENTER-ALIGNED) -->
+    <section class="section" id="signature-treatments" style="background-color: var(--bg-secondary);">
+      <div class="container">
+        <div class="section-header">
+          <span class="eyebrow">Curated Clinical Protocols</span>
+          <h2>Signature Aesthetic Treatments</h2>
+          <p>Each treatment is tailored through microscopic facial mapping to restore structural elegance, smooth dynamic wrinkles, and ignite collagen synthesis.</p>
+        </div>
+
+        <div class="grid-4">
+          <!-- Card 1 -->
+          <div class="tilt-card">
+            <div class="tilt-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            </div>
+            <div class="tilt-card-image">
+              <img src="assets/images/treatment_botox.jpg" alt="Precision Neuromodulator Injections" width="400" height="240">
+            </div>
+            <span class="tilt-card-subtitle">Micro-Precision</span>
+            <h3 class="tilt-card-title">Botox & Neuromodulators</h3>
+            <p class="tilt-card-desc">Targeted relaxation of dynamic expression lines preserving authentic emotional range without stiffness.</p>
+            <div class="tilt-card-tags">
+              <span class="badge badge-gold">Zero Downtime</span>
+              <span class="badge badge-sage">3-4 Months</span>
+            </div>
+            <a href="treatments.html#botox" class="btn btn-outline btn-sm">Explore Protocol</a>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="tilt-card">
+            <div class="tilt-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <div class="tilt-card-image">
+              <img src="assets/images/treatment_filler.jpg" alt="Bespoke Dermal Sculpting & Lip Architecture" width="400" height="240">
+            </div>
+            <span class="tilt-card-subtitle">Facial Architecture</span>
+            <h3 class="tilt-card-title">Dermal Sculpting & Lift</h3>
+            <p class="tilt-card-desc">High-G' prime hyaluronic matrices and biostimulatory calcium hydroxyapatite for balanced jawline and cheek restoration.</p>
+            <div class="tilt-card-tags">
+              <span class="badge badge-gold">Immediate Results</span>
+              <span class="badge badge-sage">12-18 Months</span>
+            </div>
+            <a href="treatments.html#fillers" class="btn btn-outline btn-sm">Explore Protocol</a>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="tilt-card">
+            <div class="tilt-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><line x1="12" y1="2" x2="12" y2="6"/><line x1="12" y1="18" x2="12" y2="22"/><line x1="4.93" y1="4.93" x2="7.76" y2="7.76"/><line x1="16.24" y1="16.24" x2="19.07" y2="19.07"/><line x1="2" y1="12" x2="6" y2="12"/><line x1="18" y1="12" x2="22" y2="12"/></svg>
+            </div>
+            <div class="tilt-card-image">
+              <img src="assets/images/treatment_laser.jpg" alt="Sciton BBL HERO and Laser Therapy" width="400" height="240">
+            </div>
+            <span class="tilt-card-subtitle">Photo-Rejuvenation</span>
+            <h3 class="tilt-card-title">Sciton BBL & Laser Resurfacing</h3>
+            <p class="tilt-card-desc">BroadBand Light therapy reversing genetic photo-aging, erasing sun pigmentation, and refining pores.</p>
+            <div class="tilt-card-tags">
+              <span class="badge badge-gold">Minimal Downtime</span>
+              <span class="badge badge-sage">Cellular Longevity</span>
+            </div>
+            <a href="treatments.html#laser" class="btn btn-outline btn-sm">Explore Protocol</a>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="tilt-card">
+            <div class="tilt-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
+            </div>
+            <div class="tilt-card-image">
+              <img src="assets/images/treatment_hydrafacial.jpg" alt="Clinical Hydrafacial and Medical Infusion" width="400" height="240">
+            </div>
+            <span class="tilt-card-subtitle">Luminosity Infusion</span>
+            <h3 class="tilt-card-title">Hydra-Luxe & Medical Peels</h3>
+            <p class="tilt-card-desc">Vortex-suction deep pore clearance infused with pharmaceutical-grade peptide serums, hyaluronic acid, and LED light.</p>
+            <div class="tilt-card-tags">
+              <span class="badge badge-gold">Instant Red Carpet Glow</span>
+              <span class="badge badge-sage">Monthly Regimen</span>
+            </div>
+            <a href="treatments.html#hydrafacial" class="btn btn-outline btn-sm">Explore Protocol</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: THE AURELIA CLINICAL STANDARD (3 PILLARS) -->
+    <section class="section" id="clinical-philosophy">
+      <div class="container">
+        <div class="grid-2" style="align-items: center; gap: var(--space-8);">
+          <div class="tilt-card" style="padding: var(--space-2); height: 500px;">
+            <div class="tilt-card-image" style="height: 100%; margin-bottom: 0;">
+              <img src="assets/images/clinic_sanctuary.jpg" alt="Aurelia Clinical Aesthetics Private Treatment Suite" width="800" height="500">
+            </div>
+          </div>
+          <div>
+            <span class="eyebrow" style="color: var(--accent-gold); font-weight: 600; text-transform: uppercase; letter-spacing: 0.2em; font-size: 0.8rem;">Clinical Excellence</span>
+            <h2 style="margin-top: 6px; margin-bottom: var(--space-4);">Where Surgical Discipline Meets Boutique Elegance</h2>
+            <p style="margin-bottom: var(--space-5);">Founded by Board-Certified Plastic Surgeons, Aurelia was established to eliminate the rushed, commoditized feel of generic med spas. We adhere to hospital-level sterile standards while pampering you with 5-star concierge hospitality.</p>
+
+            <div style="display: flex; flex-direction: column; gap: var(--space-3);">
+              <div style="display: flex; gap: var(--space-3); align-items: flex-start;">
+                <div style="width: 44px; height: 44px; border-radius: 50%; background: var(--bg-secondary); border: 1px solid var(--border-subtle); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent-gold)" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                </div>
+                <div>
+                  <h4 style="font-size: 1.15rem; margin-bottom: 4px;">Ultrasound-Guided Vascular Safety</h4>
+                  <p style="font-size: 0.92rem;">High-frequency handheld ultrasound mapping prior to all structural injections ensures zero vascular occlusion risk and unprecedented anatomical placement.</p>
+                </div>
+              </div>
+
+              <div style="display: flex; gap: var(--space-3); align-items: flex-start;">
+                <div style="width: 44px; height: 44px; border-radius: 50%; background: var(--bg-secondary); border: 1px solid var(--border-subtle); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent-gold)" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m4.93 4.93 4.24 4.24"/><path d="m14.83 9.17 4.24-4.24"/><path d="m14.83 14.83 4.24 4.24"/><path d="m9.17 14.83-4.24 4.24"/></svg>
+                </div>
+                <div>
+                  <h4 style="font-size: 1.15rem; margin-bottom: 4px;">FDA-Cleared Gold Standard Devices</h4>
+                  <p style="font-size: 0.92rem;">Every laser, radiofrequency micro-needling cartridge, and cryogenic system is strictly authentic, factory-calibrated, and serviced on medical schedules.</p>
+                </div>
+              </div>
+
+              <div style="display: flex; gap: var(--space-3); align-items: flex-start;">
+                <div style="width: 44px; height: 44px; border-radius: 50%; background: var(--bg-secondary); border: 1px solid var(--border-subtle); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent-gold)" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                <div>
+                  <h4 style="font-size: 1.15rem; margin-bottom: 4px;">Natural Harmony Guarantee</h4>
+                  <p style="font-size: 0.92rem;">We strictly refuse over-filled, distorted aesthetics. Our work is subtle, undetectable, and designed to look like your most refreshed self.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: CLINICAL TRANSFORMATION & BEFORE/AFTER VIEWER -->
+    <section class="section" id="results-transformation" style="background-color: var(--bg-secondary);">
+      <div class="container">
+        <div class="section-header">
+          <span class="eyebrow">Documented Clinical Outcomes</span>
+          <h2>Real Aesthetic Transformations</h2>
+          <p>Drag the slider below to inspect our signature lower-face structural contouring and collagen remodeling protocol at 60 days post-procedure.</p>
+        </div>
+
+        <div class="ba-slider-container" aria-label="Interactive Before and After Comparison Slider">
+          <!-- Baseline Before Image -->
+          <div class="ba-image ba-image-before">
+            <img src="assets/images/before_after_before.jpg" alt="Patient Profile Before Treatment" width="800" height="480">
+            <span class="ba-label ba-label-before">Baseline (Day 0)</span>
+          </div>
+          <!-- Result After Image -->
+          <div class="ba-image ba-image-after">
+            <img src="assets/images/before_after_after.jpg" alt="Patient Profile After Treatment with Aurelia Protocols" width="800" height="480">
+            <span class="ba-label ba-label-after">60 Days Post-Protocol</span>
+          </div>
+          <!-- Slider Center Handle -->
+          <div class="ba-handle" role="slider" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" aria-label="Drag to compare before and after">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/><polyline points="9 18 3 12 9 6"/></svg>
+          </div>
+        </div>
+
+        <div style="max-width: 800px; margin: var(--space-4) auto 0 auto; display: flex; justify-content: space-between; align-items: center; background: var(--surface); padding: var(--space-3) var(--space-4); border-radius: var(--radius-md); border: 1px solid var(--border-subtle); flex-wrap: wrap; gap: var(--space-2);">
+          <div>
+            <strong>Protocol:</strong> Aurelia Jawline Harmonization & Sofwave Submental Ultrasound
+          </div>
+          <div>
+            <strong>Lead Specialist:</strong> Dr. Aurelia Vance, MD, FACS
+          </div>
+          <div>
+            <span class="badge badge-sage">Verified Client Record</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: PATIENT TESTIMONIALS & EDITORIAL ACCLAIM -->
+    <section class="section" id="patient-reviews">
+      <div class="container">
+        <div class="section-header">
+          <span class="eyebrow">Client Reflections</span>
+          <h2>Verified Patient Experiences</h2>
+          <p>Read honest reviews from patients who trust Aurelia with their facial harmonization and ongoing skincare journeys.</p>
+        </div>
+
+        <div class="grid-3">
+          <!-- Testimonial 1 -->
+          <div class="tilt-card">
+            <div style="display: flex; gap: 4px; color: var(--accent-gold); margin-bottom: var(--space-2);">
+              ★★★★★
+            </div>
+            <p class="tilt-card-desc" style="font-style: italic; font-size: 1.05rem;">"Dr. Vance transformed my jawline without a single millimeter of the telltale 'done' look. Friends constantly comment on how rested and radiant I look. The sanctuary feels like a 5-star hotel suite."</p>
+            <div style="margin-top: auto; padding-top: var(--space-3); border-top: 1px solid var(--border-subtle); width: 100%;">
+              <h4 class="tilt-card-title" style="font-size: 1.15rem;">Genevieve R.</h4>
+              <span class="tilt-card-subtitle" style="font-size: 0.78rem;">Beverly Hills • Facial Sculpting Client</span>
+            </div>
+          </div>
+
+          <!-- Testimonial 2 -->
+          <div class="tilt-card">
+            <div style="display: flex; gap: 4px; color: var(--accent-gold); margin-bottom: var(--space-2);">
+              ★★★★★
+            </div>
+            <p class="tilt-card-desc" style="font-style: italic; font-size: 1.05rem;">"Their ultrasound vascular scanning gave me total peace of mind. As a corporate executive, I cannot afford bruising or downtime. Elena PA is an absolute master artist with neuromodulators."</p>
+            <div style="margin-top: auto; padding-top: var(--space-3); border-top: 1px solid var(--border-subtle); width: 100%;">
+              <h4 class="tilt-card-title" style="font-size: 1.15rem;">Julian K.</h4>
+              <span class="tilt-card-subtitle" style="font-size: 0.78rem;">Manhattan • Executive Botox Protocol</span>
+            </div>
+          </div>
+
+          <!-- Testimonial 3 -->
+          <div class="tilt-card">
+            <div style="display: flex; gap: 4px; color: var(--accent-gold); margin-bottom: var(--space-2);">
+              ★★★★★
+            </div>
+            <p class="tilt-card-desc" style="font-style: italic; font-size: 1.05rem;">"Joining the Haute Prestige membership was the best investment I made for my skin. My monthly Sciton BBL sessions have completely erased my melasma and sun damage from my 20s."</p>
+            <div style="margin-top: auto; padding-top: var(--space-3); border-top: 1px solid var(--border-subtle); width: 100%;">
+              <h4 class="tilt-card-title" style="font-size: 1.15rem;">Camille D.</h4>
+              <span class="tilt-card-subtitle" style="font-size: 0.78rem;">Brentwood • Haute Prestige Member</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Press Banner -->
+        <div style="margin-top: var(--space-8); text-align: center; border-top: 1px solid var(--border-subtle); padding-top: var(--space-6);">
+          <div style="font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.25em; color: var(--text-muted); margin-bottom: var(--space-3);">Featured In Leading Editorial Publications</div>
+          <div style="display: flex; justify-content: center; gap: var(--space-8); flex-wrap: wrap; opacity: 0.7; font-family: var(--font-serif); font-size: 1.4rem;">
+            <span>VOGUE AESTHETICS</span>
+            <span>HARPER'S BAZAAR</span>
+            <span>ELLE BEAUTY</span>
+            <span>TOWN & COUNTRY</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 6: VIP MEMBERSHIP SPOTLIGHT & CONCIERGE RESERVATION CTA -->
+    <section class="section" id="membership-cta" style="background: linear-gradient(135deg, var(--bg-secondary), var(--bg-tertiary));">
+      <div class="container">
+        <div style="background: var(--surface); border: 1px solid var(--border-medium); border-radius: var(--radius-lg); padding: var(--space-8) var(--space-6); box-shadow: var(--shadow-lg); text-align: center; max-width: 960px; margin: 0 auto; position: relative; overflow: hidden;">
+          <span class="eyebrow" style="color: var(--accent-gold); font-weight: 600; text-transform: uppercase; letter-spacing: 0.2em; font-size: 0.8rem;">Compounding Aesthetic Wellness</span>
+          <h2 style="margin-top: 6px; margin-bottom: var(--space-3);">The Aurelia Privilege Club</h2>
+          <p style="max-width: 680px; margin: 0 auto var(--space-6) auto; font-size: 1.1rem;">
+            Discover our curated monthly memberships starting at $199/month. Enjoy recurring medical skin treatments, preferred injector rates, complimentary laser credits, and rollover treatment banked units.
+          </p>
+          <div style="display: flex; justify-content: center; gap: var(--space-3); flex-wrap: wrap;">
+            <a href="memberships.html" class="btn btn-gold">Explore Membership Tiers</a>
+            <a href="#" class="btn btn-outline" data-modal-target="modal-book-treatment">Inquire With Concierge</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Luxury Site Footer -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="brand" style="margin-bottom: var(--space-3);">
+            <span class="brand-title">Aurelia</span>
+            <span class="brand-subtitle">Clinical Aesthetics</span>
+          </div>
+          <p>Where medical science meets bespoke facial artistry. Quad A accredited clinical sanctuary specializing in non-surgical facial harmonization, laser therapies, and longevity aesthetics.</p>
+          <div style="display: flex; gap: var(--space-2); margin-top: var(--space-3);">
+            <span class="badge badge-gold">Quad A Accredited</span>
+            <span class="badge badge-sage">HIPAA Compliant</span>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Clinical Protocols</h4>
+          <div class="footer-links">
+            <a href="treatments.html#botox">Botox & Neuromodulators</a>
+            <a href="treatments.html#fillers">Facial Sculpting & Fillers</a>
+            <a href="treatments.html#laser">Sciton BBL & Halo Laser</a>
+            <a href="treatments.html#morpheus8">Morpheus8 RF Microneedling</a>
+            <a href="treatments.html#hydrafacial">Clinical Hydra-Luxe Facials</a>
+            <a href="treatments.html#peels">Medical Chemical Peels</a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Sanctuary Suites</h4>
+          <div class="footer-links">
+            <a href="contact.html">Beverly Hills: 9640 Wilshire Blvd</a>
+            <a href="contact.html">Manhattan: 740 Park Ave Penthouse</a>
+            <a href="tel:+13105550199">+1 (310) 555-0199</a>
+            <a href="mailto:concierge@aureliaclinic.com">concierge@aureliaclinic.com</a>
+            <a href="providers.html">Our Board-Certified Medical Team</a>
+            <a href="about.html">Our Heritage & Safety Standards</a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>The Aurelia Journal</h4>
+          <p>Receive private editorial invitations, monthly aesthetic insights, and exclusive invitations to visiting injector symposiums.</p>
+          <form class="footer-newsletter-form" action="#" method="POST">
+            <input type="email" placeholder="Your private email" required aria-label="Email address for newsletter">
+            <button type="submit" class="btn btn-gold btn-sm">Subscribe</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 Aurelia Clinical Aesthetics, Inc. All rights reserved. Medical Director: Aurelia Vance, MD, FACS.</div>
+        <div class="footer-bottom-links">
+          <a href="about.html">About Us</a>
+          <a href="coming-soon.html">Coming Soon</a>
+          <a href="404.html">404 Error</a>
+          <a href="login.html">Client Portal</a>
+          <a href="dashboard.html">Dashboard</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Appointment Booking Modal -->
+  <div class="modal" id="modal-book-treatment" role="dialog" aria-modal="true" aria-labelledby="modal-book-title">
+    <div class="modal-overlay"></div>
+    <div class="modal-card">
+      <button class="modal-close" aria-label="Close modal">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+      <div style="text-align: center; margin-bottom: var(--space-4);">
+        <span class="eyebrow" style="color: var(--accent-gold); font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; font-size: 0.75rem;">Private Consultation</span>
+        <h3 id="modal-book-title" style="font-size: 1.8rem; margin-top: 4px;">Reserve Your Sanctuary Visit</h3>
+        <p style="font-size: 0.9rem;">Submit your desired protocol and appointment window. Our medical concierge will contact you within 2 hours.</p>
+      </div>
+
+      <form data-validate="true">
+        <div class="form-group">
+          <label class="form-label" for="booking-name">Full Legal Name *</label>
+          <input type="text" id="booking-name" class="form-input" placeholder="e.g. Eleanor Vance" required>
+          <span class="form-error-msg">Please enter your full name.</span>
+        </div>
+
+        <div class="grid-2">
+          <div class="form-group">
+            <label class="form-label" for="booking-email">Private Email *</label>
+            <input type="email" id="booking-email" class="form-input" placeholder="eleanor@example.com" required>
+            <span class="form-error-msg">Valid email required.</span>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="booking-phone">Phone Number *</label>
+            <input type="tel" id="booking-phone" class="form-input" placeholder="+1 (310) 555-0123" required>
+            <span class="form-error-msg">Phone number required.</span>
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <div class="form-group">
+            <label class="form-label" for="booking-treatment">Desired Treatment *</label>
+            <select id="booking-treatment" class="form-select" required>
+              <option value="">Select Protocol...</option>
+              <option value="botox">Botox & Neuromodulators</option>
+              <option value="fillers">Facial Sculpting & Dermal Fillers</option>
+              <option value="laser">Sciton BBL Photofacial / Halo Laser</option>
+              <option value="morpheus8">Morpheus8 RF Microneedling</option>
+              <option value="hydrafacial">Hydra-Luxe & Medical Peels</option>
+              <option value="consult">Full Comprehensive Facial Analysis</option>
+            </select>
+            <span class="form-error-msg">Please select a treatment.</span>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="booking-location">Sanctuary Location *</label>
+            <select id="booking-location" class="form-select" required>
+              <option value="beverly-hills">Beverly Hills Flagship</option>
+              <option value="manhattan">Manhattan Penthouse Suite</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="booking-notes">Special Requests or Medical History Notes</label>
+          <textarea id="booking-notes" class="form-textarea" rows="3" placeholder="Previous injectable treatments, special events timeline, etc."></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-gold" style="width: 100%; margin-top: var(--space-2);">Confirm Private Reservation</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- JavaScript Modules -->
+  <script src="assets/js/particles.js"></script>
+  <script src="assets/js/tilt.js"></script>
+  <script src="assets/js/auth.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

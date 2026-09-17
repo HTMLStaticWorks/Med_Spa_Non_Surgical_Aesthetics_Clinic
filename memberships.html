@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Membership Plans | The Aurelia Privilege Club | Med Spa</title>
+  <meta name="description" content="Join The Aurelia Privilege Club. Predictable aesthetic wellness, monthly treatment credits, VIP savings on Botox, and exclusive laser privileges.">
+  
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/animations.css">
+  <link rel="stylesheet" href="assets/css/rtl.css">
+</head>
+<body>
+
+  <canvas id="ambient-canvas"></canvas>
+
+  <aside class="utility-bar" aria-label="Quick Access Bar">
+    <div class="container">
+      <div class="utility-bar-left">
+        <div class="utility-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s-8-4.5-8-11.8A8 8 0 0 1 12 2a8 8 0 0 1 8 8.2c0 7.3-8 11.8-8 11.8z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span>Beverly Hills Flagship & Manhattan Penthouse</span>
+        </div>
+        <div class="utility-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <span>Concierge Desk: +1 (310) 555-0199</span>
+        </div>
+      </div>
+      <div class="utility-bar-right">
+        <button class="theme-toggle-btn" aria-label="Toggle Dark or Light Mode">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+          <span class="theme-text">Dark Mode</span>
+        </button>
+        <button class="rtl-toggle-btn" aria-label="Toggle RTL View">
+          <span class="rtl-text">RTL</span>
+        </button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Strict Navbar -->
+  <header class="navbar" role="banner">
+    <div class="container">
+      <a href="index.html" class="brand" aria-label="Aurelia Clinical Aesthetics Home">
+        <span class="brand-title">Aurelia</span>
+        <span class="brand-subtitle">Clinical Aesthetics</span>
+      </a>
+
+      <nav class="nav-menu" aria-label="Primary Navigation">
+        <div class="nav-item">
+          <a href="index.html" class="nav-link">Home ▾</a>
+          <div class="dropdown-menu">
+            <a href="index.html" class="dropdown-link">
+              <strong>Home 1: Clinical Artistry</strong>
+              <span class="dropdown-tag">Signature Treatments & Results</span>
+            </a>
+            <a href="home-2.html" class="dropdown-link">
+              <strong>Home 2: Longevity Suite</strong>
+              <span class="dropdown-tag">Regenerative Care & Concierge</span>
+            </a>
+          </div>
+        </div>
+        <div class="nav-item"><a href="treatments.html" class="nav-link">Treatments</a></div>
+        <div class="nav-item"><a href="providers.html" class="nav-link">Providers</a></div>
+        <div class="nav-item"><a href="memberships.html" class="nav-link active">Membership Plans</a></div>
+        <div class="nav-item"><a href="contact.html" class="nav-link">Contact</a></div>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="login.html" class="btn-nav-login">Client Login</a>
+        <a href="dashboard.html" class="btn-nav-dashboard">
+          <span class="dashboard-status-dot"></span>
+          <span>Dashboard</span>
+        </a>
+      </div>
+
+      <button class="mobile-toggle" aria-label="Open Navigation Menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-overlay"></div>
+  <aside class="mobile-drawer" aria-label="Mobile Navigation">
+    <div>
+      <div class="mobile-drawer-header">
+        <div class="brand">
+          <span class="brand-title">Aurelia</span>
+          <span class="brand-subtitle">Clinical Aesthetics</span>
+        </div>
+        <button class="mobile-drawer-close" aria-label="Close Navigation Menu">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+      <nav class="mobile-nav-menu">
+        <a href="index.html" class="mobile-nav-link">Home 1: Clinical Artistry</a>
+        <a href="home-2.html" class="mobile-nav-link">Home 2: Longevity Suite</a>
+        <a href="treatments.html" class="mobile-nav-link">Treatments</a>
+        <a href="providers.html" class="mobile-nav-link">Providers</a>
+        <a href="memberships.html" class="mobile-nav-link active">Membership Plans</a>
+        <a href="contact.html" class="mobile-nav-link">Contact Concierge</a>
+        <a href="about.html" class="mobile-nav-link">About Sanctuary</a>
+      </nav>
+    </div>
+    <div class="mobile-drawer-footer">
+      <a href="login.html" class="btn btn-outline" style="width: 100%;">Client Login</a>
+      <a href="dashboard.html" class="btn btn-gold" style="width: 100%;">Client Dashboard</a>
+    </div>
+  </aside>
+
+  <main>
+    <!-- SECTION 1: HERO & PRIVILEGE CLUB OVERVIEW -->
+    <section class="section" id="memberships-hero" style="padding-top: var(--space-8); padding-bottom: var(--space-8);">
+      <div class="container text-center" style="text-align: center;">
+        <span class="eyebrow" style="color: var(--accent-gold); font-weight: 600; text-transform: uppercase; letter-spacing: 0.22em; font-size: 0.8rem;">Compounding Aesthetic Health</span>
+        <h1 style="max-width: 820px; margin: 8px auto var(--space-3) auto;">The Aurelia Privilege Club</h1>
+        <p style="max-width: 680px; margin: 0 auto var(--space-6) auto; font-size: 1.15rem;">
+          Skin aging occurs continuously—aesthetic maintenance should be equally consistent. Our bespoke tiers bank your monthly investment with 100% credit rollover and VIP privileges.
+        </p>
+        <div style="display: inline-flex; background: var(--surface); padding: 6px 14px; border-radius: var(--radius-pill); border: 1px solid var(--border-medium); gap: 12px; font-size: 0.85rem;">
+          <span>✓ 100% Rollover Credits</span>
+          <span>✓ No Cancellation Penalty</span>
+          <span>✓ Private VIP Dashboard Access</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: THE THREE PRESTIGE TIERS (3D TILT CARDS, CENTER-ALIGNED) -->
+    <section class="section" id="membership-tiers" style="background-color: var(--bg-secondary);">
+      <div class="container">
+        <div class="grid-3">
+          <!-- Tier 1: Luminous -->
+          <div class="tilt-card">
+            <span class="tilt-card-subtitle">Essential Radiance</span>
+            <h3 class="tilt-card-title">The Luminous Tier</h3>
+            <div style="margin: var(--space-2) 0 var(--space-3) 0;">
+              <span style="font-family: var(--font-serif); font-size: 3rem; color: var(--accent-gold); font-weight: 600;">$199</span>
+              <span style="color: var(--text-muted); font-size: 0.85rem;">/ month</span>
+            </div>
+            <p class="tilt-card-desc">Ideal for ongoing epidermal maintenance, cellular exfoliation, and routine seasonal neuromodulator touch-ups.</p>
+            <ul style="display: flex; flex-direction: column; gap: 10px; margin-bottom: var(--space-4); font-size: 0.9rem; text-align: left; width: 100%;">
+              <li>✓ 1 Monthly Hydra-Luxe Facial or Medical Peel</li>
+              <li>✓ 10% Savings on All Neurotoxin Units</li>
+              <li>✓ 10% Savings on Medical Skincare Refills</li>
+              <li>✓ Full Rollover of Unused Monthly Credits</li>
+            </ul>
+            <a href="#membership-apply" class="btn btn-outline" style="width: 100%;">Select Luminous</a>
+          </div>
+
+          <!-- Tier 2: Sculpt (Highlighted) -->
+          <div class="tilt-card" style="border-color: var(--accent-gold); box-shadow: var(--shadow-gold);">
+            <div class="badge badge-gold" style="position: absolute; top: 16px; right: 16px;">Most Desired</div>
+            <span class="tilt-card-subtitle">Structural Contouring</span>
+            <h3 class="tilt-card-title">The Sculpt Tier</h3>
+            <div style="margin: var(--space-2) 0 var(--space-3) 0;">
+              <span style="font-family: var(--font-serif); font-size: 3rem; color: var(--accent-gold); font-weight: 600;">$399</span>
+              <span style="color: var(--text-muted); font-size: 0.85rem;">/ month</span>
+            </div>
+            <p class="tilt-card-desc">Comprehensive collagen induction combining advanced laser therapy with prioritized injector scheduling.</p>
+            <ul style="display: flex; flex-direction: column; gap: 10px; margin-bottom: var(--space-4); font-size: 0.9rem; text-align: left; width: 100%;">
+              <li>✓ 1 Monthly Sciton BBL HERO or Morpheus8 Session</li>
+              <li>✓ 20 Complimentary Annual Botox Units</li>
+              <li>✓ 15% Savings on All Dermal Fillers & Lasers</li>
+              <li>✓ Priority Saturday & Evening Booking Access</li>
+              <li>✓ Dedicated Concierge Direct Phone Line</li>
+            </ul>
+            <a href="#membership-apply" class="btn btn-gold" style="width: 100%;">Select Sculpt Tier</a>
+          </div>
+
+          <!-- Tier 3: Haute Prestige -->
+          <div class="tilt-card">
+            <span class="tilt-card-subtitle">Ultimate Longevity</span>
+            <h3 class="tilt-card-title">Haute Prestige Tier</h3>
+            <div style="margin: var(--space-2) 0 var(--space-3) 0;">
+              <span style="font-family: var(--font-serif); font-size: 3rem; color: var(--accent-gold); font-weight: 600;">$699</span>
+              <span style="color: var(--text-muted); font-size: 0.85rem;">/ month</span>
+            </div>
+            <p class="tilt-card-desc">Our flagship concierge program designed for high-profile clients demanding total rejuvenation with private suite sequestering.</p>
+            <ul style="display: flex; flex-direction: column; gap: 10px; margin-bottom: var(--space-4); font-size: 0.9rem; text-align: left; width: 100%;">
+              <li>✓ Quarterly Sculptra or Radiesse Protocols</li>
+              <li>✓ Unlimited Cryo & LED Phototherapy Add-ons</li>
+              <li>✓ 20% Savings Across All Medical Sanctuary Services</li>
+              <li>✓ Private Valet & Subterranean Elevator Key</li>
+              <li>✓ 2 Annual Guest Treatment Passes</li>
+            </ul>
+            <a href="#membership-apply" class="btn btn-outline" style="width: 100%;">Select Haute Prestige</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: DETAILED TIER COMPARISON MATRIX -->
+    <section class="section" id="membership-matrix">
+      <div class="container">
+        <div class="section-header">
+          <span class="eyebrow">Direct Comparison</span>
+          <h2>Membership Privileges Breakdown</h2>
+          <p>Transparent benefits designed to compound your aesthetic investment.</p>
+        </div>
+
+        <div class="payments-table-container">
+          <table class="payments-table">
+            <thead>
+              <tr>
+                <th>Privilege Feature</th>
+                <th>Luminous ($199/mo)</th>
+                <th>Sculpt ($399/mo)</th>
+                <th>Haute Prestige ($699/mo)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Monthly Included Treatment</strong></td>
+                <td>Hydra-Luxe Facial / Peel</td>
+                <td>Sciton BBL HERO / RF</td>
+                <td>Laser Suite + Exosome Infusion</td>
+              </tr>
+              <tr>
+                <td><strong>Injectable Savings</strong></td>
+                <td>10% Off</td>
+                <td>15% Off</td>
+                <td>20% Off</td>
+              </tr>
+              <tr>
+                <td><strong>Complimentary Annual Botox</strong></td>
+                <td>—</td>
+                <td>20 Units Annually</td>
+                <td>40 Units Annually</td>
+              </tr>
+              <tr>
+                <td><strong>Rollover Guarantee</strong></td>
+                <td>100% Never Expires</td>
+                <td>100% Never Expires</td>
+                <td>100% Never Expires</td>
+              </tr>
+              <tr>
+                <td><strong>Private Concierge Direct Desk</strong></td>
+                <td>Standard Email</td>
+                <td>Direct Phone Line</td>
+                <td>24/7 Dedicated WhatsApp Concierge</td>
+              </tr>
+              <tr>
+                <td><strong>Annual Guest Passes</strong></td>
+                <td>—</td>
+                <td>1 Pass / Year</td>
+                <td>2 Passes / Year</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: MEMBERSHIP FAQ & INSTANT APPLICATION CARD -->
+    <section class="section" id="membership-apply" style="background-color: var(--bg-secondary);">
+      <div class="container">
+        <div class="grid-2" style="align-items: flex-start; gap: var(--space-8);">
+          <!-- Membership Application Form -->
+          <div style="background: var(--surface); border: 1px solid var(--border-medium); border-radius: var(--radius-lg); padding: var(--space-5); box-shadow: var(--shadow-md);">
+            <h3 style="font-size: 1.5rem; margin-bottom: var(--space-2);">Apply for Membership</h3>
+            <p style="font-size: 0.9rem; margin-bottom: var(--space-4);">Select your desired tier. You will be assigned a personal concierge upon submission.</p>
+
+            <form data-validate="true">
+              <div class="form-group">
+                <label class="form-label" for="m-name">Full Legal Name *</label>
+                <input type="text" id="m-name" class="form-input" placeholder="e.g. Evelyn Vance" required>
+                <span class="form-error-msg">Name required.</span>
+              </div>
+              <div class="grid-2">
+                <div class="form-group">
+                  <label class="form-label" for="m-email">Private Email *</label>
+                  <input type="email" id="m-email" class="form-input" placeholder="evelyn@example.com" required>
+                  <span class="form-error-msg">Valid email required.</span>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="m-tier">Selected Tier *</label>
+                  <select id="m-tier" class="form-select" required>
+                    <option value="sculpt">The Sculpt Tier ($399/mo)</option>
+                    <option value="luminous">The Luminous Tier ($199/mo)</option>
+                    <option value="haute">Haute Prestige Tier ($699/mo)</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="m-sanctuary">Home Sanctuary</label>
+                <select id="m-sanctuary" class="form-select">
+                  <option value="beverly-hills">Beverly Hills Flagship</option>
+                  <option value="manhattan">Manhattan Penthouse Suite</option>
+                </select>
+              </div>
+              <button type="submit" class="btn btn-gold" style="width: 100%;">Submit Privilege Application</button>
+            </form>
+          </div>
+
+          <!-- FAQ Accordion -->
+          <div>
+            <h3 style="font-size: 1.5rem; margin-bottom: var(--space-4);">Frequently Asked Questions</h3>
+            <div style="display: flex; flex-direction: column; gap: var(--space-3);">
+              <div style="background: var(--surface); padding: var(--space-4); border-radius: var(--radius-md); border: 1px solid var(--border-subtle);">
+                <h4 style="font-size: 1.05rem; margin-bottom: 6px; color: var(--accent-gold);">What happens if I cannot visit one month?</h4>
+                <p style="font-size: 0.92rem;">Your monthly dues roll over into your aesthetic banking wallet indefinitely. You can combine banked credits toward a major laser protocol or filler rejuvenation at any time.</p>
+              </div>
+              <div style="background: var(--surface); padding: var(--space-4); border-radius: var(--radius-md); border: 1px solid var(--border-subtle);">
+                <h4 style="font-size: 1.05rem; margin-bottom: 6px; color: var(--accent-gold);">Is there a minimum commitment contract?</h4>
+                <p style="font-size: 0.92rem;">We require a 3-month initial membership so your skin experiences true compounding cellular remodeling. After 3 months, you may pause or cancel with 14 days written notice.</p>
+              </div>
+              <div style="background: var(--surface); padding: var(--space-4); border-radius: var(--radius-md); border: 1px solid var(--border-subtle);">
+                <h4 style="font-size: 1.05rem; margin-bottom: 6px; color: var(--accent-gold);">Can I transfer credits to a friend or partner?</h4>
+                <p style="font-size: 0.92rem;">Yes. Sculpt and Haute Prestige members may allocate up to 2 treatment sessions annually to immediate family members or guests.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="brand" style="margin-bottom: var(--space-3);">
+            <span class="brand-title">Aurelia</span>
+            <span class="brand-subtitle">Clinical Aesthetics</span>
+          </div>
+          <p>Quad A accredited medical sanctuary specializing in non-surgical facial harmonization, laser therapies, and longevity aesthetics.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Clinical Protocols</h4>
+          <div class="footer-links">
+            <a href="treatments.html#botox">Botox & Neuromodulators</a>
+            <a href="treatments.html#fillers">Facial Sculpting & Fillers</a>
+            <a href="treatments.html#laser">Sciton BBL & Halo Laser</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Sanctuary Suites</h4>
+          <div class="footer-links">
+            <a href="contact.html">Beverly Hills: 9640 Wilshire Blvd</a>
+            <a href="contact.html">Manhattan: 740 Park Ave Penthouse</a>
+            <a href="tel:+13105550199">+1 (310) 555-0199</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>The Aurelia Journal</h4>
+          <form class="footer-newsletter-form" action="#" method="POST">
+            <input type="email" placeholder="Your private email" required aria-label="Email address for newsletter">
+            <button type="submit" class="btn btn-gold btn-sm">Subscribe</button>
+          </form>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>© 2026 Aurelia Clinical Aesthetics, Inc. All rights reserved.</div>
+        <div class="footer-bottom-links">
+          <a href="about.html">About Us</a>
+          <a href="coming-soon.html">Coming Soon</a>
+          <a href="404.html">404 Error</a>
+          <a href="login.html">Client Portal</a>
+          <a href="dashboard.html">Dashboard</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/particles.js"></script>
+  <script src="assets/js/tilt.js"></script>
+  <script src="assets/js/auth.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

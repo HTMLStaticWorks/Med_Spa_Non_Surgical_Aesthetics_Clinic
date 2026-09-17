@@ -1,0 +1,74 @@
+/* ==========================================================================
+   AURELIA CLINICAL AESTHETICS & MED SPA — ANIMATIONS & 3D STYLES
+   ========================================================================== */
+
+/* Keyframe Animations */
+@keyframes floatSlow {
+  0% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-8px) rotate(1deg); }
+  100% { transform: translateY(0px) rotate(0deg); }
+}
+
+@keyframes pulseGlow {
+  0% { box-shadow: 0 0 0 0 rgba(197, 168, 128, 0.4); }
+  70% { box-shadow: 0 0 0 14px rgba(197, 168, 128, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(197, 168, 128, 0); }
+}
+
+@keyframes radialProgress {
+  0% { stroke-dashoffset: 283; }
+  100% { stroke-dashoffset: 70; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Micro-Interaction Classes */
+.animate-fade-in {
+  animation: fadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.float-accent {
+  animation: floatSlow 6s ease-in-out infinite;
+}
+
+.pulse-accent {
+  animation: pulseGlow 2.5s infinite;
+}
+
+/* 3D Tilt Layer Support */
+.tilt-card-inner {
+  transform-style: preserve-3d;
+  transition: transform 0.15s ease-out;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.tilt-depth-1 {
+  transform: translateZ(20px);
+}
+
+.tilt-depth-2 {
+  transform: translateZ(35px);
+}
+
+.tilt-depth-3 {
+  transform: translateZ(50px);
+}
+
+/* Accessibility: Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  #ambient-canvas {
+    display: none;
+  }
+}

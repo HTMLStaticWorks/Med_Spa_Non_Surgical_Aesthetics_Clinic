@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 Page Not Found | Aurelia Clinical Aesthetics</title>
+  <meta name="description" content="Page not found. Return to Aurelia Clinical Aesthetics sanctuary for bespoke facial rejuvenation, Botox, and laser therapies.">
+  
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/animations.css">
+  <link rel="stylesheet" href="assets/css/rtl.css">
+</head>
+<body>
+
+  <canvas id="ambient-canvas"></canvas>
+
+  <aside class="utility-bar" aria-label="Quick Access Bar">
+    <div class="container">
+      <div class="utility-bar-left">
+        <div class="utility-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s-8-4.5-8-11.8A8 8 0 0 1 12 2a8 8 0 0 1 8 8.2c0 7.3-8 11.8-8 11.8z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span>Beverly Hills Flagship & Manhattan Penthouse</span>
+        </div>
+      </div>
+      <div class="utility-bar-right">
+        <button class="theme-toggle-btn" aria-label="Toggle Dark or Light Mode">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+          <span class="theme-text">Dark Mode</span>
+        </button>
+        <button class="rtl-toggle-btn" aria-label="Toggle RTL View">
+          <span class="rtl-text">RTL</span>
+        </button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Strict Navbar -->
+  <header class="navbar" role="banner">
+    <div class="container">
+      <a href="index.html" class="brand" aria-label="Aurelia Clinical Aesthetics Home">
+        <span class="brand-title">Aurelia</span>
+        <span class="brand-subtitle">Clinical Aesthetics</span>
+      </a>
+
+      <nav class="nav-menu" aria-label="Primary Navigation">
+        <div class="nav-item">
+          <a href="index.html" class="nav-link">Home ▾</a>
+          <div class="dropdown-menu">
+            <a href="index.html" class="dropdown-link">
+              <strong>Home 1: Clinical Artistry</strong>
+              <span class="dropdown-tag">Signature Treatments & Results</span>
+            </a>
+            <a href="home-2.html" class="dropdown-link">
+              <strong>Home 2: Longevity Suite</strong>
+              <span class="dropdown-tag">Regenerative Care & Concierge</span>
+            </a>
+          </div>
+        </div>
+        <div class="nav-item"><a href="treatments.html" class="nav-link">Treatments</a></div>
+        <div class="nav-item"><a href="providers.html" class="nav-link">Providers</a></div>
+        <div class="nav-item"><a href="memberships.html" class="nav-link">Membership Plans</a></div>
+        <div class="nav-item"><a href="contact.html" class="nav-link">Contact</a></div>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="login.html" class="btn-nav-login">Client Login</a>
+        <a href="dashboard.html" class="btn-nav-dashboard">
+          <span class="dashboard-status-dot"></span>
+          <span>Dashboard</span>
+        </a>
+      </div>
+
+      <button class="mobile-toggle" aria-label="Open Navigation Menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-overlay"></div>
+  <aside class="mobile-drawer" aria-label="Mobile Navigation">
+    <div>
+      <div class="mobile-drawer-header">
+        <div class="brand">
+          <span class="brand-title">Aurelia</span>
+          <span class="brand-subtitle">Clinical Aesthetics</span>
+        </div>
+        <button class="mobile-drawer-close" aria-label="Close Navigation Menu">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+      <nav class="mobile-nav-menu">
+        <a href="index.html" class="mobile-nav-link">Home 1: Clinical Artistry</a>
+        <a href="home-2.html" class="mobile-nav-link">Home 2: Longevity Suite</a>
+        <a href="treatments.html" class="mobile-nav-link">Treatments</a>
+        <a href="providers.html" class="mobile-nav-link">Providers</a>
+        <a href="memberships.html" class="mobile-nav-link">Membership Plans</a>
+        <a href="contact.html" class="mobile-nav-link">Contact Concierge</a>
+      </nav>
+    </div>
+    <div class="mobile-drawer-footer">
+      <a href="login.html" class="btn btn-outline" style="width: 100%;">Client Login</a>
+      <a href="dashboard.html" class="btn btn-gold" style="width: 100%;">Client Dashboard</a>
+    </div>
+  </aside>
+
+  <main>
+    <!-- SECTION 1: MINIMALIST LUXURY ERROR HERO -->
+    <section class="section" id="error-hero" style="padding-top: var(--space-10); padding-bottom: var(--space-8);">
+      <div class="container text-center" style="text-align: center;">
+        <div class="badge badge-gold" style="margin-bottom: var(--space-3);">Error 404</div>
+        <h1 style="font-size: clamp(3rem, 7vw, 5.5rem); margin-bottom: var(--space-2); color: var(--accent-gold);">Serenity Not Found</h1>
+        <p style="max-width: 600px; margin: 0 auto var(--space-6) auto; font-size: 1.2rem;">
+          The private protocol or page you requested has been relocated or is reserved for scheduled sanctuary guests.
+        </p>
+        <div style="display: flex; justify-content: center; gap: var(--space-3); flex-wrap: wrap;">
+          <a href="index.html" class="btn btn-gold">Return to Sanctuary Home</a>
+          <a href="contact.html" class="btn btn-outline">Speak With Concierge</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: CURATED QUICK NAVIGATION GUIDE -->
+    <section class="section" id="curated-nav" style="background-color: var(--bg-secondary);">
+      <div class="container">
+        <div class="section-header">
+          <span class="eyebrow">Explore Sanctuary</span>
+          <h2>Allow Us to Guide You</h2>
+          <p>Select an alternative destination from our curated clinical menu.</p>
+        </div>
+
+        <div class="grid-3">
+          <div class="tilt-card">
+            <div class="tilt-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            </div>
+            <h3 class="tilt-card-title">Clinical Treatments</h3>
+            <p class="tilt-card-desc">Detailed dossiers on Botox, dermal sculpting, Sciton BBL HERO, and Morpheus8 RF therapy.</p>
+            <a href="treatments.html" class="btn btn-outline btn-sm">View Treatments</a>
+          </div>
+
+          <div class="tilt-card">
+            <div class="tilt-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            </div>
+            <h3 class="tilt-card-title">Our Medical Faculty</h3>
+            <p class="tilt-card-desc">Review board certifications and surgical credentials of Dr. Vance and our master injectors.</p>
+            <a href="providers.html" class="btn btn-outline btn-sm">Meet Providers</a>
+          </div>
+
+          <div class="tilt-card">
+            <div class="tilt-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <h3 class="tilt-card-title">Privilege Club</h3>
+            <p class="tilt-card-desc">Monthly skin banking tiers, complimentary units, and priority access booking windows.</p>
+            <a href="memberships.html" class="btn btn-outline btn-sm">Explore Memberships</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: FEATURED TREATMENT SPOTLIGHT -->
+    <section class="section" id="featured-treatment">
+      <div class="container">
+        <div class="grid-2" style="align-items: center; gap: var(--space-8);">
+          <div class="tilt-card" style="padding: var(--space-2); height: 420px;">
+            <div class="tilt-card-image" style="height: 100%; margin-bottom: 0;">
+              <img src="assets/images/treatment_hydrafacial.jpg" alt="Aurelia Signature Hydra-Luxe Facial" width="800" height="420">
+            </div>
+          </div>
+          <div>
+            <span class="eyebrow" style="color: var(--accent-gold); font-weight: 600; text-transform: uppercase; letter-spacing: 0.2em; font-size: 0.8rem;">Treatment of the Month</span>
+            <h2 style="margin-top: 6px; margin-bottom: var(--space-3);">The Hydra-Luxe Platinum Facial</h2>
+            <p style="margin-bottom: var(--space-4);">Experience vortex pore vacuum extractions paired with lymphatic drainage, medical-grade peptides, and cellular red-light phototherapy for an instantaneous red-carpet luminous finish.</p>
+            <div style="display: flex; gap: var(--space-3);">
+              <span class="badge badge-gold">Zero Downtime</span>
+              <span class="badge badge-sage">60 Minutes</span>
+            </div>
+            <div style="margin-top: var(--space-5);">
+              <a href="treatments.html#hydrafacial" class="btn btn-gold">Learn More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: CONCIERGE ASSISTANCE & SANCTUARY RETURN -->
+    <section class="section" id="error-concierge" style="background: linear-gradient(135deg, var(--bg-secondary), var(--bg-tertiary)); text-align: center;">
+      <div class="container text-center" style="text-align: center;">
+        <div style="background: var(--surface); border: 1px solid var(--border-medium); border-radius: var(--radius-lg); padding: var(--space-6); max-width: 800px; margin: 0 auto; box-shadow: var(--shadow-sm);">
+          <span class="eyebrow" style="color: var(--accent-gold); font-weight: 600; text-transform: uppercase; letter-spacing: 0.2em; font-size: 0.8rem;">Immediate Assistance</span>
+          <h3 style="font-size: 1.8rem; margin-top: 6px; margin-bottom: var(--space-2);">Need Help Finding Your Way?</h3>
+          <p style="margin-bottom: var(--space-4); font-size: 0.95rem;">Our private concierge is on standby to direct you to the proper clinic resource.</p>
+          <a href="contact.html" class="btn btn-outline btn-sm">Contact Concierge</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="brand" style="margin-bottom: var(--space-3);">
+            <span class="brand-title">Aurelia</span>
+            <span class="brand-subtitle">Clinical Aesthetics</span>
+          </div>
+          <p>Quad A accredited medical sanctuary specializing in non-surgical facial harmonization, laser therapies, and longevity aesthetics.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Clinical Protocols</h4>
+          <div class="footer-links">
+            <a href="treatments.html#botox">Botox & Neuromodulators</a>
+            <a href="treatments.html#fillers">Facial Sculpting & Fillers</a>
+            <a href="treatments.html#laser">Sciton BBL & Halo Laser</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Sanctuary Suites</h4>
+          <div class="footer-links">
+            <a href="contact.html">Beverly Hills: 9640 Wilshire Blvd</a>
+            <a href="contact.html">Manhattan: 740 Park Ave Penthouse</a>
+            <a href="tel:+13105550199">+1 (310) 555-0199</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>The Aurelia Journal</h4>
+          <form class="footer-newsletter-form" action="#" method="POST">
+            <input type="email" placeholder="Your private email" required aria-label="Email address for newsletter">
+            <button type="submit" class="btn btn-gold btn-sm">Subscribe</button>
+          </form>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>© 2026 Aurelia Clinical Aesthetics, Inc. All rights reserved.</div>
+        <div class="footer-bottom-links">
+          <a href="about.html">About Us</a>
+          <a href="coming-soon.html">Coming Soon</a>
+          <a href="404.html">404 Error</a>
+          <a href="login.html">Client Portal</a>
+          <a href="dashboard.html">Dashboard</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/particles.js"></script>
+  <script src="assets/js/tilt.js"></script>
+  <script src="assets/js/auth.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

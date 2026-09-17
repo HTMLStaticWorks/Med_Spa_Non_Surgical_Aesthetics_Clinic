@@ -1,0 +1,297 @@
+/* ==========================================================================
+   AURELIA CLINICAL AESTHETICS & MED SPA — DESIGN SYSTEM & CORE CSS
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+
+:root {
+  /* Color Palette — Luxury Clinical Chic */
+  --bg-primary: #FAF8F5;
+  --bg-secondary: #F3EFEA;
+  --bg-tertiary: #ECE5DC;
+  --surface: #FFFFFF;
+  --surface-card: rgba(255, 255, 255, 0.92);
+  --surface-glass: rgba(250, 248, 245, 0.82);
+  
+  --text-primary: #1C1E1D;
+  --text-secondary: #575E59;
+  --text-muted: #88918B;
+  --text-inverse: #FAF8F5;
+
+  --accent-gold: #C5A880;
+  --accent-gold-light: #E8DCBE;
+  --accent-gold-dark: #9B7E55;
+  --accent-gold-glow: rgba(197, 168, 128, 0.28);
+
+  --accent-sage: #758A75;
+  --accent-sage-light: #A3B5A3;
+  --accent-sage-dark: #3E5140;
+
+  --border-subtle: rgba(197, 168, 128, 0.22);
+  --border-medium: rgba(197, 168, 128, 0.40);
+  --border-strong: rgba(197, 168, 128, 0.65);
+
+  --shadow-sm: 0 4px 12px rgba(28, 30, 29, 0.04);
+  --shadow-md: 0 10px 30px rgba(28, 30, 29, 0.07);
+  --shadow-lg: 0 20px 50px rgba(28, 30, 29, 0.10);
+  --shadow-gold: 0 10px 35px rgba(197, 168, 128, 0.25);
+
+  /* Typography */
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* 8px Spacing Scale */
+  --space-1: 8px;
+  --space-2: 16px;
+  --space-3: 24px;
+  --space-4: 32px;
+  --space-5: 40px;
+  --space-6: 48px;
+  --space-8: 64px;
+  --space-10: 80px;
+  --space-12: 96px;
+  --space-16: 128px;
+
+  /* Layout */
+  --container-max: 1280px;
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-pill: 9999px;
+  
+  /* Transitions */
+  --transition-fast: 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-base: 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-slow: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Dark Mode Theme Variables */
+[data-theme="dark"] {
+  --bg-primary: #0F1211;
+  --bg-secondary: #161A18;
+  --bg-tertiary: #1D2320;
+  --surface: #1B211E;
+  --surface-card: rgba(27, 33, 30, 0.90);
+  --surface-glass: rgba(15, 18, 17, 0.85);
+
+  --text-primary: #F7F5F0;
+  --text-secondary: #ABB4AE;
+  --text-muted: #727D76;
+  --text-inverse: #1C1E1D;
+
+  --accent-gold: #D6BD96;
+  --accent-gold-light: #F0E3CB;
+  --accent-gold-dark: #B59363;
+  --accent-gold-glow: rgba(214, 189, 150, 0.22);
+
+  --accent-sage: #8DA18D;
+  --accent-sage-light: #B4C4B4;
+  --accent-sage-dark: #2F3E31;
+
+  --border-subtle: rgba(214, 189, 150, 0.16);
+  --border-medium: rgba(214, 189, 150, 0.32);
+  --border-strong: rgba(214, 189, 150, 0.55);
+
+  --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.45);
+  --shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.6);
+  --shadow-gold: 0 10px 40px rgba(214, 189, 150, 0.20);
+}
+
+/* Base Reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.65;
+  font-weight: 400;
+  overflow-x: hidden;
+  position: relative;
+  transition: background-color var(--transition-base), color var(--transition-base);
+}
+
+/* Ambient Canvas Container */
+#ambient-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.6;
+}
+
+/* Typography Hierarchy */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif);
+  color: var(--text-primary);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 5.5vw, 4.5rem);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  font-size: clamp(2rem, 3.8vw, 3.2rem);
+  font-weight: 400;
+}
+
+h3 {
+  font-size: clamp(1.4rem, 2.2vw, 2rem);
+}
+
+h4 {
+  font-size: 1.35rem;
+}
+
+p {
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+  font-weight: 400;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+button, input, select, textarea {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+/* Layout Utilities */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--space-3);
+  padding-right: var(--space-3);
+  position: relative;
+  z-index: 1;
+}
+
+.section {
+  padding-top: var(--space-10);
+  padding-bottom: var(--space-10);
+  position: relative;
+  z-index: 1;
+}
+
+.section-header {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto var(--space-8) auto;
+}
+
+.section-header .eyebrow {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: var(--accent-gold);
+  margin-bottom: var(--space-2);
+}
+
+.section-header h2 {
+  margin-bottom: var(--space-2);
+}
+
+.section-header p {
+  font-size: 1.1rem;
+}
+
+/* Grid Systems */
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-4);
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-4);
+}
+
+.grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-3);
+}
+
+/* Accessibility Focus States */
+:focus-visible {
+  outline: 2px solid var(--accent-gold);
+  outline-offset: 4px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Responsive Media Queries Foundation */
+@media (max-width: 1024px) {
+  .grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .section {
+    padding-top: var(--space-8);
+    padding-bottom: var(--space-8);
+  }
+}
+
+@media (max-width: 768px) {
+  .grid-3, .grid-2 {
+    grid-template-columns: 1fr;
+  }
+  .section {
+    padding-top: var(--space-6);
+    padding-bottom: var(--space-6);
+  }
+  .container {
+    padding-left: var(--space-2);
+    padding-right: var(--space-2);
+  }
+}

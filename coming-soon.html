@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coming Soon | Aurelia Manhattan Flagship Launch</title>
+  <meta name="description" content="Prepare for the grand opening of Aurelia Clinical Aesthetics Manhattan Penthouse. Join the exclusive VIP founding member waitlist.">
+  
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/animations.css">
+  <link rel="stylesheet" href="assets/css/rtl.css">
+</head>
+<body>
+
+  <canvas id="ambient-canvas"></canvas>
+
+  <aside class="utility-bar" aria-label="Quick Access Bar">
+    <div class="container">
+      <div class="utility-bar-left">
+        <div class="utility-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s-8-4.5-8-11.8A8 8 0 0 1 12 2a8 8 0 0 1 8 8.2c0 7.3-8 11.8-8 11.8z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span>Exclusive VIP Pre-Launch Portal</span>
+        </div>
+      </div>
+      <div class="utility-bar-right">
+        <button class="theme-toggle-btn" aria-label="Toggle Dark or Light Mode">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+          <span class="theme-text">Dark Mode</span>
+        </button>
+        <button class="rtl-toggle-btn" aria-label="Toggle RTL View">
+          <span class="rtl-text">RTL</span>
+        </button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Strict Navbar -->
+  <header class="navbar" role="banner">
+    <div class="container">
+      <a href="index.html" class="brand" aria-label="Aurelia Clinical Aesthetics Home">
+        <span class="brand-title">Aurelia</span>
+        <span class="brand-subtitle">Clinical Aesthetics</span>
+      </a>
+
+      <nav class="nav-menu" aria-label="Primary Navigation">
+        <div class="nav-item">
+          <a href="index.html" class="nav-link">Home ▾</a>
+          <div class="dropdown-menu">
+            <a href="index.html" class="dropdown-link">
+              <strong>Home 1: Clinical Artistry</strong>
+              <span class="dropdown-tag">Signature Treatments & Results</span>
+            </a>
+            <a href="home-2.html" class="dropdown-link">
+              <strong>Home 2: Longevity Suite</strong>
+              <span class="dropdown-tag">Regenerative Care & Concierge</span>
+            </a>
+          </div>
+        </div>
+        <div class="nav-item"><a href="treatments.html" class="nav-link">Treatments</a></div>
+        <div class="nav-item"><a href="providers.html" class="nav-link">Providers</a></div>
+        <div class="nav-item"><a href="memberships.html" class="nav-link">Membership Plans</a></div>
+        <div class="nav-item"><a href="contact.html" class="nav-link">Contact</a></div>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="login.html" class="btn-nav-login">Client Login</a>
+        <a href="dashboard.html" class="btn-nav-dashboard">
+          <span class="dashboard-status-dot"></span>
+          <span>Dashboard</span>
+        </a>
+      </div>
+
+      <button class="mobile-toggle" aria-label="Open Navigation Menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-overlay"></div>
+  <aside class="mobile-drawer" aria-label="Mobile Navigation">
+    <div>
+      <div class="mobile-drawer-header">
+        <div class="brand">
+          <span class="brand-title">Aurelia</span>
+          <span class="brand-subtitle">Clinical Aesthetics</span>
+        </div>
+        <button class="mobile-drawer-close" aria-label="Close Navigation Menu">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+      <nav class="mobile-nav-menu">
+        <a href="index.html" class="mobile-nav-link">Home 1: Clinical Artistry</a>
+        <a href="home-2.html" class="mobile-nav-link">Home 2: Longevity Suite</a>
+        <a href="treatments.html" class="mobile-nav-link">Treatments</a>
+        <a href="providers.html" class="mobile-nav-link">Providers</a>
+        <a href="memberships.html" class="mobile-nav-link">Membership Plans</a>
+        <a href="contact.html" class="mobile-nav-link">Contact Concierge</a>
+      </nav>
+    </div>
+    <div class="mobile-drawer-footer">
+      <a href="login.html" class="btn btn-outline" style="width: 100%;">Client Login</a>
+      <a href="dashboard.html" class="btn btn-gold" style="width: 100%;">Client Dashboard</a>
+    </div>
+  </aside>
+
+  <main>
+    <!-- SECTION 1: COUNTDOWN HERO -->
+    <section class="section" id="cs-hero" style="padding-top: var(--space-8); padding-bottom: var(--space-8);">
+      <div class="container text-center" style="text-align: center;">
+        <div class="badge badge-gold" style="margin-bottom: var(--space-3);">Grand Opening Autumn 2026</div>
+        <h1 style="max-width: 860px; margin: 0 auto var(--space-3) auto;">A New Dimension of Clinical Serenity Arrives</h1>
+        <p style="max-width: 660px; margin: 0 auto var(--space-6) auto; font-size: 1.15rem;">
+          Our new East Coast Flagship Penthouse at 740 Park Avenue opens shortly. Join the strictly limited Founding Roster.
+        </p>
+
+        <!-- Live Countdown Timer -->
+        <div style="display: flex; justify-content: center; gap: var(--space-4); margin-bottom: var(--space-6); flex-wrap: wrap;">
+          <div style="background: var(--surface); border: 1px solid var(--border-medium); border-radius: var(--radius-md); padding: 16px 22px; min-width: 90px; box-shadow: var(--shadow-sm);">
+            <div id="days" style="font-family: var(--font-serif); font-size: 2.8rem; color: var(--accent-gold); line-height: 1; font-weight: 600;">48</div>
+            <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); margin-top: 4px;">Days</div>
+          </div>
+          <div style="background: var(--surface); border: 1px solid var(--border-medium); border-radius: var(--radius-md); padding: 16px 22px; min-width: 90px; box-shadow: var(--shadow-sm);">
+            <div id="hours" style="font-family: var(--font-serif); font-size: 2.8rem; color: var(--accent-gold); line-height: 1; font-weight: 600;">14</div>
+            <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); margin-top: 4px;">Hours</div>
+          </div>
+          <div style="background: var(--surface); border: 1px solid var(--border-medium); border-radius: var(--radius-md); padding: 16px 22px; min-width: 90px; box-shadow: var(--shadow-sm);">
+            <div id="minutes" style="font-family: var(--font-serif); font-size: 2.8rem; color: var(--accent-gold); line-height: 1; font-weight: 600;">32</div>
+            <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); margin-top: 4px;">Minutes</div>
+          </div>
+          <div style="background: var(--surface); border: 1px solid var(--border-medium); border-radius: var(--radius-md); padding: 16px 22px; min-width: 90px; box-shadow: var(--shadow-sm);">
+            <div id="seconds" style="font-family: var(--font-serif); font-size: 2.8rem; color: var(--accent-gold); line-height: 1; font-weight: 600;">45</div>
+            <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); margin-top: 4px;">Seconds</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: FOUNDING MEMBER VIP WAITLIST -->
+    <section class="section" id="cs-waitlist" style="background-color: var(--bg-secondary);">
+      <div class="container">
+        <div style="max-width: 680px; margin: 0 auto; background: var(--surface); border: 1px solid var(--border-medium); border-radius: var(--radius-lg); padding: var(--space-6); box-shadow: var(--shadow-md); text-align: center;">
+          <span class="eyebrow" style="color: var(--accent-gold); font-weight: 600; text-transform: uppercase; letter-spacing: 0.2em; font-size: 0.8rem;">Founding Privilege</span>
+          <h2 style="margin-top: 6px; margin-bottom: var(--space-2);">Join the VIP Founding Waitlist</h2>
+          <p style="font-size: 0.95rem; margin-bottom: var(--space-4);">
+            The first 50 accepted founding members receive a complimentary $500 Sciton laser credit and priority booking during opening week.
+          </p>
+
+          <form data-validate="true" style="text-align: left;">
+            <div class="form-group">
+              <label class="form-label" for="wl-name">Full Legal Name *</label>
+              <input type="text" id="wl-name" class="form-input" placeholder="e.g. Arabella Fontaine" required>
+              <span class="form-error-msg">Name required.</span>
+            </div>
+            <div class="grid-2">
+              <div class="form-group">
+                <label class="form-label" for="wl-email">Email Address *</label>
+                <input type="email" id="wl-email" class="form-input" placeholder="arabella@example.com" required>
+                <span class="form-error-msg">Valid email required.</span>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="wl-phone">Mobile Phone *</label>
+                <input type="tel" id="wl-phone" class="form-input" placeholder="+1 (212) 555-0199" required>
+                <span class="form-error-msg">Phone required.</span>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="wl-interests">Primary Aesthetic Interest</label>
+              <select id="wl-interests" class="form-select">
+                <option value="longevity">Cellular Longevity & Laser Resurfacing</option>
+                <option value="injectables">Facial Sculpting & Neuromodulators</option>
+                <option value="membership">Haute Prestige Tier Membership</option>
+              </select>
+            </div>
+            <button type="submit" class="btn btn-gold" style="width: 100%;">Request Founding Invitation</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: SNEAK PEEK OF BREAKTHROUGH SUITES -->
+    <section class="section" id="cs-innovations">
+      <div class="container">
+        <div class="section-header">
+          <span class="eyebrow">Sneak Preview</span>
+          <h2>Flagship Innovations</h2>
+          <p>What awaits inside our Manhattan Penthouse sanctuary.</p>
+        </div>
+
+        <div class="grid-3">
+          <div class="tilt-card">
+            <div class="tilt-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m4.93 4.93 4.24 4.24"/><path d="m14.83 9.17 4.24-4.24"/></svg>
+            </div>
+            <h3 class="tilt-card-title">Dedicated Laser Suite</h3>
+            <p class="tilt-card-desc">Featuring Sciton BBL HERO, Halo Hybrid, and Sofwave ultrasound under one continuous physician supervision.</p>
+          </div>
+
+          <div class="tilt-card">
+            <div class="tilt-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            </div>
+            <h3 class="tilt-card-title">Private Recovery Pods</h3>
+            <p class="tilt-card-desc">Soundproofed decompression pods with zero-gravity ergonomic loungers, customized lymphatic teas, and red light.</p>
+          </div>
+
+          <div class="tilt-card">
+            <div class="tilt-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            </div>
+            <h3 class="tilt-card-title">Subterranean Discrete Valet</h3>
+            <p class="tilt-card-desc">Direct private garage elevator arriving directly inside Suite 14B for complete visual security.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: PRIVATE PRESS & PARTNERSHIP INQUIRIES -->
+    <section class="section" id="cs-press" style="background: linear-gradient(135deg, var(--bg-secondary), var(--bg-tertiary)); text-align: center;">
+      <div class="container text-center" style="text-align: center;">
+        <div style="background: var(--surface); border: 1px solid var(--border-medium); border-radius: var(--radius-lg); padding: var(--space-6); max-width: 800px; margin: 0 auto; box-shadow: var(--shadow-sm);">
+          <span class="eyebrow" style="color: var(--accent-gold); font-weight: 600; text-transform: uppercase; letter-spacing: 0.2em; font-size: 0.8rem;">Media & Editorial</span>
+          <h3 style="font-size: 1.8rem; margin-top: 6px; margin-bottom: var(--space-2);">Press & Private Previews</h3>
+          <p style="margin-bottom: var(--space-4); font-size: 0.95rem;">For editorial credentials, press walk-throughs, or private symposium inquiries, contact our media relations team.</p>
+          <a href="mailto:press@aureliaclinic.com" class="btn btn-outline btn-sm">Email Media Office</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="brand" style="margin-bottom: var(--space-3);">
+            <span class="brand-title">Aurelia</span>
+            <span class="brand-subtitle">Clinical Aesthetics</span>
+          </div>
+          <p>Quad A accredited medical sanctuary specializing in non-surgical facial harmonization, laser therapies, and longevity aesthetics.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Clinical Protocols</h4>
+          <div class="footer-links">
+            <a href="treatments.html#botox">Botox & Neuromodulators</a>
+            <a href="treatments.html#fillers">Facial Sculpting & Fillers</a>
+            <a href="treatments.html#laser">Sciton BBL & Halo Laser</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Sanctuary Suites</h4>
+          <div class="footer-links">
+            <a href="contact.html">Beverly Hills: 9640 Wilshire Blvd</a>
+            <a href="contact.html">Manhattan: 740 Park Ave Penthouse</a>
+            <a href="tel:+13105550199">+1 (310) 555-0199</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>The Aurelia Journal</h4>
+          <form class="footer-newsletter-form" action="#" method="POST">
+            <input type="email" placeholder="Your private email" required aria-label="Email address for newsletter">
+            <button type="submit" class="btn btn-gold btn-sm">Subscribe</button>
+          </form>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>© 2026 Aurelia Clinical Aesthetics, Inc. All rights reserved.</div>
+        <div class="footer-bottom-links">
+          <a href="about.html">About Us</a>
+          <a href="coming-soon.html">Coming Soon</a>
+          <a href="404.html">404 Error</a>
+          <a href="login.html">Client Portal</a>
+          <a href="dashboard.html">Dashboard</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/particles.js"></script>
+  <script src="assets/js/tilt.js"></script>
+  <script src="assets/js/auth.js"></script>
+  <script src="assets/js/main.js"></script>
+
+  <!-- Countdown Script -->
+  <script>
+    (function() {
+      const launchDate = new Date();
+      launchDate.setDate(launchDate.getDate() + 48);
+
+      function updateCountdown() {
+        const now = new Date().getTime();
+        const diff = launchDate - now;
+
+        if (diff > 0) {
+          const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+          const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+          const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+          const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+          const dEl = document.getElementById('days');
+          const hEl = document.getElementById('hours');
+          const mEl = document.getElementById('minutes');
+          const sEl = document.getElementById('seconds');
+
+          if (dEl) dEl.textContent = days;
+          if (hEl) hEl.textContent = hours.toString().padStart(2, '0');
+          if (mEl) mEl.textContent = minutes.toString().padStart(2, '0');
+          if (sEl) sEl.textContent = seconds.toString().padStart(2, '0');
+        }
+      }
+
+      setInterval(updateCountdown, 1000);
+      updateCountdown();
+    })();
+  </script>
+</body>
+</html>

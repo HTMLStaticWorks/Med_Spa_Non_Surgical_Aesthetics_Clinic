@@ -1,0 +1,83 @@
+/* ==========================================================================
+   AURELIA CLINICAL AESTHETICS & MED SPA — RTL (RIGHT-TO-LEFT) STYLES
+   ========================================================================== */
+
+[dir="rtl"] {
+  direction: rtl;
+  text-align: right;
+}
+
+[dir="rtl"] body {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+}
+
+[dir="rtl"] .section-header {
+  text-align: center; /* keep headers centered */
+}
+
+[dir="rtl"] .form-group {
+  text-align: right;
+}
+
+[dir="rtl"] .footer-links a:hover {
+  transform: translateX(-4px);
+}
+
+[dir="rtl"] .payments-table th {
+  text-align: right;
+}
+
+/* Mobile Drawer Mirror */
+[dir="rtl"] .mobile-drawer {
+  right: auto;
+  left: -100%;
+  transition: left var(--transition-base);
+}
+
+[dir="rtl"] .mobile-drawer.active {
+  left: 0;
+  right: auto;
+}
+
+/* Before and After Labels Mirror */
+[dir="rtl"] .ba-label-before {
+  right: auto;
+  left: 20px;
+}
+
+[dir="rtl"] .ba-label-after {
+  left: auto;
+  right: 20px;
+}
+
+[dir="rtl"] .ba-image-after {
+  left: auto;
+  right: 0;
+  border-right: none;
+  border-left: 2px solid var(--accent-gold);
+}
+
+/* Toast Container Mirror */
+[dir="rtl"] #toast-container {
+  right: auto;
+  left: 24px;
+}
+
+[dir="rtl"] .toast {
+  border-left: 1px solid var(--border-medium);
+  border-right: 4px solid var(--accent-gold);
+  animation: slideInToastRTL 0.3s ease forwards;
+}
+
+[dir="rtl"] .toast-success { border-right-color: #55B56E; }
+[dir="rtl"] .toast-info { border-right-color: var(--accent-gold); }
+
+@keyframes slideInToastRTL {
+  from { transform: translateX(-100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+[dir="rtl"] .modal-close {
+  right: auto;
+  left: 20px;
+}

@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Client Sanctuary Dashboard | Aurelia Clinical Aesthetics</title>
+  <meta name="description" content="Private client portal for Aurelia Clinical Aesthetics. Manage treatment appointments, track package progress, view private photo vault, and reorder skincare.">
+  
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/dashboard.css">
+  <link rel="stylesheet" href="assets/css/animations.css">
+  <link rel="stylesheet" href="assets/css/rtl.css">
+</head>
+<body>
+
+  <canvas id="ambient-canvas"></canvas>
+
+  <aside class="utility-bar" aria-label="Quick Access Bar">
+    <div class="container">
+      <div class="utility-bar-left">
+        <div class="utility-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s-8-4.5-8-11.8A8 8 0 0 1 12 2a8 8 0 0 1 8 8.2c0 7.3-8 11.8-8 11.8z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span>VIP Haute Prestige Member Portal • Beverly Hills</span>
+        </div>
+      </div>
+      <div class="utility-bar-right">
+        <button class="theme-toggle-btn" aria-label="Toggle Dark or Light Mode">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+          <span class="theme-text">Dark Mode</span>
+        </button>
+        <button class="rtl-toggle-btn" aria-label="Toggle RTL View">
+          <span class="rtl-text">RTL</span>
+        </button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Strict Navbar -->
+  <header class="navbar" role="banner">
+    <div class="container">
+      <a href="index.html" class="brand" aria-label="Aurelia Clinical Aesthetics Home">
+        <span class="brand-title">Aurelia</span>
+        <span class="brand-subtitle">Clinical Aesthetics</span>
+      </a>
+
+      <nav class="nav-menu" aria-label="Primary Navigation">
+        <div class="nav-item">
+          <a href="index.html" class="nav-link">Home ▾</a>
+          <div class="dropdown-menu">
+            <a href="index.html" class="dropdown-link">
+              <strong>Home 1: Clinical Artistry</strong>
+              <span class="dropdown-tag">Signature Treatments & Results</span>
+            </a>
+            <a href="home-2.html" class="dropdown-link">
+              <strong>Home 2: Longevity Suite</strong>
+              <span class="dropdown-tag">Regenerative Care & Concierge</span>
+            </a>
+          </div>
+        </div>
+        <div class="nav-item"><a href="treatments.html" class="nav-link">Treatments</a></div>
+        <div class="nav-item"><a href="providers.html" class="nav-link">Providers</a></div>
+        <div class="nav-item"><a href="memberships.html" class="nav-link">Membership Plans</a></div>
+        <div class="nav-item"><a href="contact.html" class="nav-link">Contact</a></div>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="dashboard.html" class="btn-nav-login active">Account Profile</a>
+        <a href="dashboard.html" class="btn-nav-dashboard">
+          <span class="dashboard-status-dot"></span>
+          <span>Dashboard</span>
+        </a>
+      </div>
+
+      <button class="mobile-toggle" aria-label="Open Navigation Menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-overlay"></div>
+  <aside class="mobile-drawer" aria-label="Mobile Navigation">
+    <div>
+      <div class="mobile-drawer-header">
+        <div class="brand">
+          <span class="brand-title">Aurelia</span>
+          <span class="brand-subtitle">Clinical Aesthetics</span>
+        </div>
+        <button class="mobile-drawer-close" aria-label="Close Navigation Menu">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+      <nav class="mobile-nav-menu">
+        <a href="index.html" class="mobile-nav-link">Home 1: Clinical Artistry</a>
+        <a href="home-2.html" class="mobile-nav-link">Home 2: Longevity Suite</a>
+        <a href="treatments.html" class="mobile-nav-link">Treatments</a>
+        <a href="providers.html" class="mobile-nav-link">Providers</a>
+        <a href="memberships.html" class="mobile-nav-link">Membership Plans</a>
+        <a href="contact.html" class="mobile-nav-link">Contact Concierge</a>
+        <a href="dashboard.html" class="mobile-nav-link active">Client Dashboard</a>
+      </nav>
+    </div>
+    <div class="mobile-drawer-footer">
+      <a href="login.html" class="btn btn-outline" style="width: 100%;">Switch Account</a>
+      <a href="#" id="btn-mobile-logout" class="btn btn-gold" style="width: 100%;">Sign Out</a>
+    </div>
+  </aside>
+
+  <main class="dashboard-wrapper">
+    <div class="container">
+
+      <!-- Client Profile Summary Banner -->
+      <div class="dashboard-header">
+        <div class="client-profile-summary">
+          <div class="client-avatar">
+            <img src="assets/images/provider_director.jpg" alt="Client Avatar Evelyn Vance" width="68" height="68">
+          </div>
+          <div class="client-info">
+            <h1>Welcome, Evelyn Vance</h1>
+            <p>
+              <span class="badge badge-gold">Haute Prestige Tier</span>
+              <span style="margin-left: 8px;">Sanctuary ID: #AV-8924 • Member Since Oct 2024</span>
+            </p>
+          </div>
+        </div>
+        <div class="dashboard-quick-actions">
+          <button type="button" class="btn btn-gold btn-sm" data-modal-target="modal-book-treatment">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            <span>Book New Treatment</span>
+          </button>
+          <a href="#" id="btn-dashboard-logout" class="btn btn-outline btn-sm">Sign Out</a>
+        </div>
+      </div>
+
+      <!-- MODULE / SECTION 1: BOOK & MANAGE APPOINTMENTS -->
+      <section class="dashboard-module" id="dash-appointments">
+        <div class="module-header">
+          <h2>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            <span>Scheduled Treatment Appointments</span>
+          </h2>
+          <span class="badge badge-sage">2 Upcoming Visits</span>
+        </div>
+
+        <div class="appointments-grid">
+          <!-- Appointment 1 -->
+          <div class="appointment-card">
+            <div>
+              <div class="appointment-top">
+                <div class="appointment-date-badge">
+                  <div class="day">24</div>
+                  <div class="month">SEP</div>
+                </div>
+                <span class="badge badge-gold">In 6 Days</span>
+              </div>
+              <div class="appointment-details">
+                <h3>Sciton BBL HERO™ Maintenance</h3>
+                <p>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                  <span>11:30 AM (60 min)</span>
+                </p>
+                <p>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                  <span>Marcus Chen, RN • Laser Suite A</span>
+                </p>
+                <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 6px;">Beverly Hills Flagship • Valet Reserved</p>
+              </div>
+            </div>
+            <div class="appointment-actions">
+              <button type="button" class="btn btn-outline btn-sm btn-reschedule-appt" style="flex: 1;">Reschedule</button>
+              <button type="button" class="btn btn-secondary btn-sm btn-cancel-appt" style="flex: 1;">Cancel</button>
+            </div>
+          </div>
+
+          <!-- Appointment 2 -->
+          <div class="appointment-card">
+            <div>
+              <div class="appointment-top">
+                <div class="appointment-date-badge">
+                  <div class="day">12</div>
+                  <div class="month">OCT</div>
+                </div>
+                <span class="badge badge-sage">Confirmed</span>
+              </div>
+              <div class="appointment-details">
+                <h3>Botox & Micro-Cannula Touch-Up</h3>
+                <p>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                  <span>2:00 PM (45 min)</span>
+                </p>
+                <p>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                  <span>Dr. Aurelia Vance, MD • Private Penthouse</span>
+                </p>
+                <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 6px;">Includes Ultrasound Arterial Scan</p>
+              </div>
+            </div>
+            <div class="appointment-actions">
+              <button type="button" class="btn btn-outline btn-sm btn-reschedule-appt" style="flex: 1;">Reschedule</button>
+              <button type="button" class="btn btn-secondary btn-sm btn-cancel-appt" style="flex: 1;">Cancel</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- MODULE / SECTION 2: TRACK TREATMENT PACKAGE USAGE -->
+      <section class="dashboard-module" id="dash-packages">
+        <div class="module-header">
+          <h2>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 14 14"/></svg>
+            <span>Treatment Package & Banking Usage</span>
+          </h2>
+          <span style="font-size: 0.88rem; color: var(--text-secondary);">Interactive Tracking: Tap "Record Session" to preview usage</span>
+        </div>
+
+        <div class="packages-grid">
+          <!-- Package 1 -->
+          <div class="package-card">
+            <span class="badge badge-gold">Active Series</span>
+            <h4 style="font-size: 1.15rem; margin-top: 8px;">Sciton BBL HERO™ Protocol</h4>
+            <p style="font-size: 0.82rem; color: var(--text-secondary);">Full Face & Chest Pigment Series</p>
+
+            <div class="package-radial-container">
+              <svg class="radial-svg" viewBox="0 0 100 100">
+                <circle class="radial-circle-bg" cx="50" cy="50" r="45"></circle>
+                <circle class="radial-circle-progress" cx="50" cy="50" r="45" stroke-dasharray="283" stroke-dashoffset="56"></circle>
+              </svg>
+              <div class="package-radial-text">
+                <div class="count">4</div>
+                <div class="total">of 5 used</div>
+              </div>
+            </div>
+
+            <div class="package-bar-container">
+              <div class="package-bar-fill" style="width: 80%;"></div>
+            </div>
+
+            <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 6px;">1 session remaining before renewal</div>
+            <button type="button" class="btn btn-secondary btn-sm btn-use-session" style="margin-top: var(--space-3); width: 100%;">+ Record Completed Session</button>
+          </div>
+
+          <!-- Package 2 -->
+          <div class="package-card">
+            <span class="badge badge-sage">In Progress</span>
+            <h4 style="font-size: 1.15rem; margin-top: 8px;">Morpheus8 Burst RF Remodeling</h4>
+            <p style="font-size: 0.82rem; color: var(--text-secondary);">Lower Face & Submental Tightening</p>
+
+            <div class="package-radial-container">
+              <svg class="radial-svg" viewBox="0 0 100 100">
+                <circle class="radial-circle-bg" cx="50" cy="50" r="45"></circle>
+                <circle class="radial-circle-progress" cx="50" cy="50" r="45" stroke-dasharray="283" stroke-dashoffset="94"></circle>
+              </svg>
+              <div class="package-radial-text">
+                <div class="count">2</div>
+                <div class="total">of 3 used</div>
+              </div>
+            </div>
+
+            <div class="package-bar-container">
+              <div class="package-bar-fill" style="width: 66%;"></div>
+            </div>
+
+            <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 6px;">1 session remaining</div>
+            <button type="button" class="btn btn-secondary btn-sm btn-use-session" style="margin-top: var(--space-3); width: 100%;">+ Record Completed Session</button>
+          </div>
+
+          <!-- Package 3 -->
+          <div class="package-card">
+            <span class="badge badge-gold">Annual Banking</span>
+            <h4 style="font-size: 1.15rem; margin-top: 8px;">Dysport® Privilege Unit Bank</h4>
+            <p style="font-size: 0.82rem; color: var(--text-secondary);">Haute Prestige Allocated Units</p>
+
+            <div class="package-radial-container">
+              <svg class="radial-svg" viewBox="0 0 100 100">
+                <circle class="radial-circle-bg" cx="50" cy="50" r="45"></circle>
+                <circle class="radial-circle-progress" cx="50" cy="50" r="45" stroke-dasharray="283" stroke-dashoffset="94"></circle>
+              </svg>
+              <div class="package-radial-text">
+                <div class="count">40</div>
+                <div class="total">of 60 units</div>
+              </div>
+            </div>
+
+            <div class="package-bar-container">
+              <div class="package-bar-fill" style="width: 67%;"></div>
+            </div>
+
+            <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 6px;">20 units banked into your wallet</div>
+            <button type="button" class="btn btn-outline btn-sm" data-modal-target="modal-book-treatment" style="margin-top: var(--space-3); width: 100%;">Schedule Bank Units</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- MODULE / SECTION 3: PRIVATE BEFORE-AND-AFTER PHOTO PROGRESS VIEWER -->
+      <section class="dashboard-module" id="dash-photos">
+        <div class="module-header">
+          <h2>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            <span>Private Before & After Photo Progress Vault</span>
+          </h2>
+          <button type="button" id="btn-toggle-privacy" class="btn btn-outline btn-sm">
+            Mask Photos (Privacy Mode)
+          </button>
+        </div>
+
+        <div class="vault-disclaimer">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          <span>
+            <strong>HIPAA Gated Medical Record:</strong> Standardized lighting, cross-polarized camera sensors, and reproducible angles. Only visible to you and your treating physician.
+          </span>
+        </div>
+
+        <div class="vault-slider-box" style="transition: filter 0.3s ease;">
+          <div class="ba-slider-container" style="height: 440px;" aria-label="Personal Clinical Photo Progress Comparison">
+            <div class="ba-image ba-image-before">
+              <img src="assets/images/before_after_before.jpg" alt="Baseline Photo Day 0" width="800" height="440">
+              <span class="ba-label ba-label-before">Baseline (Day 0)</span>
+            </div>
+            <div class="ba-image ba-image-after">
+              <img src="assets/images/before_after_after.jpg" alt="Post-Treatment Photo Day 60" width="800" height="440">
+              <span class="ba-label ba-label-after">Current (Day 60)</span>
+            </div>
+            <div class="ba-handle" role="slider" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/><polyline points="9 18 3 12 9 6"/></svg>
+            </div>
+          </div>
+        </div>
+
+        <div class="vault-meta">
+          <div>
+            <strong>Physician Clinical Notes:</strong> Notable 3.8mm lifting of the jowl margin. Dermal thickness increased by 18% via ultrasound biometry. Patient reports zero sensitivity.
+          </div>
+          <div>
+            <span class="badge badge-sage">Next Milestone: Day 90 Review</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- MODULE / SECTION 4: SKINCARE REGIMEN & PAYMENT HISTORY -->
+      <section class="dashboard-module" id="dash-skincare-payments">
+        <div class="module-header">
+          <h2>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+            <span>Bespoke Regimen & Payment History</span>
+          </h2>
+          <span class="badge badge-gold">Auto 15% Haute Member Discount</span>
+        </div>
+
+        <h3 style="font-size: 1.25rem; margin-bottom: var(--space-3);">Your Prescribed Medical Regimen</h3>
+        <div class="skincare-grid">
+          <!-- Item 1 -->
+          <div class="skincare-item-card">
+            <div class="skincare-item-thumb">
+              <img src="assets/images/skincare_products.jpg" alt="SkinCeuticals C E Ferulic" width="64" height="64">
+            </div>
+            <div class="skincare-item-info">
+              <h4>SkinCeuticals C E Ferulic®</h4>
+              <p>Triple antioxidant serum with 15% L-ascorbic acid</p>
+              <button type="button" class="btn btn-outline btn-sm btn-request-refill">Request 1-Click Refill ($182)</button>
+            </div>
+          </div>
+
+          <!-- Item 2 -->
+          <div class="skincare-item-card">
+            <div class="skincare-item-thumb">
+              <img src="assets/images/skincare_products.jpg" alt="SkinMedica TNS Advanced+ Serum" width="64" height="64">
+            </div>
+            <div class="skincare-item-info">
+              <h4>SkinMedica TNS Advanced+®</h4>
+              <p>Next-generation growth factor blend for skin matrix</p>
+              <button type="button" class="btn btn-outline btn-sm btn-request-refill">Request 1-Click Refill ($295)</button>
+            </div>
+          </div>
+
+          <!-- Item 3 -->
+          <div class="skincare-item-card">
+            <div class="skincare-item-thumb">
+              <img src="assets/images/skincare_products.jpg" alt="Aurelia Bio-Ceramide Crème" width="64" height="64">
+            </div>
+            <div class="skincare-item-info">
+              <h4>Aurelia Bio-Ceramide Crème</h4>
+              <p>Post-laser barrier restoration with clinical peptides</p>
+              <button type="button" class="btn btn-outline btn-sm btn-request-refill">Request 1-Click Refill ($140)</button>
+            </div>
+          </div>
+        </div>
+
+        <h3 style="font-size: 1.25rem; margin-top: var(--space-6); margin-bottom: var(--space-3);">Encrypted Billing & Invoice History</h3>
+        <div class="payments-table-container">
+          <table class="payments-table">
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Protocol / Description</th>
+                <th>Treating Specialist</th>
+                <th>Amount</th>
+                <th>Status</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Sep 01, 2026</td>
+                <td>Haute Prestige Monthly Membership</td>
+                <td>Concierge Auto-Billing</td>
+                <td>$699.00</td>
+                <td><span class="payment-status-tag">Paid</span></td>
+                <td><button type="button" class="btn btn-secondary btn-sm btn-download-receipt">Download PDF</button></td>
+              </tr>
+              <tr>
+                <td>Aug 14, 2026</td>
+                <td>Morpheus8 Burst RF Session 2</td>
+                <td>Elena Rostova, PA-C</td>
+                <td>$1,250.00</td>
+                <td><span class="payment-status-tag">Paid</span></td>
+                <td><button type="button" class="btn btn-secondary btn-sm btn-download-receipt">Download PDF</button></td>
+              </tr>
+              <tr>
+                <td>Jul 20, 2026</td>
+                <td>Sciton BBL HERO Face & Neck</td>
+                <td>Marcus Chen, RN</td>
+                <td>$850.00</td>
+                <td><span class="payment-status-tag">Paid</span></td>
+                <td><button type="button" class="btn btn-secondary btn-sm btn-download-receipt">Download PDF</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Appointment Booking Modal -->
+  <div class="modal" id="modal-book-treatment" role="dialog" aria-modal="true" aria-labelledby="modal-book-title-dash">
+    <div class="modal-overlay"></div>
+    <div class="modal-card">
+      <button class="modal-close" aria-label="Close modal">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+      <div style="text-align: center; margin-bottom: var(--space-4);">
+        <span class="eyebrow" style="color: var(--accent-gold); font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; font-size: 0.75rem;">VIP Priority Reservation</span>
+        <h3 id="modal-book-title-dash" style="font-size: 1.8rem; margin-top: 4px;">Book Sanctuary Treatment</h3>
+        <p style="font-size: 0.9rem;">Your Haute Prestige status unlocks same-week reservations.</p>
+      </div>
+
+      <form data-validate="true">
+        <div class="form-group">
+          <label class="form-label" for="dash-treatment">Treatment Series or Maintenance Protocol</label>
+          <select id="dash-treatment" class="form-select" required>
+            <option value="bbl">Sciton BBL HERO Session (Package Series)</option>
+            <option value="morpheus8">Morpheus8 Burst RF Session (Package Series)</option>
+            <option value="dysport">Dysport Touch-Up (Drawn from Bank)</option>
+            <option value="facial">Hydra-Luxe Monthly Privilege Facial</option>
+          </select>
+        </div>
+
+        <div class="grid-2">
+          <div class="form-group">
+            <label class="form-label" for="dash-date">Preferred Date</label>
+            <input type="date" id="dash-date" class="form-input" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="dash-time">Preferred Time Window</label>
+            <select id="dash-time" class="form-select">
+              <option value="morning">Morning (9:00 AM – 12:00 PM)</option>
+              <option value="afternoon">Afternoon (12:00 PM – 4:00 PM)</option>
+              <option value="evening">Evening (4:00 PM – 7:00 PM)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="dash-practitioner">Specialist Request</label>
+          <select id="dash-practitioner" class="form-select">
+            <option value="dr-vance">Dr. Aurelia Vance, MD, FACS</option>
+            <option value="elena">Elena Rostova, PA-C (Master Injector)</option>
+            <option value="marcus">Marcus Chen, RN (Laser Specialist)</option>
+            <option value="any">First Available Senior Specialist</option>
+          </select>
+        </div>
+
+        <button type="submit" class="btn btn-gold" style="width: 100%;">Confirm Priority Reservation</button>
+      </form>
+    </div>
+  </div>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="brand" style="margin-bottom: var(--space-3);">
+            <span class="brand-title">Aurelia</span>
+            <span class="brand-subtitle">Clinical Aesthetics</span>
+          </div>
+          <p>Quad A accredited medical sanctuary specializing in non-surgical facial harmonization, laser therapies, and longevity aesthetics.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Clinical Protocols</h4>
+          <div class="footer-links">
+            <a href="treatments.html#botox">Botox & Neuromodulators</a>
+            <a href="treatments.html#fillers">Facial Sculpting & Fillers</a>
+            <a href="treatments.html#laser">Sciton BBL & Halo Laser</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Sanctuary Suites</h4>
+          <div class="footer-links">
+            <a href="contact.html">Beverly Hills: 9640 Wilshire Blvd</a>
+            <a href="contact.html">Manhattan: 740 Park Ave Penthouse</a>
+            <a href="tel:+13105550199">+1 (310) 555-0199</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>The Aurelia Journal</h4>
+          <form class="footer-newsletter-form" action="#" method="POST">
+            <input type="email" placeholder="Your private email" required aria-label="Email address for newsletter">
+            <button type="submit" class="btn btn-gold btn-sm">Subscribe</button>
+          </form>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>© 2026 Aurelia Clinical Aesthetics, Inc. All rights reserved.</div>
+        <div class="footer-bottom-links">
+          <a href="about.html">About Us</a>
+          <a href="coming-soon.html">Coming Soon</a>
+          <a href="404.html">404 Error</a>
+          <a href="login.html">Client Portal</a>
+          <a href="dashboard.html">Dashboard</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/particles.js"></script>
+  <script src="assets/js/tilt.js"></script>
+  <script src="assets/js/auth.js"></script>
+  <script src="assets/js/dashboard.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

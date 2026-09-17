@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aesthetic Treatments | Botox, Fillers & Lasers | Aurelia</title>
+  <meta name="description" content="Explore bespoke medical aesthetic treatments at Aurelia. Neuromodulators, dermal fillers, Sciton BBL lasers, and Morpheus8 RF microneedling in Beverly Hills.">
+  
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/animations.css">
+  <link rel="stylesheet" href="assets/css/rtl.css">
+</head>
+<body>
+
+  <canvas id="ambient-canvas"></canvas>
+
+  <!-- Top Utility Bar -->
+  <aside class="utility-bar" aria-label="Quick Access Bar">
+    <div class="container">
+      <div class="utility-bar-left">
+        <div class="utility-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s-8-4.5-8-11.8A8 8 0 0 1 12 2a8 8 0 0 1 8 8.2c0 7.3-8 11.8-8 11.8z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span>Beverly Hills Flagship & Manhattan Penthouse</span>
+        </div>
+        <div class="utility-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <span>Concierge Desk: +1 (310) 555-0199</span>
+        </div>
+      </div>
+      <div class="utility-bar-right">
+        <button class="theme-toggle-btn" aria-label="Toggle Dark or Light Mode">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+          <span class="theme-text">Dark Mode</span>
+        </button>
+        <button class="rtl-toggle-btn" aria-label="Toggle RTL View">
+          <span class="rtl-text">RTL</span>
+        </button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Strict Navbar -->
+  <header class="navbar" role="banner">
+    <div class="container">
+      <a href="index.html" class="brand" aria-label="Aurelia Clinical Aesthetics Home">
+        <span class="brand-title">Aurelia</span>
+        <span class="brand-subtitle">Clinical Aesthetics</span>
+      </a>
+
+      <nav class="nav-menu" aria-label="Primary Navigation">
+        <div class="nav-item">
+          <a href="index.html" class="nav-link">Home ▾</a>
+          <div class="dropdown-menu">
+            <a href="index.html" class="dropdown-link">
+              <strong>Home 1: Clinical Artistry</strong>
+              <span class="dropdown-tag">Signature Treatments & Results</span>
+            </a>
+            <a href="home-2.html" class="dropdown-link">
+              <strong>Home 2: Longevity Suite</strong>
+              <span class="dropdown-tag">Regenerative Care & Concierge</span>
+            </a>
+          </div>
+        </div>
+        <div class="nav-item"><a href="treatments.html" class="nav-link active">Treatments</a></div>
+        <div class="nav-item"><a href="providers.html" class="nav-link">Providers</a></div>
+        <div class="nav-item"><a href="memberships.html" class="nav-link">Membership Plans</a></div>
+        <div class="nav-item"><a href="contact.html" class="nav-link">Contact</a></div>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="login.html" class="btn-nav-login">Client Login</a>
+        <a href="dashboard.html" class="btn-nav-dashboard">
+          <span class="dashboard-status-dot"></span>
+          <span>Dashboard</span>
+        </a>
+      </div>
+
+      <button class="mobile-toggle" aria-label="Open Navigation Menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-overlay"></div>
+  <aside class="mobile-drawer" aria-label="Mobile Navigation">
+    <div>
+      <div class="mobile-drawer-header">
+        <div class="brand">
+          <span class="brand-title">Aurelia</span>
+          <span class="brand-subtitle">Clinical Aesthetics</span>
+        </div>
+        <button class="mobile-drawer-close" aria-label="Close Navigation Menu">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+      <nav class="mobile-nav-menu">
+        <a href="index.html" class="mobile-nav-link">Home 1: Clinical Artistry</a>
+        <a href="home-2.html" class="mobile-nav-link">Home 2: Longevity Suite</a>
+        <a href="treatments.html" class="mobile-nav-link active">Treatments</a>
+        <a href="providers.html" class="mobile-nav-link">Providers</a>
+        <a href="memberships.html" class="mobile-nav-link">Membership Plans</a>
+        <a href="contact.html" class="mobile-nav-link">Contact Concierge</a>
+        <a href="about.html" class="mobile-nav-link">About Sanctuary</a>
+      </nav>
+    </div>
+    <div class="mobile-drawer-footer">
+      <a href="login.html" class="btn btn-outline" style="width: 100%;">Client Login</a>
+      <a href="dashboard.html" class="btn btn-gold" style="width: 100%;">Client Dashboard</a>
+    </div>
+  </aside>
+
+  <main>
+    <!-- SECTION 1: HERO & TREATMENT CATEGORY OVERVIEW -->
+    <section class="section" id="treatments-hero" style="padding-top: var(--space-8); padding-bottom: var(--space-8);">
+      <div class="container text-center" style="text-align: center;">
+        <span class="eyebrow" style="color: var(--accent-gold); font-weight: 600; text-transform: uppercase; letter-spacing: 0.22em; font-size: 0.82rem;">Clinical Master Protocols</span>
+        <h1 style="max-width: 820px; margin: 8px auto var(--space-3) auto;">Evidence-Based Non-Surgical Aesthetics</h1>
+        <p style="max-width: 680px; margin: 0 auto var(--space-6) auto; font-size: 1.15rem;">
+          From micro-dose neuromodulators to biostimulatory facial lifting and Sciton photo-rejuvenation, every protocol is engineered for natural anatomical harmony.
+        </p>
+        <div style="display: flex; justify-content: center; gap: var(--space-2); flex-wrap: wrap;">
+          <a href="#botox" class="btn btn-outline btn-sm">1. Neuromodulators</a>
+          <a href="#fillers" class="btn btn-outline btn-sm">2. Dermal Fillers & Biostimulators</a>
+          <a href="#laser" class="btn btn-outline btn-sm">3. Lasers & Energy Devices</a>
+          <a href="#" class="btn btn-gold btn-sm" data-modal-target="modal-book-treatment">Schedule Consultation</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: NEUROMODULATORS (BOTOX, DYSPORT, DAXXIFY) -->
+    <section class="section" id="botox" style="background-color: var(--bg-secondary);">
+      <div class="container">
+        <div class="section-header">
+          <span class="eyebrow">Category 01</span>
+          <h2>Neuromodulators & Dynamic Wrinkle Relaxation</h2>
+          <p>Micro-dosed botulinum toxin type A administered via 32-gauge micro-needles to smooth forehead lines, crow's feet, and reshape the jawline.</p>
+        </div>
+
+        <div class="grid-3">
+          <div class="tilt-card">
+            <span class="tilt-card-subtitle">Gold Standard</span>
+            <h3 class="tilt-card-title">Botox® Cosmetic</h3>
+            <p class="tilt-card-desc">The world’s most studied aesthetic injectable. Precision targeted to glabella frown lines, horizontal forehead furrows, and crow's feet.</p>
+            <div class="tilt-card-tags">
+              <span class="badge badge-gold">Onset: 3–5 Days</span>
+              <span class="badge badge-sage">Duration: 3–4 Months</span>
+            </div>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: var(--space-3);">Target Areas: Forehead, Glabella, Crow's Feet, Lip Flip</p>
+            <a href="#" class="btn btn-outline btn-sm" data-modal-target="modal-book-treatment">Book Botox Protocol</a>
+          </div>
+
+          <div class="tilt-card">
+            <span class="tilt-card-subtitle">Soft Diffusion</span>
+            <h3 class="tilt-card-title">Dysport®</h3>
+            <p class="tilt-card-desc">Smaller molecular profile allowing feather-light natural spread across broader forehead areas with rapid 48-hour initial smoothing.</p>
+            <div class="tilt-card-tags">
+              <span class="badge badge-gold">Onset: 2–3 Days</span>
+              <span class="badge badge-sage">Duration: 3–4 Months</span>
+            </div>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: var(--space-3);">Target Areas: Glabellar Lines, Masseters, Neck Platysma</p>
+            <a href="#" class="btn btn-outline btn-sm" data-modal-target="modal-book-treatment">Book Dysport Protocol</a>
+          </div>
+
+          <div class="tilt-card">
+            <span class="tilt-card-subtitle">Peptide-Stabilized</span>
+            <h3 class="tilt-card-title">Daxxify®</h3>
+            <p class="tilt-card-desc">Peptide-formulated neuromodulator delivering unprecedented longevity up to 6 to 9 months per clinical session.</p>
+            <div class="tilt-card-tags">
+              <span class="badge badge-gold">Onset: 2 Days</span>
+              <span class="badge badge-sage">Duration: 6–9 Months</span>
+            </div>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: var(--space-3);">Target Areas: Moderate to Severe Frown Lines</p>
+            <a href="#" class="btn btn-outline btn-sm" data-modal-target="modal-book-treatment">Book Daxxify Protocol</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: DERMAL FILLERS & BIOSTIMULATORS (SCULPTRA, JUVEDERM, RESTYLANE) -->
+    <section class="section" id="fillers">
+      <div class="container">
+        <div class="section-header">
+          <span class="eyebrow">Category 02</span>
+          <h2>Dermal Sculpting & Biostimulatory Lift</h2>
+          <p>Micro-cannula anatomical placement of cross-linked hyaluronic gels and biostimulatory collagen regenerators.</p>
+        </div>
+
+        <div class="grid-3">
+          <div class="tilt-card">
+            <span class="tilt-card-subtitle">Structural Architecture</span>
+            <h3 class="tilt-card-title">Juvéderm® Vycross Suite</h3>
+            <p class="tilt-card-desc">Voluma XC and Volux XC for deep supraperiosteal bone support, chin projection, and sharp mandibular angle definition.</p>
+            <div class="tilt-card-tags">
+              <span class="badge badge-gold">Immediate Volume</span>
+              <span class="badge badge-sage">Lasts 18–24 Months</span>
+            </div>
+            <a href="#" class="btn btn-outline btn-sm" data-modal-target="modal-book-treatment">Reserve Sculpting Session</a>
+          </div>
+
+          <div class="tilt-card">
+            <span class="tilt-card-subtitle">Natural Expression</span>
+            <h3 class="tilt-card-title">Restylane® XpresHAn</h3>
+            <p class="tilt-card-desc">Kysse, Contour, and Defyne flex naturally with facial musculature during smiling and speaking, preventing stiffness.</p>
+            <div class="tilt-card-tags">
+              <span class="badge badge-gold">Dynamic Movement</span>
+              <span class="badge badge-sage">Lasts 12–15 Months</span>
+            </div>
+            <a href="#" class="btn btn-outline btn-sm" data-modal-target="modal-book-treatment">Reserve Sculpting Session</a>
+          </div>
+
+          <div class="tilt-card">
+            <span class="tilt-card-subtitle">Collagen Genesis</span>
+            <h3 class="tilt-card-title">Sculptra® Aesthetic</h3>
+            <p class="tilt-card-desc">Poly-L-lactic acid micro-particles that trigger your body’s fibroblasts to produce 66% more Type-1 collagen within 90 days.</p>
+            <div class="tilt-card-tags">
+              <span class="badge badge-gold">Cellular Regeneration</span>
+              <span class="badge badge-sage">Lasts 2+ Years</span>
+            </div>
+            <a href="#" class="btn btn-outline btn-sm" data-modal-target="modal-book-treatment">Reserve Biostimulator</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: MEDICAL LASERS, ENERGY DEVICES & PEELS -->
+    <section class="section" id="laser" style="background-color: var(--bg-secondary);">
+      <div class="container">
+        <div class="section-header">
+          <span class="eyebrow">Category 03</span>
+          <h2>Advanced Lasers, Radiofrequency & Peels</h2>
+          <p>FDA-cleared medical technologies targeting solar elastosis, dyschromia, vascular lesions, and textural laxity.</p>
+        </div>
+
+        <div class="grid-3">
+          <div class="tilt-card">
+            <span class="tilt-card-subtitle">Genetic Photorejuvenation</span>
+            <h3 class="tilt-card-title">Sciton BBL HERO™</h3>
+            <p class="tilt-card-desc">BroadBand Light delivering 4x speed and 3x peak power to eliminate age spots, broken capillaries, and diffuse redness in 15-minute sessions.</p>
+            <div class="tilt-card-tags">
+              <span class="badge badge-gold">Zero Downtime</span>
+              <span class="badge badge-sage">Face & Body</span>
+            </div>
+            <a href="#" class="btn btn-outline btn-sm" data-modal-target="modal-book-treatment">Inquire BBL HERO</a>
+          </div>
+
+          <div class="tilt-card">
+            <span class="tilt-card-subtitle">Deep Remodeling</span>
+            <h3 class="tilt-card-title">Morpheus8 RF Microneedling</h3>
+            <p class="tilt-card-desc">Gold-plated insulated micro-pins deliver radiofrequency energy directly to the deep dermal-subdermal junction for skin tightening.</p>
+            <div class="tilt-card-tags">
+              <span class="badge badge-gold">2–3 Days Social Downtime</span>
+              <span class="badge badge-sage">Tissue Tightening</span>
+            </div>
+            <a href="#" class="btn btn-outline btn-sm" data-modal-target="modal-book-treatment">Inquire Morpheus8</a>
+          </div>
+
+          <div class="tilt-card">
+            <span class="tilt-card-subtitle">Vortex Infusion</span>
+            <h3 class="tilt-card-title">Hydra-Luxe Platinum Facial</h3>
+            <p class="tilt-card-desc">Medical-grade lymphatic drainage, glycolic exfoliation, painless vortex pore extraction, and customized peptide infusion with red-light therapy.</p>
+            <div class="tilt-card-tags">
+              <span class="badge badge-gold">Instant Red Carpet Radiance</span>
+              <span class="badge badge-sage">No Downtime</span>
+            </div>
+            <a href="#" class="btn btn-outline btn-sm" data-modal-target="modal-book-treatment">Inquire Hydra-Luxe</a>
+          </div>
+        </div>
+
+        <div style="text-align: center; margin-top: var(--space-8);">
+          <a href="#" class="btn btn-gold btn-lg" data-modal-target="modal-book-treatment">Schedule Comprehensive Treatment Consultation</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="brand" style="margin-bottom: var(--space-3);">
+            <span class="brand-title">Aurelia</span>
+            <span class="brand-subtitle">Clinical Aesthetics</span>
+          </div>
+          <p>Quad A accredited medical sanctuary specializing in non-surgical facial harmonization, laser therapies, and longevity aesthetics.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Clinical Protocols</h4>
+          <div class="footer-links">
+            <a href="#botox">Botox & Neuromodulators</a>
+            <a href="#fillers">Facial Sculpting & Fillers</a>
+            <a href="#laser">Sciton BBL & Halo Laser</a>
+            <a href="#laser">Morpheus8 RF Microneedling</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Sanctuary Suites</h4>
+          <div class="footer-links">
+            <a href="contact.html">Beverly Hills: 9640 Wilshire Blvd</a>
+            <a href="contact.html">Manhattan: 740 Park Ave Penthouse</a>
+            <a href="tel:+13105550199">+1 (310) 555-0199</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>The Aurelia Journal</h4>
+          <form class="footer-newsletter-form" action="#" method="POST">
+            <input type="email" placeholder="Your private email" required aria-label="Email address for newsletter">
+            <button type="submit" class="btn btn-gold btn-sm">Subscribe</button>
+          </form>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>© 2026 Aurelia Clinical Aesthetics, Inc. All rights reserved.</div>
+        <div class="footer-bottom-links">
+          <a href="about.html">About Us</a>
+          <a href="coming-soon.html">Coming Soon</a>
+          <a href="404.html">404 Error</a>
+          <a href="login.html">Client Portal</a>
+          <a href="dashboard.html">Dashboard</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Appointment Booking Modal -->
+  <div class="modal" id="modal-book-treatment" role="dialog" aria-modal="true" aria-labelledby="modal-book-title-treatments">
+    <div class="modal-overlay"></div>
+    <div class="modal-card">
+      <button class="modal-close" aria-label="Close modal">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+      <div style="text-align: center; margin-bottom: var(--space-4);">
+        <span class="eyebrow" style="color: var(--accent-gold); font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; font-size: 0.75rem;">Private Consultation</span>
+        <h3 id="modal-book-title-treatments" style="font-size: 1.8rem; margin-top: 4px;">Reserve Treatment Consultation</h3>
+        <p style="font-size: 0.9rem;">Select your desired protocol and timing. Our concierge desk will confirm promptly.</p>
+      </div>
+
+      <form data-validate="true">
+        <div class="form-group">
+          <label class="form-label" for="t-name">Full Legal Name *</label>
+          <input type="text" id="t-name" class="form-input" placeholder="e.g. Eleanor Vance" required>
+          <span class="form-error-msg">Name required.</span>
+        </div>
+        <div class="grid-2">
+          <div class="form-group">
+            <label class="form-label" for="t-email">Private Email *</label>
+            <input type="email" id="t-email" class="form-input" placeholder="eleanor@example.com" required>
+            <span class="form-error-msg">Email required.</span>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="t-phone">Phone Number *</label>
+            <input type="tel" id="t-phone" class="form-input" placeholder="+1 (310) 555-0123" required>
+            <span class="form-error-msg">Phone required.</span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="t-treatment">Selected Treatment Protocol</label>
+          <select id="t-treatment" class="form-select" required>
+            <option value="botox">Botox / Neuromodulators</option>
+            <option value="fillers">Dermal Sculpting / Hyaluronic Fillers</option>
+            <option value="sculptra">Sculptra Biostimulator</option>
+            <option value="laser">Sciton BBL HERO Photofacial</option>
+            <option value="morpheus8">Morpheus8 RF Microneedling</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-gold" style="width: 100%;">Confirm Consultation Request</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="assets/js/particles.js"></script>
+  <script src="assets/js/tilt.js"></script>
+  <script src="assets/js/auth.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

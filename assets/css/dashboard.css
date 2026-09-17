@@ -1,0 +1,386 @@
+/* ==========================================================================
+   AURELIA CLINICAL AESTHETICS & MED SPA — CLIENT DASHBOARD CSS
+   ========================================================================== */
+
+.dashboard-wrapper {
+  padding-top: var(--space-6);
+  padding-bottom: var(--space-12);
+}
+
+.dashboard-header {
+  background: var(--surface-card);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
+  margin-bottom: var(--space-6);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  box-shadow: var(--shadow-sm);
+}
+
+.client-profile-summary {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.client-avatar {
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  border: 2px solid var(--accent-gold);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+.client-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.client-info h1 {
+  font-size: 1.8rem;
+  margin-bottom: 2px;
+}
+
+.client-info p {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+}
+
+.dashboard-quick-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+/* Dashboard Module Cards */
+.dashboard-module {
+  background: var(--surface-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  margin-bottom: var(--space-6);
+  box-shadow: var(--shadow-sm);
+  transition: border-color var(--transition-fast);
+}
+
+.dashboard-module:hover {
+  border-color: var(--border-medium);
+}
+
+.module-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-5);
+  border-bottom: 1px solid var(--border-subtle);
+  padding-bottom: var(--space-3);
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.module-header h2 {
+  font-size: 1.6rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.module-header h2 svg {
+  stroke: var(--accent-gold);
+  width: 24px;
+  height: 24px;
+}
+
+/* --- Section 1: Upcoming Appointments --- */
+.appointments-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: var(--space-4);
+}
+
+.appointment-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform var(--transition-fast);
+}
+
+.appointment-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent-gold);
+}
+
+.appointment-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: var(--space-3);
+}
+
+.appointment-date-badge {
+  background: var(--surface);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-sm);
+  padding: 6px 12px;
+  text-align: center;
+}
+
+.appointment-date-badge .day {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--accent-gold);
+  line-height: 1;
+}
+
+.appointment-date-badge .month {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.appointment-details h3 {
+  font-size: 1.2rem;
+  margin-bottom: 4px;
+}
+
+.appointment-details p {
+  font-size: 0.88rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 4px;
+}
+
+.appointment-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: var(--space-3);
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--border-subtle);
+}
+
+/* --- Section 2: Package Usage Tracker --- */
+.packages-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-4);
+}
+
+.package-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.package-radial-container {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  margin: var(--space-2) auto var(--space-3) auto;
+}
+
+.radial-svg {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.radial-circle-bg {
+  fill: none;
+  stroke: var(--border-subtle);
+  stroke-width: 8;
+}
+
+.radial-circle-progress {
+  fill: none;
+  stroke: var(--accent-gold);
+  stroke-width: 8;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 1s ease;
+}
+
+.package-radial-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.package-radial-text .count {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1;
+}
+
+.package-radial-text .total {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.package-bar-container {
+  width: 100%;
+  background: var(--surface);
+  border-radius: var(--radius-pill);
+  height: 8px;
+  overflow: hidden;
+  margin-top: 8px;
+  border: 1px solid var(--border-subtle);
+}
+
+.package-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent-gold), var(--accent-gold-dark));
+  border-radius: var(--radius-pill);
+}
+
+/* --- Section 3: Private Photo Progress Vault --- */
+.vault-disclaimer {
+  background: rgba(197, 168, 128, 0.08);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-md);
+  padding: 12px 18px;
+  margin-bottom: var(--space-4);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+}
+
+.vault-disclaimer svg {
+  stroke: var(--accent-gold);
+  min-width: 20px;
+}
+
+.vault-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: var(--space-3);
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* --- Section 4: Skincare Regimen & Payments --- */
+.skincare-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: var(--space-3);
+  margin-bottom: var(--space-6);
+}
+
+.skincare-item-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: var(--space-3);
+  display: flex;
+  gap: var(--space-3);
+  align-items: center;
+}
+
+.skincare-item-thumb {
+  width: 64px;
+  height: 64px;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.skincare-item-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.skincare-item-info {
+  flex: 1;
+}
+
+.skincare-item-info h4 {
+  font-size: 0.95rem;
+  margin-bottom: 2px;
+}
+
+.skincare-item-info p {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  margin-bottom: 6px;
+}
+
+.payments-table-container {
+  overflow-x: auto;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  background: var(--surface);
+}
+
+.payments-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+}
+
+.payments-table th {
+  background: var(--bg-secondary);
+  text-align: left;
+  padding: 12px 16px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.payments-table td {
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--border-subtle);
+  color: var(--text-primary);
+}
+
+.payments-table tr:last-child td {
+  border-bottom: none;
+}
+
+.payment-status-tag {
+  display: inline-block;
+  padding: 3px 8px;
+  border-radius: var(--radius-pill);
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  background: rgba(85, 181, 110, 0.15);
+  color: #36884C;
+}
+
+@media (max-width: 768px) {
+  .dashboard-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .client-info h1 {
+    font-size: 1.5rem;
+  }
+  .appointments-grid, .packages-grid, .skincare-grid {
+    grid-template-columns: 1fr;
+  }
+}
