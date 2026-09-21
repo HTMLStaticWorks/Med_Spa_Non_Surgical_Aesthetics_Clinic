@@ -3,8 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Membership Plans | The Aurelia Privilege Club | Med Spa</title>
+  <title>Privilege Tiers | The Aurelia Privilege Club | Med Spa</title>
   <meta name="description" content="Join The Aurelia Privilege Club. Predictable aesthetic wellness, monthly treatment credits, VIP savings on Botox, and exclusive laser privileges.">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
   
   <link rel="stylesheet" href="assets/css/main.css">
   <link rel="stylesheet" href="assets/css/components.css">
@@ -27,15 +30,6 @@
           <span>Concierge Desk: +1 (310) 555-0199</span>
         </div>
       </div>
-      <div class="utility-bar-right">
-        <button class="theme-toggle-btn" aria-label="Toggle Dark or Light Mode">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
-          <span class="theme-text">Dark Mode</span>
-        </button>
-        <button class="rtl-toggle-btn" aria-label="Toggle RTL View">
-          <span class="rtl-text">RTL</span>
-        </button>
-      </div>
     </div>
   </aside>
 
@@ -43,36 +37,47 @@
   <header class="navbar" role="banner">
     <div class="container">
       <a href="index.html" class="brand" aria-label="Aurelia Clinical Aesthetics Home">
-        <span class="brand-title">Aurelia</span>
-        <span class="brand-subtitle">Clinical Aesthetics</span>
+        <div class="brand-logo">
+          <svg class="logo-mark" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="brand-gold-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#F5E4B3"/>
+                <stop offset="50%" stop-color="#D4AF37"/>
+                <stop offset="100%" stop-color="#9A7B38"/>
+              </linearGradient>
+            </defs>
+            <circle cx="50" cy="50" r="44" stroke="url(#brand-gold-grad)" stroke-width="2.5" fill="none" opacity="0.85"/>
+            <circle cx="50" cy="50" r="38" stroke="url(#brand-gold-grad)" stroke-width="1.2" stroke-dasharray="3 3" fill="none" opacity="0.5"/>
+            <path d="M50 14 L56 34 L50 40 L44 34 Z" fill="url(#brand-gold-grad)"/>
+            <path d="M50 86 L56 66 L50 60 L44 66 Z" fill="url(#brand-gold-grad)"/>
+            <path d="M14 50 L34 44 L40 50 L34 56 Z" fill="url(#brand-gold-grad)"/>
+            <path d="M86 50 L66 44 L60 50 L66 56 Z" fill="url(#brand-gold-grad)"/>
+            <path d="M50 24 L65 72 H56.5 L52 57 H48 L43.5 72 H35 L50 24 Z M50 37 L45.5 49.5 H54.5 L50 37 Z" fill="url(#brand-gold-grad)"/>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span class="brand-title">AURELIA</span>
+          <span class="brand-subtitle">CLINICAL AESTHETICS</span>
+        </div>
       </a>
 
       <nav class="nav-menu" aria-label="Primary Navigation">
-        <div class="nav-item">
-          <a href="index.html" class="nav-link">Home ▾</a>
-          <div class="dropdown-menu">
-            <a href="index.html" class="dropdown-link">
-              <strong>Home 1: Clinical Artistry</strong>
-              <span class="dropdown-tag">Signature Treatments & Results</span>
-            </a>
-            <a href="home-2.html" class="dropdown-link">
-              <strong>Home 2: Longevity Suite</strong>
-              <span class="dropdown-tag">Regenerative Care & Concierge</span>
-            </a>
-          </div>
-        </div>
+        <div class="nav-item"><a href="index.html" class="nav-link">Home</a></div>
+        <div class="nav-item"><a href="home-2.html" class="nav-link">Home 2</a></div>
+        <div class="nav-item"><a href="about.html" class="nav-link">About</a></div>
         <div class="nav-item"><a href="treatments.html" class="nav-link">Treatments</a></div>
         <div class="nav-item"><a href="providers.html" class="nav-link">Providers</a></div>
-        <div class="nav-item"><a href="memberships.html" class="nav-link active">Membership Plans</a></div>
+        <div class="nav-item"><a href="memberships.html" class="nav-link active">Tiers</a></div>
         <div class="nav-item"><a href="contact.html" class="nav-link">Contact</a></div>
       </nav>
 
       <div class="nav-actions">
-        <a href="login.html" class="btn-nav-login">Client Login</a>
-        <a href="dashboard.html" class="btn-nav-dashboard">
-          <span class="dashboard-status-dot"></span>
-          <span>Dashboard</span>
-        </a>
+        <button class="theme-toggle-btn" aria-label="Toggle Dark or Light Mode"></button>
+        <button class="rtl-toggle-btn" aria-label="Toggle RTL View">
+          <span class="rtl-text">RTL</span>
+        </button>
+        <a href="login.html" class="btn-nav-login">Login</a>
+        <a href="dashboard.html" class="btn-nav-dashboard">Dashboard</a>
       </div>
 
       <button class="mobile-toggle" aria-label="Open Navigation Menu">
@@ -86,27 +91,53 @@
   <aside class="mobile-drawer" aria-label="Mobile Navigation">
     <div>
       <div class="mobile-drawer-header">
-        <div class="brand">
-          <span class="brand-title">Aurelia</span>
-          <span class="brand-subtitle">Clinical Aesthetics</span>
-        </div>
+        <a href="index.html" class="brand" aria-label="Aurelia Clinical Aesthetics Home">
+          <div class="brand-logo">
+            <svg class="logo-mark" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="brand-gold-grad-drawer-mem" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#F5E4B3"/>
+                  <stop offset="50%" stop-color="#D4AF37"/>
+                  <stop offset="100%" stop-color="#9A7B38"/>
+                </linearGradient>
+              </defs>
+              <circle cx="50" cy="50" r="44" stroke="url(#brand-gold-grad-drawer-mem)" stroke-width="2.5" fill="none" opacity="0.85"/>
+              <circle cx="50" cy="50" r="38" stroke="url(#brand-gold-grad-drawer-mem)" stroke-width="1.2" stroke-dasharray="3 3" fill="none" opacity="0.5"/>
+              <path d="M50 14 L56 34 L50 40 L44 34 Z" fill="url(#brand-gold-grad-drawer-mem)"/>
+              <path d="M50 86 L56 66 L50 60 L44 66 Z" fill="url(#brand-gold-grad-drawer-mem)"/>
+              <path d="M14 50 L34 44 L40 50 L34 56 Z" fill="url(#brand-gold-grad-drawer-mem)"/>
+              <path d="M86 50 L66 44 L60 50 L66 56 Z" fill="url(#brand-gold-grad-drawer-mem)"/>
+              <circle cx="50" cy="50" r="8" fill="url(#brand-gold-grad-drawer-mem)"/>
+            </svg>
+          </div>
+          <div class="brand-text">
+            <span class="brand-title">AURELIA</span>
+            <span class="brand-subtitle">CLINICAL AESTHETICS</span>
+          </div>
+        </a>
         <button class="mobile-drawer-close" aria-label="Close Navigation Menu">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
         </button>
       </div>
       <nav class="mobile-nav-menu">
-        <a href="index.html" class="mobile-nav-link">Home 1: Clinical Artistry</a>
-        <a href="home-2.html" class="mobile-nav-link">Home 2: Longevity Suite</a>
+        <a href="index.html" class="mobile-nav-link">Home</a>
+        <a href="home-2.html" class="mobile-nav-link">Home 2</a>
+        <a href="about.html" class="mobile-nav-link">About</a>
         <a href="treatments.html" class="mobile-nav-link">Treatments</a>
         <a href="providers.html" class="mobile-nav-link">Providers</a>
-        <a href="memberships.html" class="mobile-nav-link active">Membership Plans</a>
-        <a href="contact.html" class="mobile-nav-link">Contact Concierge</a>
-        <a href="about.html" class="mobile-nav-link">About Sanctuary</a>
+        <a href="memberships.html" class="mobile-nav-link active">Tiers</a>
+        <a href="contact.html" class="mobile-nav-link">Contact</a>
       </nav>
     </div>
-    <div class="mobile-drawer-footer">
-      <a href="login.html" class="btn btn-outline" style="width: 100%;">Client Login</a>
-      <a href="dashboard.html" class="btn btn-gold" style="width: 100%;">Client Dashboard</a>
+    <div class="mobile-drawer-footer" style="display: flex; flex-direction: column; gap: 8px;">
+      <div style="display: flex; gap: 8px; width: 100%; margin-bottom: 4px;">
+        <button class="theme-toggle-btn" aria-label="Toggle Dark or Light Mode" style="flex-shrink: 0;"></button>
+        <button class="rtl-toggle-btn" aria-label="Toggle RTL View" style="flex-shrink: 0;">
+          <span class="rtl-text">RTL</span>
+        </button>
+      </div>
+      <a href="login.html" class="btn btn-gold" style="width: 100%;">Login</a>
+      <a href="dashboard.html" class="btn btn-outline" style="width: 100%;">Dashboard</a>
     </div>
   </aside>
 
@@ -140,11 +171,12 @@
               <span style="color: var(--text-muted); font-size: 0.85rem;">/ month</span>
             </div>
             <p class="tilt-card-desc">Ideal for ongoing epidermal maintenance, cellular exfoliation, and routine seasonal neuromodulator touch-ups.</p>
-            <ul style="display: flex; flex-direction: column; gap: 10px; margin-bottom: var(--space-4); font-size: 0.9rem; text-align: left; width: 100%;">
+            <ul class="tilt-card-list">
               <li>✓ 1 Monthly Hydra-Luxe Facial or Medical Peel</li>
               <li>✓ 10% Savings on All Neurotoxin Units</li>
               <li>✓ 10% Savings on Medical Skincare Refills</li>
               <li>✓ Full Rollover of Unused Monthly Credits</li>
+              <li>✓ Complimentary Annual Visia 3D Skin Scan</li>
             </ul>
             <a href="#membership-apply" class="btn btn-outline" style="width: 100%;">Select Luminous</a>
           </div>
@@ -159,7 +191,7 @@
               <span style="color: var(--text-muted); font-size: 0.85rem;">/ month</span>
             </div>
             <p class="tilt-card-desc">Comprehensive collagen induction combining advanced laser therapy with prioritized injector scheduling.</p>
-            <ul style="display: flex; flex-direction: column; gap: 10px; margin-bottom: var(--space-4); font-size: 0.9rem; text-align: left; width: 100%;">
+            <ul class="tilt-card-list">
               <li>✓ 1 Monthly Sciton BBL HERO or Morpheus8 Session</li>
               <li>✓ 20 Complimentary Annual Botox Units</li>
               <li>✓ 15% Savings on All Dermal Fillers & Lasers</li>
@@ -178,7 +210,7 @@
               <span style="color: var(--text-muted); font-size: 0.85rem;">/ month</span>
             </div>
             <p class="tilt-card-desc">Our flagship concierge program designed for high-profile clients demanding total rejuvenation with private suite sequestering.</p>
-            <ul style="display: flex; flex-direction: column; gap: 10px; margin-bottom: var(--space-4); font-size: 0.9rem; text-align: left; width: 100%;">
+            <ul class="tilt-card-list">
               <li>✓ Quarterly Sculptra or Radiesse Protocols</li>
               <li>✓ Unlimited Cryo & LED Phototherapy Add-ons</li>
               <li>✓ 20% Savings Across All Medical Sanctuary Services</li>
@@ -317,48 +349,90 @@
     </section>
   </main>
 
+  <!-- Luxury Site Footer -->
   <footer class="site-footer" role="contentinfo">
     <div class="container">
       <div class="footer-grid">
         <div class="footer-col">
-          <div class="brand" style="margin-bottom: var(--space-3);">
-            <span class="brand-title">Aurelia</span>
-            <span class="brand-subtitle">Clinical Aesthetics</span>
+          <a href="index.html" class="brand" style="margin-bottom: var(--space-3);" aria-label="Aurelia Clinical Aesthetics Home">
+            <div class="brand-logo">
+              <svg class="logo-mark" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="50" cy="50" r="44" stroke="url(#brand-gold-grad)" stroke-width="2.5" fill="none" opacity="0.85"/>
+                <circle cx="50" cy="50" r="38" stroke="url(#brand-gold-grad)" stroke-width="1.2" stroke-dasharray="3 3" fill="none" opacity="0.5"/>
+                <path d="M50 14 L56 34 L50 40 L44 34 Z" fill="url(#brand-gold-grad)"/>
+                <path d="M50 86 L56 66 L50 60 L44 66 Z" fill="url(#brand-gold-grad)"/>
+                <path d="M14 50 L34 44 L40 50 L34 56 Z" fill="url(#brand-gold-grad)"/>
+                <path d="M86 50 L66 44 L60 50 L66 56 Z" fill="url(#brand-gold-grad)"/>
+                <path d="M50 24 L65 72 H56.5 L52 57 H48 L43.5 72 H35 L50 24 Z M50 37 L45.5 49.5 H54.5 L50 37 Z" fill="url(#brand-gold-grad)"/>
+              </svg>
+            </div>
+            <div class="brand-text">
+              <span class="brand-title">AURELIA</span>
+              <span class="brand-subtitle">CLINICAL AESTHETICS</span>
+            </div>
+          </a>
+          <p>Where medical science meets bespoke facial artistry. Quad A accredited clinical sanctuary specializing in non-surgical facial harmonization, laser therapies, and longevity aesthetics.</p>
+          <div style="display: flex; gap: var(--space-2); margin-top: var(--space-3); margin-bottom: var(--space-3);">
+            <span class="badge badge-gold">Quad A Accredited</span>
+            <span class="badge badge-sage">HIPAA Compliant</span>
           </div>
-          <p>Quad A accredited medical sanctuary specializing in non-surgical facial harmonization, laser therapies, and longevity aesthetics.</p>
+
+          <!-- Social Media Links -->
+          <div class="footer-social-links" style="display: flex; gap: 10px; margin-top: var(--space-3);">
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="Instagram">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="Facebook">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="YouTube">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg>
+            </a>
+            <a href="https://wa.me/13105550199" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="WhatsApp">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+            </a>
+          </div>
         </div>
+
         <div class="footer-col">
           <h4>Clinical Protocols</h4>
           <div class="footer-links">
             <a href="treatments.html#botox">Botox & Neuromodulators</a>
             <a href="treatments.html#fillers">Facial Sculpting & Fillers</a>
             <a href="treatments.html#laser">Sciton BBL & Halo Laser</a>
+            <a href="treatments.html#morpheus8">Morpheus8 RF Microneedling</a>
+            <a href="treatments.html#hydrafacial">Clinical Hydra-Luxe Facials</a>
+            <a href="treatments.html#peels">Medical Chemical Peels</a>
           </div>
         </div>
+
         <div class="footer-col">
           <h4>Sanctuary Suites</h4>
           <div class="footer-links">
             <a href="contact.html">Beverly Hills: 9640 Wilshire Blvd</a>
             <a href="contact.html">Manhattan: 740 Park Ave Penthouse</a>
             <a href="tel:+13105550199">+1 (310) 555-0199</a>
+            <a href="mailto:concierge@aureliaclinic.com">concierge@aureliaclinic.com</a>
+            <a href="providers.html">Our Board-Certified Medical Team</a>
+            <a href="about.html">Our Heritage & Safety Standards</a>
           </div>
         </div>
+
         <div class="footer-col">
           <h4>The Aurelia Journal</h4>
+          <p>Receive private editorial invitations, monthly aesthetic insights, and exclusive invitations to visiting injector symposiums.</p>
           <form class="footer-newsletter-form" action="#" method="POST">
             <input type="email" placeholder="Your private email" required aria-label="Email address for newsletter">
             <button type="submit" class="btn btn-gold btn-sm">Subscribe</button>
           </form>
         </div>
       </div>
+
       <div class="footer-bottom">
-        <div>© 2026 Aurelia Clinical Aesthetics, Inc. All rights reserved.</div>
+        <div>© 2026 Aurelia Clinical Aesthetics, Inc. All rights reserved. Medical Director: Aurelia Vance, MD, FACS.</div>
         <div class="footer-bottom-links">
-          <a href="about.html">About Us</a>
           <a href="coming-soon.html">Coming Soon</a>
           <a href="404.html">404 Error</a>
-          <a href="login.html">Client Portal</a>
-          <a href="dashboard.html">Dashboard</a>
         </div>
       </div>
     </div>

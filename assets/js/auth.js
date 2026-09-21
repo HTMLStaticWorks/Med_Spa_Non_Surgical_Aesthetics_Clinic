@@ -39,33 +39,21 @@ const AureliaAuth = {
 
   logout() {
     this.currentUser = null;
-    window.location.href = 'login.html';
+    window.location.href = 'index.html';
   },
 
   updateNavState() {
-    const user = this.currentUser;
     const loginBtns = document.querySelectorAll('.btn-nav-login');
-    const dashboardBtns = document.querySelectorAll('.btn-nav-dashboard');
-
-    if (user) {
-      loginBtns.forEach(btn => {
-        btn.textContent = 'Account Profile';
-        btn.href = 'dashboard.html';
-      });
-      dashboardBtns.forEach(btn => {
-        btn.style.display = 'inline-flex';
-      });
-    } else {
-      loginBtns.forEach(btn => {
-        btn.textContent = 'Client Login';
-        btn.href = 'login.html';
-      });
-    }
+    loginBtns.forEach(btn => {
+      btn.textContent = 'Login';
+      btn.href = 'login.html';
+    });
   },
 
   init() {
     this.updateNavState();
     this.bindLoginForm();
+    this.bindRegisterForm();
   },
 
   bindLoginForm() {
@@ -83,7 +71,7 @@ const AureliaAuth = {
 
         const res = this.login(email, password);
         if (res.success) {
-          if (window.showToast) window.showToast('Welcome back, Evelyn. Redirecting to your sanctuary portal...', 'success');
+          if (window.showToast) window.showToast('Welcome back. Redirecting to your sanctuary portal...', 'success');
           setTimeout(() => {
             window.location.href = 'dashboard.html';
           }, 800);
@@ -96,9 +84,41 @@ const AureliaAuth = {
         demoBtn.addEventListener('click', () => {
           document.getElementById('login-email').value = 'evelyn.vance@aureliaclinic.com';
           document.getElementById('login-password').value = 'Serenity2026!';
-          if (window.showToast) window.showToast('Demo VIP credentials loaded. Click "Enter Sanctuary".', 'info');
+          if (window.showToast) window.showToast('Demo VIP credentials loaded. Click "Sign In".', 'info');
         });
       }
+    }
+  },
+
+  bindRegisterForm() {
+    const regForm = document.getElementById('register-form');
+    if (regForm) {
+      regForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const firstName = document.getElementById('reg-firstname').value.trim();
+        const lastName = document.getElementById('reg-lastname').value.trim();
+        const email = document.getElementById('reg-email').value.trim();
+        const password = document.getElementById('reg-password').value.trim();
+
+        if (!firstName || !lastName || !email || !password) {
+          if (window.showToast) window.showToast('Please complete all registration fields.', 'info');
+          return;
+        }
+
+        const user = {
+          name: `${firstName} ${lastName}`,
+          email: email,
+          membershipTier: 'New Member',
+          memberSince: 'September 2026',
+          avatar: 'assets/images/provider_director.jpg'
+        };
+
+        this.currentUser = user;
+        if (window.showToast) window.showToast(`Welcome, ${firstName}! Account created successfully. Redirecting...`, 'success');
+        setTimeout(() => {
+          window.location.href = 'dashboard.html';
+        }, 900);
+      });
     }
   }
 };
@@ -106,3 +126,4 @@ const AureliaAuth = {
 document.addEventListener('DOMContentLoaded', () => {
   AureliaAuth.init();
 });
+

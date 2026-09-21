@@ -39,12 +39,17 @@ document.addEventListener('DOMContentLoaded', () => {
   const storedTheme = localStorage.getItem('aurelia_theme');
   const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
+  const sunIcon = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>`;
+  const moonIcon = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>`;
+
   function setTheme(theme) {
     document.documentElement.setAttribute('data-theme', theme);
     localStorage.setItem('aurelia_theme', theme);
     themeToggleBtns.forEach(btn => {
-      const span = btn.querySelector('.theme-text');
-      if (span) span.textContent = theme === 'dark' ? 'Light Mode' : 'Dark Mode';
+      btn.innerHTML = theme === 'dark' ? sunIcon : moonIcon;
+      const label = theme === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode';
+      btn.setAttribute('aria-label', label);
+      btn.setAttribute('title', label);
     });
   }
 
@@ -250,4 +255,39 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
+
+  // --- Scroll Up (Back To Top) Floating Button ---
+  let scrollTopBtn = document.getElementById('scroll-top-btn');
+  if (!scrollTopBtn) {
+    scrollTopBtn = document.createElement('button');
+    scrollTopBtn.id = 'scroll-top-btn';
+    scrollTopBtn.className = 'scroll-top-btn';
+    scrollTopBtn.setAttribute('aria-label', 'Scroll to Top');
+    scrollTopBtn.innerHTML = `
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="12" y1="19" x2="12" y2="5"></line>
+        <polyline points="5 12 12 5 19 12"></polyline>
+      </svg>
+    `;
+    document.body.appendChild(scrollTopBtn);
+  }
+
+  function handleScrollTopVisibility() {
+    if (window.scrollY > 280) {
+      scrollTopBtn.classList.add('visible');
+    } else {
+      scrollTopBtn.classList.remove('visible');
+    }
+  }
+
+  window.addEventListener('scroll', handleScrollTopVisibility, { passive: true });
+  handleScrollTopVisibility();
+
+  scrollTopBtn.addEventListener('click', () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  });
 });
+

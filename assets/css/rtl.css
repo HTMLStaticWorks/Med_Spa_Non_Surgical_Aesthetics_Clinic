@@ -11,6 +11,10 @@
   font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
 }
 
+[dir="rtl"] .brand {
+  flex-direction: row;
+}
+
 [dir="rtl"] .section-header {
   text-align: center; /* keep headers centered */
 }

@@ -101,12 +101,17 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Logout button
-  const logoutBtn = document.getElementById('btn-dashboard-logout');
-  if (logoutBtn) {
-    logoutBtn.addEventListener('click', (e) => {
-      e.preventDefault();
-      AureliaAuth.logout();
-    });
-  }
+  // Logout buttons
+  const logoutBtns = [
+    document.getElementById('btn-dashboard-logout'),
+    document.getElementById('btn-mobile-logout')
+  ];
+  logoutBtns.forEach(btn => {
+    if (btn) {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        AureliaAuth.logout();
+      });
+    }
+  });
 });
