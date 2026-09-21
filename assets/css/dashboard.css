@@ -405,8 +405,10 @@
 
 @media (max-width: 1200px) {
   .navbar {
-    background-color: var(--bg-primary) !important;
-    background: #0B0E0D !important;
+    background: var(--surface-glass) !important;
+    backdrop-filter: blur(16px) !important;
+    -webkit-backdrop-filter: blur(16px) !important;
+    border-bottom: 1px solid var(--border-subtle) !important;
     z-index: 10000 !important;
   }
   .navbar .nav-actions {
