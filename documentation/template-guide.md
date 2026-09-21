@@ -85,14 +85,14 @@ The top navigation strictly features only 4–5 core pages plus Login and Dashbo
 - Touch targets ≥44px for accessibility.
 - Touch-enabled before/after photo slider.
 
-### Tablet (640px – 1023px)
-- Dedicated 2-column grid layout.
-- Prevents awkward element squeezing or clipped cards.
+### Mobile, Tablet & 1024px Viewports (up to 1024px)
+- Unified mobile drawer navigation with hamburger toggle for all mobile, tablet, and 1024px screens.
+- Theme (Dark/Light) and RTL toggles cleanly housed inside the mobile drawer footer.
+- Dedicated 2-column card layouts preventing element squeezing.
 
-### 1024px Viewport Specifically
-- Explicit media query `@media (min-width: 1024px) and (max-width: 1200px)`.
-- Prevents navbar overflow or awkward wrapping.
-- Card grids cleanly display in balanced 2-column or 4-column distributions.
+### Desktop & Web Views (>1024px)
+- Full desktop horizontal navigation bar with all links, Login, Dashboard, Theme toggle, and RTL switch visible.
+- Hamburger menu is strictly hidden (`display: none !important;`).
 
 ---
 

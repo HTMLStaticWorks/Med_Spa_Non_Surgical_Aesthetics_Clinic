@@ -150,10 +150,19 @@
         <p style="max-width: 680px; margin: 0 auto var(--space-6) auto; font-size: 1.15rem;">
           Skin aging occurs continuously—aesthetic maintenance should be equally consistent. Our bespoke tiers bank your monthly investment with 100% credit rollover and VIP privileges.
         </p>
-        <div style="display: inline-flex; background: var(--surface); padding: 6px 14px; border-radius: var(--radius-pill); border: 1px solid var(--border-medium); gap: 12px; font-size: 0.85rem;">
-          <span>✓ 100% Rollover Credits</span>
-          <span>✓ No Cancellation Penalty</span>
-          <span>✓ Private VIP Dashboard Access</span>
+        <div class="membership-perks-bar">
+          <div class="perk-chip">
+            <span class="perk-icon">✓</span>
+            <span>100% Rollover Credits</span>
+          </div>
+          <div class="perk-chip">
+            <span class="perk-icon">✓</span>
+            <span>No Cancellation Penalty</span>
+          </div>
+          <div class="perk-chip">
+            <span class="perk-icon">✓</span>
+            <span>Private VIP Dashboard Access</span>
+          </div>
         </div>
       </div>
     </section>
@@ -326,21 +335,68 @@
             </form>
           </div>
 
-          <!-- FAQ Accordion -->
+          <!-- FAQ Accordion Dropdown -->
           <div>
             <h3 style="font-size: 1.5rem; margin-bottom: var(--space-4);">Frequently Asked Questions</h3>
-            <div style="display: flex; flex-direction: column; gap: var(--space-3);">
-              <div style="background: var(--surface); padding: var(--space-4); border-radius: var(--radius-md); border: 1px solid var(--border-subtle);">
-                <h4 style="font-size: 1.05rem; margin-bottom: 6px; color: var(--accent-gold);">What happens if I cannot visit one month?</h4>
-                <p style="font-size: 0.92rem;">Your monthly dues roll over into your aesthetic banking wallet indefinitely. You can combine banked credits toward a major laser protocol or filler rejuvenation at any time.</p>
+            <div class="faq-accordion">
+              <!-- FAQ Item 1 (Active / Expanded by default) -->
+              <div class="faq-item active">
+                <button class="faq-trigger" aria-expanded="true" aria-controls="faq-ans-1">
+                  <span class="faq-title">What happens if I cannot visit one month?</span>
+                  <span class="faq-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                  </span>
+                </button>
+                <div class="faq-body" id="faq-ans-1">
+                  <div class="faq-content">
+                    <p class="faq-answer">Your monthly dues roll over into your private aesthetic banking wallet indefinitely. You can combine banked credits toward a major laser protocol, Morpheus8, or bespoke filler rejuvenation at any time.</p>
+                  </div>
+                </div>
               </div>
-              <div style="background: var(--surface); padding: var(--space-4); border-radius: var(--radius-md); border: 1px solid var(--border-subtle);">
-                <h4 style="font-size: 1.05rem; margin-bottom: 6px; color: var(--accent-gold);">Is there a minimum commitment contract?</h4>
-                <p style="font-size: 0.92rem;">We require a 3-month initial membership so your skin experiences true compounding cellular remodeling. After 3 months, you may pause or cancel with 14 days written notice.</p>
+
+              <!-- FAQ Item 2 -->
+              <div class="faq-item">
+                <button class="faq-trigger" aria-expanded="false" aria-controls="faq-ans-2">
+                  <span class="faq-title">Is there a minimum commitment contract?</span>
+                  <span class="faq-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                  </span>
+                </button>
+                <div class="faq-body" id="faq-ans-2">
+                  <div class="faq-content">
+                    <p class="faq-answer">We require a 3-month initial membership so your skin experiences true compounding cellular remodeling. After 3 months, you may pause or cancel with 14 days written notice.</p>
+                  </div>
+                </div>
               </div>
-              <div style="background: var(--surface); padding: var(--space-4); border-radius: var(--radius-md); border: 1px solid var(--border-subtle);">
-                <h4 style="font-size: 1.05rem; margin-bottom: 6px; color: var(--accent-gold);">Can I transfer credits to a friend or partner?</h4>
-                <p style="font-size: 0.92rem;">Yes. Sculpt and Haute Prestige members may allocate up to 2 treatment sessions annually to immediate family members or guests.</p>
+
+              <!-- FAQ Item 3 -->
+              <div class="faq-item">
+                <button class="faq-trigger" aria-expanded="false" aria-controls="faq-ans-3">
+                  <span class="faq-title">Can I transfer credits to a friend or partner?</span>
+                  <span class="faq-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                  </span>
+                </button>
+                <div class="faq-body" id="faq-ans-3">
+                  <div class="faq-content">
+                    <p class="faq-answer">Yes. Sculpt and Haute Prestige members may allocate up to 2 treatment sessions annually to immediate family members or guests directly through their Client Portal.</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- FAQ Item 4 -->
+              <div class="faq-item">
+                <button class="faq-trigger" aria-expanded="false" aria-controls="faq-ans-4">
+                  <span class="faq-title">How do I track and redeem my banked credits?</span>
+                  <span class="faq-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                  </span>
+                </button>
+                <div class="faq-body" id="faq-ans-4">
+                  <div class="faq-content">
+                    <p class="faq-answer">Every member receives biometric access to their dedicated Client Dashboard. Your portal provides real-time visibility into your accumulated wallet balance, treatment history, Visia skin scans, and instant one-click booking.</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
