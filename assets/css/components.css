@@ -139,14 +139,18 @@
 }
 
 .brand-logo .logo-mark {
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), filter 0.4s ease;
 }
 
 .brand:hover .logo-mark {
-  transform: scale(1.08) rotate(3deg);
-  filter: drop-shadow(0 0 12px rgba(212, 175, 55, 0.5));
+  transform: scale(1.06) rotate(2deg);
+  filter: drop-shadow(0 0 14px rgba(212, 175, 55, 0.6));
+}
+
+[data-theme="dark"] .brand-logo .logo-mark {
+  filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.35));
 }
 
 .brand-text {
@@ -156,23 +160,30 @@
 
 .brand-title {
   font-family: var(--font-brand);
-  font-size: 1.45rem;
+  font-size: 1.62rem;
   font-weight: 600;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.19em;
   color: var(--text-primary);
   text-transform: uppercase;
-  line-height: 1;
+  line-height: 0.95;
+  transition: color var(--transition-fast);
+}
+
+[data-theme="dark"] .brand-title {
+  color: #FAF8F5;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
 }
 
 .brand-subtitle {
   font-family: var(--font-sans);
   font-size: 0.58rem;
-  letter-spacing: 0.38em;
+  letter-spacing: 0.35em;
   text-transform: uppercase;
   color: var(--accent-gold);
-  margin-top: 4px;
+  margin-top: 5px;
   font-weight: 600;
   line-height: 1;
+  transition: color var(--transition-fast);
 }
 
 /* Nav Menu Items */
@@ -409,21 +420,25 @@
 
 .mobile-drawer-header .brand-title {
   font-family: var(--font-brand);
-  font-size: 1.15rem;
+  font-size: 1.3rem;
   font-weight: 600;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.17em;
   color: var(--text-primary);
   text-transform: uppercase;
-  line-height: 1;
+  line-height: 0.95;
+}
+
+[data-theme="dark"] .mobile-drawer-header .brand-title {
+  color: #FAF8F5;
 }
 
 .mobile-drawer-header .brand-subtitle {
   font-family: var(--font-sans);
-  font-size: 0.5rem;
-  letter-spacing: 0.28em;
+  font-size: 0.52rem;
+  letter-spacing: 0.32em;
   text-transform: uppercase;
   color: var(--accent-gold);
-  margin-top: 3px;
+  margin-top: 4px;
   font-weight: 600;
   line-height: 1;
 }
@@ -1046,10 +1061,11 @@
   align-items: center;
   justify-content: center;
   gap: 10px;
-  font-size: 0.78rem;
+  font-size: 0.82rem;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.25em;
-  color: var(--text-muted);
+  letter-spacing: 0.22em;
+  color: var(--text-secondary);
   margin-bottom: var(--space-5);
   text-align: center;
 }
@@ -1103,9 +1119,10 @@
 
 .press-logo-text {
   font-family: var(--font-serif);
-  font-size: 1.35rem;
+  font-size: 1.4rem;
+  font-weight: 600;
   letter-spacing: 0.08em;
-  color: var(--text-secondary);
+  color: var(--text-primary);
   position: relative;
   transition: all 0.35s ease;
   white-space: nowrap;
@@ -1125,12 +1142,13 @@
 
 .press-logo-badge {
   font-family: var(--font-sans);
-  font-size: 0.72rem;
+  font-size: 0.78rem;
+  font-weight: 600;
   color: var(--accent-gold);
   letter-spacing: 0.04em;
   font-style: italic;
   margin-top: 4px;
-  opacity: 0.6;
+  opacity: 1;
   transform: translateY(2px);
   transition: all 0.35s ease;
   white-space: nowrap;
@@ -1138,8 +1156,9 @@
 
 .press-divider {
   color: var(--accent-gold);
-  opacity: 0.4;
-  font-size: 0.9rem;
+  opacity: 0.8;
+  font-size: 0.95rem;
+  font-weight: 700;
   animation: pulseGlow 3s infinite;
 }
 
@@ -1915,7 +1934,9 @@
     text-align: center !important;
     margin: 0 auto var(--space-3) auto !important;
     width: 100% !important;
-    font-size: 0.72rem !important;
+    font-size: 0.76rem !important;
+    font-weight: 700 !important;
+    color: var(--text-secondary) !important;
   }
 
   .press-logos {
@@ -1924,7 +1945,7 @@
     flex-wrap: wrap !important;
     align-items: center !important;
     justify-content: center !important;
-    gap: var(--space-3) !important;
+    gap: var(--space-4) !important;
     text-align: center !important;
     width: 100% !important;
   }
@@ -1934,16 +1955,20 @@
   }
 
   .press-logo-item {
-    padding: 6px 12px !important;
+    padding: 6px 14px !important;
   }
 
   .press-logo-text {
-    font-size: 1.1rem !important;
+    font-size: 1.15rem !important;
+    font-weight: 600 !important;
+    color: var(--text-primary) !important;
   }
 
   .press-logo-badge {
-    font-size: 0.68rem !important;
-    opacity: 0.85 !important;
+    font-size: 0.72rem !important;
+    font-weight: 600 !important;
+    color: var(--accent-gold) !important;
+    opacity: 1 !important;
   }
 }
 
@@ -2078,16 +2103,21 @@
 }
 
 .auth-brand-badge .logo-mark {
-  width: 32px;
-  height: 32px;
+  width: 38px;
+  height: 38px;
 }
 
 .auth-brand-title {
   font-family: var(--font-brand);
-  font-size: 1.25rem;
+  font-size: 1.45rem;
   font-weight: 600;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.16em;
   color: var(--text-primary);
+  line-height: 0.95;
+}
+
+[data-theme="dark"] .auth-brand-title {
+  color: #FAF8F5;
 }
 
 .auth-card-title {
@@ -2717,6 +2747,7 @@
     border: 1px solid var(--border-medium) !important;
     box-shadow: var(--shadow-sm) !important;
     box-sizing: border-box !important;
+    justify-content: flex-start !important;
   }
 
   .clinical-pillar-card:hover {
@@ -2736,13 +2767,15 @@
     flex-direction: column !important;
     align-items: center !important;
     width: 100% !important;
+    flex: 1 !important;
+    justify-content: flex-start !important;
   }
 
   .clinical-pillar-info h4 {
-    font-size: 1.08rem !important;
+    font-size: 1.05rem !important;
     text-align: center !important;
     margin-bottom: 8px !important;
-    min-height: 2.6rem !important;
+    min-height: 2.8rem !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
@@ -2754,6 +2787,7 @@
     text-align: center !important;
     line-height: 1.5 !important;
     color: var(--text-secondary) !important;
+    margin: 0 !important;
   }
 }
 
@@ -2803,8 +2837,397 @@
 [dir="rtl"] .clinical-image-badge {
   left: auto;
   right: 20px;
+}/* ==========================================================================
+   NEW CLIENT CORRECTION COMPONENTS: PRICING, TECH, IMPACT, AWARDS, CONTACT
+   ========================================================================== */
+
+/* --- Luxury Treatment Price List Table --- */
+.price-table-container {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+  margin-bottom: var(--space-6);
 }
 
+.price-table-header {
+  padding: var(--space-4) var(--space-5);
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.08), rgba(212, 175, 55, 0.02));
+  border-bottom: 1px solid var(--border-medium);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
 
+.price-table-title {
+  font-family: var(--font-serif);
+  font-size: 1.45rem;
+  color: var(--text-primary);
+  margin: 0;
+}
 
+.price-table-category-badge {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--accent-gold);
+}
+
+.price-table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.price-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.95rem;
+}
+
+[dir="rtl"] .price-table {
+  text-align: right;
+}
+
+.price-table th {
+  padding: 16px 20px;
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-medium);
+}
+
+.price-table td {
+  padding: 18px 20px;
+  border-bottom: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  vertical-align: middle;
+}
+
+.price-table tr:last-child td {
+  border-bottom: none;
+}
+
+.price-table tr:hover td {
+  background: rgba(212, 175, 55, 0.03);
+}
+
+.price-protocol-name {
+  font-weight: 600;
+  color: var(--text-primary);
+  display: block;
+  font-size: 1rem;
+}
+
+.price-protocol-sub {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  margin-top: 2px;
+  display: block;
+}
+
+.price-standard-val {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.price-member-val {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--accent-gold);
+}
+
+/* --- Technology Showcase Cards --- */
+.tech-card {
+  background: var(--surface);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-base);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.tech-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--accent-gold);
+  box-shadow: var(--shadow-gold);
+}
+
+.tech-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: var(--space-3);
+  gap: var(--space-2);
+}
+
+.tech-icon-box {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.15), rgba(212, 175, 55, 0.05));
+  border: 1px solid var(--border-medium);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-gold);
+  flex-shrink: 0;
+}
+
+.tech-icon-box svg {
+  width: 24px;
+  height: 24px;
+}
+
+.tech-card-title {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+  line-height: 1.25;
+}
+
+.tech-card-spec {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent-gold);
+  margin-bottom: var(--space-2);
+}
+
+.tech-card-desc {
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin-bottom: var(--space-4);
+  flex-grow: 1;
+}
+
+.tech-specs-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-top: 1px solid var(--border-subtle);
+  padding-top: var(--space-3);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.tech-specs-list li {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.tech-specs-list li span:first-child {
+  color: var(--accent-gold);
+  font-weight: 700;
+}
+
+/* --- Impact Metrics Grid --- */
+.impact-metric-card {
+  background: var(--surface);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5) var(--space-4);
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition-base), border-color var(--transition-base);
+  position: relative;
+  overflow: hidden;
+}
+
+.impact-metric-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent-gold);
+  box-shadow: 0 10px 30px var(--accent-gold-glow);
+}
+
+.impact-metric-num {
+  font-family: var(--font-serif);
+  font-size: 2.85rem;
+  font-weight: 700;
+  color: var(--accent-gold);
+  line-height: 1;
+  margin-bottom: var(--space-2);
+  letter-spacing: -0.02em;
+}
+
+.impact-metric-label {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+
+.impact-metric-desc {
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+/* --- Certificates & Awards Grid --- */
+.award-card {
+  background: var(--surface);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-base);
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-4);
+}
+
+.award-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent-gold);
+  box-shadow: var(--shadow-gold);
+}
+
+.award-icon-box {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.2), rgba(212, 175, 55, 0.05));
+  border: 1px solid var(--accent-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-gold);
+  flex-shrink: 0;
+}
+
+.award-icon-box svg {
+  width: 26px;
+  height: 26px;
+}
+
+.award-body h4 {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+  line-height: 1.25;
+}
+
+.award-issuer {
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--accent-gold);
+  margin-bottom: var(--space-2);
+  display: block;
+}
+
+.award-body p {
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+/* --- Dedicated Contact Info Cards --- */
+.contact-info-card {
+  background: var(--surface);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-base);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.contact-info-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent-gold);
+  box-shadow: var(--shadow-gold);
+}
+
+.contact-info-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(212, 175, 55, 0.12);
+  border: 1px solid var(--border-medium);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-gold);
+  margin-bottom: var(--space-3);
+}
+
+.contact-info-icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.contact-info-title {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+
+.contact-info-detail {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin-bottom: var(--space-4);
+  flex-grow: 1;
+}
+
+.contact-info-link {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--accent-gold);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: gap var(--transition-fast);
+}
+
+.contact-info-link:hover {
+  gap: 10px;
+  text-decoration: underline;
+}
+
+/* Responsive adjustments for tables and grids */
+@media (max-width: 768px) {
+  .price-table th, .price-table td {
+    padding: 12px 14px;
+    font-size: 0.88rem;
+  }
+  .award-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
 

@@ -13,31 +13,31 @@
   --surface-card: rgba(255, 255, 255, 0.92);
   --surface-glass: rgba(250, 248, 245, 0.82);
   
-  --text-primary: #1C1E1D;
-  --text-secondary: #575E59;
-  --text-muted: #88918B;
+  --text-primary: #121514;
+  --text-secondary: #2C332F;
+  --text-muted: #4B544E;
   --text-inverse: #FAF8F5;
 
-  --accent-gold: #C5A880;
-  --accent-gold-light: #E8DCBE;
-  --accent-gold-dark: #9B7E55;
-  --accent-gold-glow: rgba(197, 168, 128, 0.28);
+  --accent-gold: #967544;
+  --accent-gold-light: #CDB38B;
+  --accent-gold-dark: #785A2E;
+  --accent-gold-glow: rgba(150, 117, 68, 0.22);
 
-  --accent-sage: #758A75;
-  --accent-sage-light: #A3B5A3;
-  --accent-sage-dark: #3E5140;
+  --accent-sage: #536A53;
+  --accent-sage-light: #8DA18D;
+  --accent-sage-dark: #2F3E31;
 
-  --border-subtle: rgba(197, 168, 128, 0.22);
-  --border-medium: rgba(197, 168, 128, 0.40);
-  --border-strong: rgba(197, 168, 128, 0.65);
+  --border-subtle: rgba(150, 117, 68, 0.22);
+  --border-medium: rgba(150, 117, 68, 0.40);
+  --border-strong: rgba(150, 117, 68, 0.65);
 
   --shadow-sm: 0 4px 12px rgba(28, 30, 29, 0.04);
   --shadow-md: 0 10px 30px rgba(28, 30, 29, 0.07);
   --shadow-lg: 0 20px 50px rgba(28, 30, 29, 0.10);
-  --shadow-gold: 0 10px 35px rgba(197, 168, 128, 0.25);
+  --shadow-gold: 0 10px 35px rgba(150, 117, 68, 0.25);
 
   /* Typography */
-  --font-brand: 'Cinzel', 'Cormorant Garamond', Georgia, serif;
+  --font-brand: 'Cormorant Garamond', Georgia, serif;
   --font-serif: 'Cormorant Garamond', Georgia, serif;
   --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 
@@ -75,18 +75,18 @@
   --surface-card: rgba(27, 33, 30, 0.90);
   --surface-glass: rgba(15, 18, 17, 0.85);
 
-  --text-primary: #F7F5F0;
-  --text-secondary: #ABB4AE;
-  --text-muted: #727D76;
-  --text-inverse: #1C1E1D;
+  --text-primary: #FDFBF7;
+  --text-secondary: #CBD4CE;
+  --text-muted: #96A19A;
+  --text-inverse: #121514;
 
-  --accent-gold: #D6BD96;
-  --accent-gold-light: #F0E3CB;
-  --accent-gold-dark: #B59363;
-  --accent-gold-glow: rgba(214, 189, 150, 0.22);
+  --accent-gold: #DEC7A2;
+  --accent-gold-light: #F4E7D0;
+  --accent-gold-dark: #BFA070;
+  --accent-gold-glow: rgba(222, 199, 162, 0.25);
 
-  --accent-sage: #8DA18D;
-  --accent-sage-light: #B4C4B4;
+  --accent-sage: #9AB09A;
+  --accent-sage-light: #BDCDBD;
   --accent-sage-dark: #2F3E31;
 
   --border-subtle: rgba(214, 189, 150, 0.16);
@@ -117,7 +117,9 @@ body {
   background-color: var(--bg-primary);
   color: var(--text-primary);
   line-height: 1.65;
-  font-weight: 400;
+  font-weight: 450;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
   position: relative;
   transition: background-color var(--transition-base), color var(--transition-base);
@@ -139,34 +141,36 @@ body {
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-serif);
   color: var(--text-primary);
-  font-weight: 500;
-  line-height: 1.2;
+  font-weight: 600;
+  line-height: 1.22;
   letter-spacing: -0.015em;
 }
 
 h1 {
   font-size: clamp(2.5rem, 5.5vw, 4.5rem);
-  font-weight: 400;
+  font-weight: 600;
   letter-spacing: -0.02em;
 }
 
 h2 {
   font-size: clamp(2rem, 3.8vw, 3.2rem);
-  font-weight: 400;
+  font-weight: 600;
 }
 
 h3 {
   font-size: clamp(1.4rem, 2.2vw, 2rem);
+  font-weight: 600;
 }
 
 h4 {
   font-size: 1.35rem;
+  font-weight: 600;
 }
 
 p {
   color: var(--text-secondary);
   font-size: 1.05rem;
-  font-weight: 400;
+  font-weight: 450;
 }
 
 a {
@@ -284,6 +288,20 @@ button, input, select, textarea {
 }
 
 @media (max-width: 639px) {
+  h1 {
+    font-size: clamp(1.65rem, 6.5vw, 2.2rem);
+    letter-spacing: -0.01em;
+    overflow-wrap: normal;
+    word-break: normal;
+    hyphens: none;
+  }
+  h2 {
+    font-size: clamp(1.45rem, 5.5vw, 1.85rem);
+    letter-spacing: -0.01em;
+    overflow-wrap: normal;
+    word-break: normal;
+    hyphens: none;
+  }
   .grid-4, .grid-3, .grid-2 {
     grid-template-columns: 1fr !important;
   }
