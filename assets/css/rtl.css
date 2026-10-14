@@ -55,10 +55,11 @@
 }
 
 [dir="rtl"] .ba-image-after {
-  left: auto;
+  left: 0;
   right: 0;
-  border-right: none;
-  border-left: 2px solid var(--accent-gold);
+  width: 100%;
+  clip-path: inset(0 0 0 var(--slider-pos, 50%));
+  -webkit-clip-path: inset(0 0 0 var(--slider-pos, 50%));
 }
 
 /* Toast Container Mirror */
@@ -85,3 +86,43 @@
   right: auto;
   left: 20px;
 }
+
+/* Leadership Card RTL */
+[dir="rtl"] .leadership-content,
+[dir="rtl"] .leadership-heading,
+[dir="rtl"] .leadership-description {
+  text-align: center !important;
+}
+
+[dir="rtl"] .leadership-badge {
+  align-self: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+[dir="rtl"] .leadership-check-item,
+[dir="rtl"] .check-text {
+  text-align: right !important;
+}
+
+[dir="rtl"] .check-desc {
+  margin-left: 0;
+  margin-right: 4px;
+}
+
+[dir="rtl"] .leadership-image-badge {
+  left: auto;
+  right: 14px;
+}
+
+@media (max-width: 639px) {
+  [dir="rtl"] .scroll-top-btn {
+    left: 16px !important;
+    right: auto !important;
+  }
+  [dir="rtl"] .leadership-image-badge {
+    left: auto !important;
+    right: 10px !important;
+  }
+}
+

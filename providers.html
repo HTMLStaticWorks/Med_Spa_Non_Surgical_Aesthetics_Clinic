@@ -161,27 +161,27 @@
 
   <main>
     <!-- SECTION 1: CLINICAL LEADERSHIP & MEDICAL DIRECTOR HERO -->
-    <section class="section" id="providers-hero" style="padding-top: var(--space-8); padding-bottom: var(--space-8);">
+    <section class="section" id="providers-hero">
       <div class="container">
-        <div class="grid-2" style="align-items: center; gap: var(--space-8);">
-          <div>
+        <div class="grid-2 providers-hero-grid" style="align-items: center;">
+          <div class="providers-hero-content">
             <span class="eyebrow" style="color: var(--accent-gold); font-weight: 600; text-transform: uppercase; letter-spacing: 0.22em; font-size: 0.8rem;">Clinical Leadership</span>
-            <h1 style="margin-top: 8px; margin-bottom: var(--space-3);">Artistry Rooted in Surgical Anatomy</h1>
-            <p style="font-size: 1.15rem; line-height: 1.7; margin-bottom: var(--space-5); color: var(--text-secondary);">
+            <h1 class="providers-hero-title" style="margin-top: 8px; margin-bottom: var(--space-3);">Artistry Rooted in Surgical Anatomy</h1>
+            <p class="providers-hero-desc" style="font-size: 1.15rem; line-height: 1.7; margin-bottom: var(--space-5); color: var(--text-secondary);">
               At Aurelia, you are never placed in the hands of unverified weekend injectors. Every practitioner is vetted through strict peer clinical review, extensive fellowship training in facial architecture, and mandatory ultrasound vascular guidance.
             </p>
-            <div style="display: flex; gap: var(--space-4); flex-wrap: wrap;">
-              <div>
-                <div style="font-family: var(--font-serif); font-size: 2.2rem; color: var(--accent-gold);">100%</div>
-                <div style="font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase;">Medical Staff Licensed</div>
+            <div class="providers-hero-stats">
+              <div class="hero-stat-item">
+                <div class="hero-stat-num">100%</div>
+                <div class="hero-stat-label">Medical Staff Licensed</div>
               </div>
-              <div>
-                <div style="font-family: var(--font-serif); font-size: 2.2rem; color: var(--accent-gold);">500+</div>
-                <div style="font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase;">Annual CME Training Hours</div>
+              <div class="hero-stat-item">
+                <div class="hero-stat-num">500+</div>
+                <div class="hero-stat-label">Annual CME Training Hours</div>
               </div>
             </div>
           </div>
-          <div class="tilt-card" style="padding: var(--space-2); height: 480px;">
+          <div class="tilt-card providers-hero-image-card" style="padding: var(--space-2);">
             <div class="tilt-card-image" style="height: 100%; margin-bottom: 0;">
               <img src="assets/images/hero_consult.jpg" alt="Aurelia Clinical Consultation and Patient Safety Review" width="800" height="480">
             </div>
@@ -387,22 +387,53 @@
         </div>
 
         <!-- Detailed Credentials & Leadership Details -->
-        <div class="grid-2" style="align-items: center; gap: var(--space-8); background: var(--surface); border: 1px solid var(--border-medium); border-radius: var(--radius-lg); padding: var(--space-6); box-shadow: var(--shadow-sm);">
-          <div>
-            <span class="badge badge-gold" style="margin-bottom: var(--space-2);">Academic Leadership</span>
-            <h3 style="font-family: var(--font-serif); font-size: 1.6rem; margin-bottom: var(--space-3); color: var(--text-primary);">Faculty Trainers for National Injectable Societies</h3>
-            <p style="font-size: 0.98rem; line-height: 1.7; color: var(--text-secondary); margin-bottom: var(--space-4);">
+        <div class="provider-leadership-card">
+          <div class="leadership-content">
+            <span class="badge badge-gold leadership-badge">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5"/></svg>
+              <span>Academic Leadership</span>
+            </span>
+            <h3 class="leadership-heading">Faculty Trainers for National Injectable Societies</h3>
+            <p class="leadership-description">
               Our medical director, Dr. Aurelia Vance, and master injector Elena Rostova actively serve on national training faculties for Allergan Medical Institute and Galderma Aesthetics. They teach facial anatomy, micro-cannula safety, and ultrasound mapping to hundreds of practicing dermatologists and plastic surgeons nationwide.
             </p>
-            <ul style="display: flex; flex-direction: column; gap: 8px; font-size: 0.9rem; color: var(--text-secondary);">
-              <li>✓ <strong>Annual Cadaver Dissection:</strong> Bi-annual advanced head & neck surgical dissection labs.</li>
-              <li>✓ <strong>Peer-Reviewed Publications:</strong> Authors of over 20 clinical papers on facial aging mechanics.</li>
-              <li>✓ <strong>Quad A Operating Standards:</strong> Adherence to surgical sterile protocols in all treatment suites.</li>
-            </ul>
+            <div class="leadership-checklist">
+              <div class="leadership-check-item">
+                <div class="check-icon-box" aria-hidden="true">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <div class="check-text">
+                  <strong class="check-title">Annual Cadaver Dissection:</strong>
+                  <span class="check-desc">Bi-annual advanced head &amp; neck surgical dissection labs.</span>
+                </div>
+              </div>
+              <div class="leadership-check-item">
+                <div class="check-icon-box" aria-hidden="true">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <div class="check-text">
+                  <strong class="check-title">Peer-Reviewed Publications:</strong>
+                  <span class="check-desc">Authors of over 20 clinical papers on facial aging mechanics.</span>
+                </div>
+              </div>
+              <div class="leadership-check-item">
+                <div class="check-icon-box" aria-hidden="true">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <div class="check-text">
+                  <strong class="check-title">Quad A Operating Standards:</strong>
+                  <span class="check-desc">Adherence to surgical sterile protocols in all treatment suites.</span>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="tilt-card" style="padding: var(--space-2); height: 360px;">
-            <div class="tilt-card-image" style="height: 100%; margin-bottom: 0;">
-              <img src="assets/images/synchronous_ultrasound.jpg" alt="Aurelia Ultrasound Vascular Mapping Safety Review" width="800" height="360">
+          <div class="leadership-media">
+            <div class="leadership-image-frame">
+              <img src="assets/images/synchronous_ultrasound.jpg" alt="Aurelia Ultrasound Vascular Mapping Safety Review" width="800" height="480">
+              <div class="leadership-image-badge">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m4.93 4.93 4.24 4.24"/></svg>
+                <span>Vascular Ultrasound Laboratory</span>
+              </div>
             </div>
           </div>
         </div>

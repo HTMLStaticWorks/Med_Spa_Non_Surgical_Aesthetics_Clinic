@@ -671,30 +671,33 @@
 }
 
 .tilt-card-subtitle {
-  font-size: 0.88rem;
+  font-size: 0.82rem;
   color: var(--accent-gold);
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.08em;
   margin-bottom: var(--space-2);
   text-align: center;
-  min-height: 2.6rem;
+  min-height: 2.2rem;
   line-height: 1.35;
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
+  white-space: nowrap;
+  word-break: keep-all;
+  overflow-wrap: normal;
   flex-shrink: 0;
 }
 
 .tilt-card-title {
   font-family: var(--font-serif);
-  font-size: 1.45rem;
+  font-size: 1.38rem;
   line-height: 1.25;
   margin-bottom: var(--space-2);
   color: var(--text-primary);
   text-align: center;
-  min-height: 2.8rem;
+  min-height: 3.4rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -703,12 +706,12 @@
 }
 
 .tilt-card-desc {
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   color: var(--text-secondary);
   line-height: 1.5;
-  margin-bottom: var(--space-4);
+  margin-bottom: var(--space-3);
   text-align: center;
-  min-height: 5.4rem;
+  min-height: 6.8rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -897,14 +900,16 @@
 .badge {
   display: inline-flex;
   align-items: center;
-  gap: 5px;
+  gap: 6px;
   font-size: 0.72rem;
   font-weight: 600;
-  padding: 4px 8px;
+  padding: 4px 10px;
   border-radius: var(--radius-pill);
   letter-spacing: 0.04em;
   text-transform: uppercase;
   white-space: nowrap;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .badge-gold {
@@ -929,6 +934,7 @@
 
 /* --- Interactive Before & After Slider --- */
 .ba-slider-container {
+  --slider-pos: 50%;
   position: relative;
   width: 100%;
   max-width: 800px;
@@ -939,6 +945,8 @@
   box-shadow: var(--shadow-lg);
   border: 1px solid var(--border-subtle);
   user-select: none;
+  touch-action: pan-y;
+  background: var(--bg-tertiary);
 }
 
 .ba-image {
@@ -955,30 +963,33 @@
   height: 100%;
   object-fit: cover;
   pointer-events: none;
+  display: block;
 }
 
 .ba-image-after {
   position: absolute;
   top: 0;
   left: 0;
-  width: 50%;
+  width: 100%;
   height: 100%;
   overflow: hidden;
-  border-right: 2px solid var(--accent-gold);
   z-index: 2;
+  clip-path: inset(0 calc(100% - var(--slider-pos, 50%)) 0 0);
+  -webkit-clip-path: inset(0 calc(100% - var(--slider-pos, 50%)) 0 0);
 }
 
 .ba-image-after img {
-  width: 800px;
-  max-width: none;
+  width: 100%;
   height: 100%;
   object-fit: cover;
+  pointer-events: none;
+  display: block;
 }
 
 .ba-handle {
   position: absolute;
   top: 50%;
-  left: 50%;
+  left: var(--slider-pos, 50%);
   transform: translate(-50%, -50%);
   width: 44px;
   height: 44px;
@@ -990,13 +1001,29 @@
   align-items: center;
   justify-content: center;
   cursor: ew-resize;
-  z-index: 3;
+  z-index: 5;
+  touch-action: none;
+}
+
+.ba-handle::before {
+  content: '';
+  position: absolute;
+  top: -600px;
+  bottom: -600px;
+  left: 50%;
+  width: 2px;
+  transform: translateX(-50%);
+  background: var(--accent-gold);
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.4);
+  pointer-events: none;
+  z-index: -1;
 }
 
 .ba-handle svg {
   width: 20px;
   height: 20px;
   stroke: var(--accent-gold);
+  pointer-events: none;
 }
 
 .ba-label {
@@ -1791,9 +1818,18 @@
     margin-right: auto !important;
   }
 
+  .tilt-card,
+  .grid-4 > .tilt-card,
+  .grid-3 > .tilt-card,
+  .grid-2 > .tilt-card {
+    justify-content: flex-start !important;
+    height: 100% !important;
+  }
+
   .eyebrow,
   .tilt-card-subtitle,
   .hero-content > .badge,
+  .hero-badge,
   .section-header > .badge,
   .section-header .badge {
     margin: 0 auto var(--space-3) auto !important;
@@ -1804,16 +1840,16 @@
   }
 
   .tilt-card-tags {
-    height: auto !important;
-    min-height: 48px !important;
-    max-height: none !important;
+    height: 58px !important;
+    min-height: 58px !important;
+    max-height: 58px !important;
     margin-top: auto !important;
-    margin-bottom: var(--space-4) !important;
+    margin-bottom: 16px !important;
     display: flex !important;
-    flex-wrap: wrap !important;
+    flex-direction: column !important;
     justify-content: center !important;
     align-items: center !important;
-    gap: 8px !important;
+    gap: 6px !important;
     width: 100% !important;
   }
 
@@ -1822,7 +1858,14 @@
     display: inline-flex !important;
     align-self: center !important;
     justify-content: center !important;
+    align-items: center !important;
     text-align: center !important;
+    height: 24px !important;
+    line-height: 1 !important;
+    white-space: nowrap !important;
+    font-size: 0.72rem !important;
+    padding: 4px 10px !important;
+    box-sizing: border-box !important;
   }
 
   .tilt-card > .btn,
@@ -3231,3 +3274,1042 @@
   }
 }
 
+/* ==========================================================================
+   Hero Longevity & Mobile Heading Overflow Fixes (Home 2)
+   ========================================================================== */
+
+#hero-longevity {
+  padding-top: var(--space-8);
+  padding-bottom: var(--space-12);
+  overflow-x: hidden;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.hero-longevity-grid {
+  gap: var(--space-8);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.hero-longevity-content {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  min-width: 0;
+}
+
+.hero-longevity-title,
+#hero-longevity h1 {
+  width: 100%;
+  max-width: 100%;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  box-sizing: border-box;
+}
+
+.hero-longevity-desc,
+#hero-longevity p {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.hero-booking-card {
+  background: var(--surface);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+  box-shadow: var(--shadow-md);
+  margin-bottom: var(--space-4);
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.hero-booking-fields {
+  display: flex;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.hero-booking-fields .form-input {
+  flex: 1;
+  min-width: 150px;
+  box-sizing: border-box;
+}
+
+.hero-booking-fields .btn {
+  white-space: nowrap;
+  box-sizing: border-box;
+}
+
+.hero-image-card,
+.hero-longevity-image-card,
+#hero-results .tilt-card,
+#hero-longevity .hero-longevity-image-card {
+  height: 540px !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  padding: 12px !important;
+  border-radius: var(--radius-lg) !important;
+  overflow: hidden !important;
+  box-sizing: border-box !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: center !important;
+  margin: 0 auto !important;
+}
+
+.hero-image-card .tilt-card-image,
+.hero-longevity-image-card .tilt-card-image,
+#hero-results .tilt-card-image,
+#hero-longevity .tilt-card-image {
+  width: 100% !important;
+  height: 100% !important;
+  max-height: 100% !important;
+  aspect-ratio: auto !important;
+  margin: 0 !important;
+  margin-bottom: 0 !important;
+  border-radius: var(--radius-md) !important;
+  overflow: hidden !important;
+  position: relative !important;
+  flex: 1 1 100% !important;
+}
+
+.hero-image-card .tilt-card-image img,
+.hero-longevity-image-card .tilt-card-image img,
+#hero-results .tilt-card-image img,
+#hero-longevity .tilt-card-image img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  display: block !important;
+}
+
+@media (max-width: 1024px) {
+  #hero-results,
+  #hero-longevity {
+    padding-top: var(--space-6) !important;
+    padding-bottom: var(--space-8) !important;
+  }
+
+  .hero-grid,
+  .hero-longevity-grid,
+  #hero-results .grid-2 {
+    gap: var(--space-5) !important;
+  }
+
+  .hero-image-card,
+  .hero-longevity-image-card,
+  #hero-results .tilt-card,
+  #hero-longevity .hero-longevity-image-card {
+    height: 400px !important;
+    max-height: 440px !important;
+    width: 100% !important;
+    max-width: 520px !important;
+    padding: 10px !important;
+    border-radius: var(--radius-md) !important;
+    margin: 0 auto !important;
+    box-sizing: border-box !important;
+  }
+
+  .hero-image-card .tilt-card-image,
+  .hero-longevity-image-card .tilt-card-image,
+  #hero-results .tilt-card-image,
+  #hero-longevity .tilt-card-image {
+    width: 100% !important;
+    height: 100% !important;
+    max-height: 100% !important;
+    aspect-ratio: auto !important;
+    margin: 0 !important;
+    margin-bottom: 0 !important;
+    border-radius: calc(var(--radius-md) - 2px) !important;
+  }
+}
+
+@media (max-width: 768px) {
+  #hero-results,
+  #hero-longevity {
+    padding-top: var(--space-4) !important;
+    padding-bottom: var(--space-6) !important;
+  }
+
+  .hero-grid,
+  .hero-longevity-grid,
+  #hero-results .grid-2 {
+    gap: var(--space-4) !important;
+  }
+
+  .hero-image-card,
+  .hero-longevity-image-card,
+  #hero-results .tilt-card,
+  #hero-longevity .hero-longevity-image-card {
+    height: auto !important;
+    max-height: none !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 8px !important;
+    border-radius: var(--radius-md) !important;
+    margin: 0 auto !important;
+    box-sizing: border-box !important;
+  }
+
+  .hero-image-card .tilt-card-image,
+  .hero-longevity-image-card .tilt-card-image,
+  #hero-results .tilt-card-image,
+  #hero-longevity .tilt-card-image {
+    height: 280px !important;
+    max-height: 320px !important;
+    aspect-ratio: 4 / 3 !important;
+    width: 100% !important;
+    margin: 0 !important;
+    margin-bottom: 0 !important;
+    border-radius: calc(var(--radius-md) - 2px) !important;
+  }
+
+  .hero-booking-card {
+    padding: var(--space-3) var(--space-2) !important;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-booking-fields {
+    flex-direction: column !important;
+    gap: var(--space-2) !important;
+  }
+
+  .hero-booking-fields .form-input,
+  .hero-booking-fields .btn {
+    width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+    text-align: center;
+    justify-content: center;
+  }
+
+  /* Prevent long badges from overflowing on mobile */
+  .badge {
+    white-space: normal !important;
+    display: inline-flex !important;
+    text-align: center !important;
+    max-width: 100% !important;
+    padding: 6px 14px !important;
+    line-height: 1.35 !important;
+    word-break: break-word !important;
+  }
+
+  .badge span {
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-longevity-title,
+  #hero-longevity h1 {
+    font-size: clamp(1.4rem, 5.6vw, 1.85rem) !important;
+    line-height: 1.25 !important;
+    letter-spacing: -0.01em !important;
+  }
+
+  .hero-longevity-desc,
+  #hero-longevity p {
+    font-size: 0.98rem !important;
+    line-height: 1.6 !important;
+  }
+}
+
+/* ==========================================================================
+   Before/After Slider Responsive Proportions & Mobile Experience
+   ========================================================================== */
+
+.ba-featured-card {
+  padding: var(--space-6);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+@media (max-width: 1024px) {
+  .ba-slider-container {
+    height: 380px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .ba-slider-container {
+    height: 320px !important;
+    max-height: 75vw !important;
+  }
+
+  .ba-featured-card {
+    padding: var(--space-4) var(--space-2) !important;
+  }
+
+  .ba-label {
+    bottom: 12px !important;
+    padding: 4px 10px !important;
+    font-size: 0.72rem !important;
+  }
+
+  .ba-label-before {
+    right: 12px !important;
+  }
+
+  .ba-label-after {
+    left: 12px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .ba-slider-container {
+    height: 275px !important;
+    max-height: 78vw !important;
+    border-radius: var(--radius-md) !important;
+  }
+
+  .ba-featured-card {
+    padding: var(--space-3) 10px !important;
+  }
+
+  .ba-handle {
+    width: 36px !important;
+    height: 36px !important;
+  }
+
+  .ba-handle svg {
+    width: 16px !important;
+    height: 16px !important;
+  }
+
+  .ba-label {
+    bottom: 8px !important;
+    padding: 3px 8px !important;
+    font-size: 0.62rem !important;
+    letter-spacing: 0.04em !important;
+  }
+
+  .ba-label-before {
+    right: 8px !important;
+  }
+
+  .ba-label-after {
+    left: 8px !important;
+  }
+}
+
+/* ==========================================================================
+   Providers Page - Mobile & Tablet Responsive Architecture
+   ========================================================================== */
+
+/* Hero Section */
+.providers-hero-grid {
+  gap: var(--space-8);
+}
+
+.providers-hero-content {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.providers-hero-stats {
+  display: flex;
+  gap: var(--space-6);
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.hero-stat-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-stat-num {
+  font-family: var(--font-serif);
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--accent-gold);
+  line-height: 1.1;
+}
+
+.hero-stat-label {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-top: 4px;
+}
+
+.providers-hero-image-card {
+  height: 480px;
+  width: 100%;
+}
+
+/* Academic Leadership Card (Desktop) */
+.provider-leadership-card {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: var(--space-8);
+  align-items: center;
+  background: var(--surface);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-lg);
+  padding: var(--space-8) var(--space-6);
+  box-shadow: var(--shadow-md);
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.leadership-content {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  text-align: center !important;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.leadership-badge {
+  margin: 0 auto var(--space-3) auto !important;
+  align-self: center !important;
+  display: inline-flex !important;
+}
+
+.leadership-heading {
+  font-family: var(--font-serif);
+  font-size: 1.75rem;
+  line-height: 1.25;
+  margin-bottom: var(--space-3);
+  color: var(--text-primary);
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  width: 100%;
+}
+
+.leadership-description {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--text-secondary);
+  margin-bottom: var(--space-5);
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  width: 100%;
+  max-width: 720px;
+}
+
+.leadership-checklist {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.leadership-check-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 12px 16px;
+  background: rgba(197, 168, 128, 0.06);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  transition: border-color var(--transition-fast), background var(--transition-fast);
+  box-sizing: border-box;
+  width: 100%;
+  text-align: left !important;
+}
+
+.leadership-check-item:hover {
+  border-color: var(--accent-gold);
+  background: rgba(197, 168, 128, 0.1);
+}
+
+.check-icon-box {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: rgba(197, 168, 128, 0.22);
+  color: var(--accent-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.check-text {
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: var(--text-secondary);
+  text-align: left !important;
+}
+
+.check-title {
+  color: var(--text-primary);
+  font-weight: 600;
+  display: inline;
+}
+
+.check-desc {
+  display: inline;
+  margin-left: 4px;
+}
+
+.leadership-media {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.leadership-image-frame {
+  position: relative;
+  width: 100%;
+  height: 380px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--border-medium);
+  box-shadow: var(--shadow-md);
+}
+
+.leadership-image-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.leadership-image-badge {
+  position: absolute;
+  bottom: 14px;
+  left: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  background: rgba(15, 18, 17, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-pill);
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--accent-gold);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* Tablet (Tab View: 640px to 1024px) */
+@media (min-width: 640px) and (max-width: 1024px) {
+  .providers-hero-image-card {
+    height: 360px !important;
+  }
+
+  .provider-leadership-card {
+    grid-template-columns: 1fr !important;
+    gap: var(--space-6) !important;
+    padding: var(--space-6) var(--space-5) !important;
+  }
+
+  .leadership-content {
+    align-items: center !important;
+    text-align: center !important;
+  }
+
+  .leadership-badge {
+    align-self: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  .leadership-heading {
+    font-size: 1.6rem !important;
+    text-align: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  .leadership-description {
+    font-size: 0.98rem !important;
+    text-align: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  .leadership-image-frame {
+    height: 340px !important;
+  }
+
+  .leadership-check-item {
+    padding: 14px 18px !important;
+    text-align: left !important;
+  }
+}
+
+/* Mobile View (<640px) */
+@media (max-width: 639px) {
+  #providers-hero {
+    padding-top: var(--space-6) !important;
+    padding-bottom: var(--space-6) !important;
+  }
+
+  .providers-hero-grid {
+    gap: var(--space-5) !important;
+  }
+
+  .providers-hero-image-card {
+    height: 250px !important;
+    aspect-ratio: 4 / 3 !important;
+  }
+
+  .providers-hero-stats {
+    justify-content: center;
+    gap: var(--space-4);
+    width: 100%;
+  }
+
+  .hero-stat-item {
+    align-items: center;
+    text-align: center;
+  }
+
+  .hero-stat-num {
+    font-size: 1.85rem !important;
+  }
+
+  .hero-stat-label {
+    font-size: 0.74rem !important;
+  }
+
+  .provider-leadership-card {
+    grid-template-columns: 1fr !important;
+    gap: var(--space-5) !important;
+    padding: var(--space-5) var(--space-3) !important;
+    border-radius: var(--radius-md) !important;
+  }
+
+  .leadership-content {
+    align-items: center !important;
+    text-align: center !important;
+  }
+
+  .leadership-badge {
+    align-self: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  .leadership-heading {
+    font-size: 1.35rem !important;
+    line-height: 1.3 !important;
+    text-align: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    margin-bottom: var(--space-2) !important;
+  }
+
+  .leadership-description {
+    font-size: 0.92rem !important;
+    line-height: 1.65 !important;
+    text-align: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    margin-bottom: var(--space-4) !important;
+  }
+
+  .leadership-checklist {
+    gap: var(--space-2) !important;
+  }
+
+  .leadership-check-item {
+    padding: 10px 12px !important;
+    gap: 10px !important;
+    border-radius: var(--radius-sm) !important;
+    text-align: left !important;
+  }
+
+  .check-icon-box {
+    width: 20px !important;
+    height: 20px !important;
+    margin-top: 2px !important;
+  }
+
+  .check-icon-box svg {
+    width: 11px !important;
+    height: 11px !important;
+  }
+
+  .check-text {
+    font-size: 0.84rem !important;
+    line-height: 1.5 !important;
+    text-align: left !important;
+  }
+
+  .check-title {
+    font-size: 0.85rem !important;
+    display: inline !important;
+  }
+
+  .check-desc {
+    display: inline !important;
+    font-size: 0.84rem !important;
+  }
+
+  .leadership-image-frame {
+    height: 220px !important;
+    border-radius: var(--radius-md) !important;
+  }
+
+  .leadership-image-badge {
+    bottom: 10px !important;
+    left: 10px !important;
+    padding: 4px 10px !important;
+    font-size: 0.65rem !important;
+  }
+
+  /* Compact scroll-to-top button on mobile */
+  .scroll-top-btn {
+    bottom: 16px !important;
+    right: 16px !important;
+    width: 38px !important;
+    height: 38px !important;
+  }
+
+  .scroll-top-btn svg {
+    width: 16px !important;
+    height: 16px !important;
+  }
+}
+
+/* ==========================================================================
+   Home 1: Signature Treatments Showcase Alignment & Pro Views Optimization
+   ========================================================================== */
+#signature-treatments .grid-4 {
+  align-items: stretch;
+}
+
+#signature-treatments .tilt-card {
+  padding: 26px 16px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+#signature-treatments .tilt-card-image {
+  width: 100%;
+  height: 215px;
+  aspect-ratio: 4 / 3;
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-3);
+  overflow: hidden;
+  position: relative;
+  flex-shrink: 0;
+}
+
+#signature-treatments .tilt-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+
+#signature-treatments .tilt-card-subtitle {
+  font-size: clamp(0.72rem, 0.8vw, 0.8rem);
+  font-weight: 600;
+  color: var(--accent-gold);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: keep-all;
+  overflow-wrap: normal;
+  height: 26px;
+  min-height: 26px;
+  max-height: 26px;
+  line-height: 26px;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  flex-shrink: 0;
+}
+
+#signature-treatments .tilt-card-title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.2rem, 1.25vw, 1.35rem);
+  line-height: 1.22;
+  margin-bottom: 10px;
+  color: var(--text-primary);
+  text-align: center;
+  height: 3.4rem;
+  min-height: 3.4rem;
+  max-height: 3.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  flex-shrink: 0;
+}
+
+#signature-treatments .tilt-card-desc {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-bottom: 14px;
+  text-align: center;
+  height: 7.4rem;
+  min-height: 7.4rem;
+  max-height: 7.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  flex-shrink: 0;
+}
+
+#signature-treatments .tilt-card-tags {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 6px !important;
+  margin-top: auto !important;
+  margin-bottom: 16px !important;
+  height: 58px !important;
+  min-height: 58px !important;
+  max-height: 58px !important;
+  width: 100% !important;
+  flex-shrink: 0 !important;
+}
+
+#signature-treatments .tilt-card-tags .badge {
+  margin: 0 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  white-space: nowrap !important;
+  font-size: 0.72rem !important;
+  padding: 4px 10px !important;
+  height: 24px !important;
+  line-height: 1 !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+#signature-treatments .tilt-card > .btn,
+#signature-treatments .tilt-card .btn,
+#signature-treatments .tilt-card a.btn {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  width: 100% !important;
+  max-width: 200px !important;
+  align-self: center !important;
+  flex-shrink: 0 !important;
+}
+
+/* Tablet View (640px to 1024px: iPad, Tablet Presets) */
+@media (min-width: 640px) and (max-width: 1024px) {
+  #signature-treatments .grid-4 {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: var(--space-5) !important;
+    align-items: stretch !important;
+  }
+
+  #signature-treatments .tilt-card {
+    padding: 24px 18px !important;
+    height: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+    align-items: center !important;
+  }
+
+  #signature-treatments .tilt-card-image {
+    height: 220px !important;
+    width: 100% !important;
+    aspect-ratio: 4 / 3 !important;
+    margin-bottom: 12px !important;
+    flex-shrink: 0 !important;
+  }
+
+  #signature-treatments .tilt-card-subtitle {
+    font-size: 0.78rem !important;
+    letter-spacing: 0.08em !important;
+    height: 26px !important;
+    min-height: 26px !important;
+    max-height: 26px !important;
+    line-height: 26px !important;
+    margin: 0 auto 8px auto !important;
+    white-space: nowrap !important;
+  }
+
+  #signature-treatments .tilt-card-title {
+    font-size: 1.32rem !important;
+    line-height: 1.25 !important;
+    height: 3.4rem !important;
+    min-height: 3.4rem !important;
+    max-height: 3.4rem !important;
+    margin: 0 auto 10px auto !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  #signature-treatments .tilt-card-desc {
+    font-size: 0.9rem !important;
+    line-height: 1.5 !important;
+    height: 6.6rem !important;
+    min-height: 6.6rem !important;
+    max-height: 6.6rem !important;
+    margin: 0 auto 14px auto !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  #signature-treatments .tilt-card-tags {
+    margin-top: auto !important;
+    margin-bottom: 16px !important;
+    height: 58px !important;
+    min-height: 58px !important;
+    max-height: 58px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 6px !important;
+  }
+
+  #signature-treatments .tilt-card-tags .badge {
+    height: 24px !important;
+    line-height: 1 !important;
+    padding: 4px 10px !important;
+    font-size: 0.72rem !important;
+    margin: 0 !important;
+    white-space: nowrap !important;
+  }
+
+  #signature-treatments .tilt-card > .btn,
+  #signature-treatments .tilt-card .btn,
+  #signature-treatments .tilt-card a.btn {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    width: 100% !important;
+    max-width: 200px !important;
+    align-self: center !important;
+  }
+}
+
+/* Pro Views (1025px to 1366px: iPad Pro Landscape, Surface Pro, Pro Laptops) */
+@media (min-width: 1025px) and (max-width: 1366px) {
+  #signature-treatments .grid-4 {
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 16px !important;
+    align-items: stretch !important;
+  }
+
+  #signature-treatments .tilt-card {
+    padding: 22px 12px !important;
+    height: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+    align-items: center !important;
+  }
+
+  #signature-treatments .tilt-card-image {
+    height: 195px !important;
+    margin-bottom: 8px !important;
+    flex-shrink: 0 !important;
+  }
+
+  #signature-treatments .tilt-card-subtitle {
+    font-size: 0.74rem !important;
+    letter-spacing: 0.07em !important;
+    height: 24px !important;
+    min-height: 24px !important;
+    max-height: 24px !important;
+    line-height: 24px !important;
+    margin: 0 auto 6px auto !important;
+    white-space: nowrap !important;
+  }
+
+  #signature-treatments .tilt-card-title {
+    font-size: 1.2rem !important;
+    line-height: 1.2 !important;
+    height: 3.2rem !important;
+    min-height: 3.2rem !important;
+    max-height: 3.2rem !important;
+    margin: 0 auto 8px auto !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  #signature-treatments .tilt-card-desc {
+    font-size: 0.83rem !important;
+    line-height: 1.45 !important;
+    height: 7.2rem !important;
+    min-height: 7.2rem !important;
+    max-height: 7.2rem !important;
+    margin: 0 auto 12px auto !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  #signature-treatments .tilt-card-tags {
+    margin-top: auto !important;
+    margin-bottom: 16px !important;
+    height: 56px !important;
+    min-height: 56px !important;
+    max-height: 56px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 5px !important;
+  }
+
+  #signature-treatments .tilt-card-tags .badge {
+    height: 23px !important;
+    line-height: 1 !important;
+    font-size: 0.68rem !important;
+    padding: 3px 8px !important;
+    margin: 0 !important;
+    white-space: nowrap !important;
+  }
+
+  #signature-treatments .tilt-card > .btn,
+  #signature-treatments .tilt-card .btn,
+  #signature-treatments .tilt-card a.btn {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    padding: 7px 14px !important;
+    font-size: 0.82rem !important;
+    max-width: 175px !important;
+    align-self: center !important;
+  }
+}
+
+/* Mobile adjustment (<640px) */
+@media (max-width: 639px) {
+  #signature-treatments .tilt-card-subtitle,
+  #signature-treatments .tilt-card-title,
+  #signature-treatments .tilt-card-desc,
+  #signature-treatments .tilt-card-tags {
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+  }
+  #signature-treatments .tilt-card-subtitle {
+    white-space: normal !important;
+  }
+}

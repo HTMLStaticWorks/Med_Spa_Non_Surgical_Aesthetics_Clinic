@@ -125,53 +125,118 @@ document.addEventListener('DOMContentLoaded', () => {
     const afterImage = slider.querySelector('.ba-image-after');
     const afterImgElement = afterImage ? afterImage.querySelector('img') : null;
     let isDragging = false;
-
-    function updateSliderWidth() {
-      if (afterImgElement) {
-        afterImgElement.style.width = `${slider.offsetWidth}px`;
-      }
-    }
-    window.addEventListener('resize', updateSliderWidth);
-    updateSliderWidth();
+    let touchStartX = 0;
+    let touchStartY = 0;
+    let isHorizontalGesture = false;
 
     function setPosition(x) {
+      if (typeof x !== 'number' || isNaN(x)) return;
       const rect = slider.getBoundingClientRect();
+      if (!rect.width) return;
       const isRtl = document.documentElement.getAttribute('dir') === 'rtl';
       let pos = (x - rect.left) / rect.width;
-      if (pos < 0.05) pos = 0.05;
-      if (pos > 0.95) pos = 0.95;
+      if (pos < 0.02) pos = 0.02;
+      if (pos > 0.98) pos = 0.98;
 
       const pct = (pos * 100).toFixed(2);
-      if (isRtl) {
+      slider.style.setProperty('--slider-pos', `${pct}%`);
+      if (handle) {
         handle.style.left = `${pct}%`;
-        afterImage.style.width = `${100 - pct}%`;
-      } else {
-        handle.style.left = `${pct}%`;
-        afterImage.style.width = `${pct}%`;
+        handle.setAttribute('aria-valuenow', Math.round(pos * 100));
+      }
+      if (afterImage) {
+        if (isRtl) {
+          afterImage.style.clipPath = `inset(0 0 0 ${pct}%)`;
+          afterImage.style.webkitClipPath = `inset(0 0 0 ${pct}%)`;
+        } else {
+          afterImage.style.clipPath = `inset(0 calc(100% - ${pct}%) 0 0)`;
+          afterImage.style.webkitClipPath = `inset(0 calc(100% - ${pct}%) 0 0)`;
+        }
+      }
+      if (afterImgElement) {
+        afterImgElement.style.width = '100%';
+        afterImgElement.style.height = '100%';
       }
     }
 
-    function onStart(e) {
+    // Set initial 50% position
+    requestAnimationFrame(() => {
+      const rect = slider.getBoundingClientRect();
+      if (rect.width) {
+        setPosition(rect.left + (rect.width * 0.5));
+      }
+    });
+
+    // Mouse Events
+    slider.addEventListener('mousedown', (e) => {
       isDragging = true;
-      setPosition(e.clientX || (e.touches && e.touches[0].clientX));
-    }
+      setPosition(e.clientX);
+    });
 
-    function onMove(e) {
+    window.addEventListener('mousemove', (e) => {
       if (!isDragging) return;
-      setPosition(e.clientX || (e.touches && e.touches[0].clientX));
-    }
+      setPosition(e.clientX);
+    });
 
-    function onEnd() {
+    window.addEventListener('mouseup', () => {
       isDragging = false;
-    }
+    });
 
-    slider.addEventListener('mousedown', onStart);
-    window.addEventListener('mousemove', onMove);
-    window.addEventListener('mouseup', onEnd);
+    // Touch Events - intelligent scrolling detection
+    slider.addEventListener('touchstart', (e) => {
+      if (!e.touches || !e.touches[0]) return;
+      touchStartX = e.touches[0].clientX;
+      touchStartY = e.touches[0].clientY;
+      isHorizontalGesture = false;
 
-    slider.addEventListener('touchstart', onStart, { passive: true });
-    window.addEventListener('touchmove', onMove, { passive: true });
-    window.addEventListener('touchend', onEnd);
+      // Only grab immediately if user touches directly on or near the handle
+      if (handle) {
+        const handleRect = handle.getBoundingClientRect();
+        const dist = Math.abs(touchStartX - (handleRect.left + handleRect.width / 2));
+        if (dist < 44) {
+          isDragging = true;
+          isHorizontalGesture = true;
+        }
+      }
+    }, { passive: true });
+
+    slider.addEventListener('touchmove', (e) => {
+      if (!e.touches || !e.touches[0]) return;
+      const currentX = e.touches[0].clientX;
+      const currentY = e.touches[0].clientY;
+      const dx = Math.abs(currentX - touchStartX);
+      const dy = Math.abs(currentY - touchStartY);
+
+      if (!isDragging && !isHorizontalGesture) {
+        if (dx > 8 && dx > dy) {
+          isDragging = true;
+          isHorizontalGesture = true;
+        } else if (dy > 8) {
+          // Vertical page scroll detected; ignore slider
+          return;
+        }
+      }
+
+      if (isDragging || isHorizontalGesture) {
+        setPosition(currentX);
+        if (e.cancelable) {
+          e.preventDefault();
+        }
+      }
+    }, { passive: false });
+
+    slider.addEventListener('touchend', () => {
+      isDragging = false;
+      isHorizontalGesture = false;
+    });
+
+    window.addEventListener('resize', () => {
+      const currentPos = parseFloat(getComputedStyle(slider).getPropertyValue('--slider-pos')) || 50;
+      const rect = slider.getBoundingClientRect();
+      if (rect.width) {
+        setPosition(rect.left + (rect.width * (currentPos / 100)));
+      }
+    });
   });
 
   // --- Modal Manager ---
